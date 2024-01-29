@@ -1,0 +1,147 @@
+[
+    {
+        "show": true,
+        "date": "2023-06-02",
+        "description": "公開"
+    },
+    {
+        "show": true,
+        "date": "2023-06-05",
+        "description": "修正"
+    },
+    {
+        "show": true,
+        "date": "2023-06-17",
+        "description": "ページ追加"
+    },
+    {
+        "show": true,
+        "date": "2023-07-11",
+        "description": "ページ追加"
+    },
+    {
+        "show": true,
+        "date": "2023-07-11",
+        "description": "ブログ公開：<a href='/blog/2023_07_10_01/'>ゆいのぺーじが公開されました！</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-07-22",
+        "description": "修正"
+    },
+    {
+        "show": true,
+        "date": "2023-09-05",
+        "description": "更新・修正"
+    },
+    {
+        "show": true,
+        "date": "2023-09-13",
+        "description": "CSS変更"
+    },
+    {
+        "show": true,
+        "date": "2023-09-14",
+        "description": "ブログ公開：<a href='/blog/2023_09_11_01/'>ハンディファンを作りました！</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-09-18",
+        "description": "ハンバーガーメニューを追加"
+    },
+    {
+        "show": true,
+        "date": "2023-09-21",
+        "description": "ページ追加：<a href='/others/env/'>自宅環境紹介</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-09-25",
+        "description": "ブログ公開：<a href='/blog/2023_09_25_01/'>調布花火2023を見に行きました！</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-09-26",
+        "description": "一番上に戻るボタンを追加"
+    },
+    {
+        "show": true,
+        "date": "2023-09-30",
+        "description": "アクセスカウンターを実装"
+    },
+    {
+        "show": true,
+        "date": "2023-10-01",
+        "description": "ページ追加：<a href='/others/univ/'>大学のこと</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-11-06",
+        "description": "知り合いのリンクを追加"
+    },
+    {
+        "show": true,
+        "date": "2023-11-10",
+        "description": "ブログ公開：<a href='/blog/2023_11_07_01/'>マウスのチャタリングを無理やり直した</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-11-18",
+        "description": "サイトマップページの修正"
+    },
+    {
+        "show": true,
+        "date": "2023-11-19",
+        "description": "ブログ公開：<a href='/blog/2023-11-19_01/'>ドメインをCloudflareに移管した</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-11-21",
+        "description": "ブログ追記：<a href='/blog/2023_11_07_01/'>マウスのチャタリングを無理やり直した</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-11-21",
+        "description": "ページ追加：<a href='/works/govissionu/'>ゴヴィッショヌ揃え</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-12-03",
+        "description": "ダークモードに対応"
+    },
+    {
+        "show": false,
+        "date": "2023-12-12",
+        "description": "ブログ更新：<a href='/blog/2023-12-12_01/'>Stormworksをはじめよう</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-12-21",
+        "description": "ブログ公開：<a href='/blog/2023-12-21/'>ジャンク修理をはじめよう ROM焼き編</a>"
+    },
+    {
+        "show": true,
+        "date": "2023-12-24",
+        "description": "ブログ追記：<a href='/blog/2023-12-21/'>ジャンク修理をはじめよう ROM焼き編</a>"
+    },
+    {
+        "show": true,
+        "date": "2024-01-20",
+        "description": "ページ内検索を実装"
+    },
+    {
+        "show": false,
+        "date": "2024-01-26",
+        "description": "ブログ更新：<a href='/blog/2024-01-26/'>ダイソーの激安ワイヤレスイヤホン長期使用レビュー</a>"
+    },
+    {
+        "show": false,
+        "date": "",
+        "description": ""
+    },
+    {
+        "show": false,
+        "date": "",
+        "description": "：<a href=''></a>"
+    }
+]

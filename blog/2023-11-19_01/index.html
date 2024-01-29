@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+<!-- head_from -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <link rel="stylesheet" href="/style.css?3.11">
+    <script src="/script.js?3.4" defer></script>
+    <script src="/scripts/Omikuji.js" defer></script>
+    <script>document.addEventListener('touchstart',function(){});</script>
+<!-- head_to -->
+    <title>ドメインをCloudflareに移管した - ゆいブログ</title>
+    <meta name="description" content="Google Domainsが滅びたのでCloudflareに移管しました。結構簡単にできました。">
+    <!-- OGP -->
+    <meta property="og:title" content="ドメインをCloudflareに移管した - ゆいブログ" />
+    <meta property="og:image" content="https://yuino.dev/blog/2023-11-19_01/images/mail_from_cloudflare_1x1.jpg" />
+    <meta property="og:description" content="Google Domainsが滅びたのでCloudflareに移管しました。結構簡単にできました。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+
+    <script src="../generate_blog_info.js" defer></script>
+</head>
+
+<body>
+<!-- header_from -->
+<header>
+    <div id="header_wrapper">
+        <div id="top">
+            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+            <p>にゃーん</p>
+        </div>
+        <div id="icon">
+            <img src="/images/icon.jpg" alt="ゆいのアイコン">
+        </div>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+<!-- header_to -->
+    <div id="main_wrapper">
+    <main>
+    <div class="box center">
+        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+    </div>
+    <div class="box">
+        <h1>ドメインをCloudflareに移管した</h1>
+        <!-- <img src="" class="blog_photo" alt="記事のサムネイル"> -->
+        <div id="blog_info">
+            <div class="blog_title_tag" id="blog_info_tag"></div>
+            <p class="blog_title_date" id="blog_info_date"><br></p>
+        </div>
+        <hr class="titlebar">
+        <p>
+            Google Domainsが滅びたのでCloudflareに移管しました。結構簡単にできました。
+        </p>
+    </div>
+    <article class="box">
+        <section>
+            <h2>はじめに</h2>
+            <hr class="titlebar">
+            <p>
+                Google Domainsで買ったyuino.devドメインですが、Google Domainsがサ終(正確にはSquarespaceに移管)してしまったのでどこかに移管したいなと思ってました。ゆいのページはCloudflare経由で公開してるのでCloudflareに移管しようかな。あとCloudflareくん、whois情報を隠してくれるらしい。完全に忘れてたのを思い出したのでやります。
+            </p>
+            <p>
+                基本的にはGoogle Domains側の<a href="https://support.google.com/domains/answer/3251178?hl=en" target="_blank">ドキュメント</a>とCloudflare側の<a href="https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare" target="_blank">ドキュメント</a>を参照しながら進めればOK。
+            </p>
+        </section>        
+        <section>
+            <h2>Google Domains側</h2>
+            <hr class="titlebar">
+            <p>
+                Google Domainsにアクセスし、移管するドメインの登録の設定画面を開きます。<br>
+                やることは主に次の2つ、
+                <ul>
+                    <li>ドメインのロックを解除する</li>
+                    <li>認証コードを発行する</li>
+                </ul>
+            </p>
+            <h3>ドメインのロックを解除</h3>
+            <p>
+                下の写真のようにトグルボタンをオフにします。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/GoogleDomains.jpg" alt="">
+                    <span class="center">ドメインの登録の設定画面</span>
+                </div>
+            </p>
+            <h3>認証コードを発行</h3>
+            <p>
+                <b>「認証コードを取得」</b>を押して認証コードを発行します。<br>
+                あとで使うのでコピーして控えておきます。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/GoogleDomains_code.jpg" alt="">
+                    <span class="center">認証コードが生成された画面</span>
+                </div>
+            </p>
+        </section>
+        <section>
+            <h2>Cloudflare側</h2>
+            <hr class="titlebar">
+            <p>
+                Cloudflareにアクセスし、移管したいドメインのダッシュボードを開き、サイドバーから<b>「ドメインの移管」</b>を選択します。
+                (ここでクレジットカードの登録が必要になるのであらかじめ登録しておくといいかも)<br>
+                流れに沿って進めば認証コードを入れるページにたどり着くので、さきほどコピーした認証コードを貼り付けます。<br>
+                数十秒で認証が通り、(環境によるかも)名前や住所等を入力するページに飛びます。
+            </p>
+            <p>
+                ここで問題が発生、名前と住所が海外仕様で日本語が受け付けられませんでした。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/name.jpg" alt="日本語が受け付けられない名前入力欄">
+                    <img class="blog_photo" src="images/address.jpg" alt="日本語が受け付けられない住所入力欄">
+                </div>
+                名前は<b>すべてローマ字</b>で、住所は<b>番地のみローマ字</b>で書いたら通りました。
+            </p>
+            <p>次のような画面が出ればOK!
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/success.jpg" alt="">
+                    <span class="center">認証が通り、移管進行中</span>
+                </div>
+            </p>
+        </section>
+        <section>
+            <h2>メールが届く</h2>
+            <hr class="titlebar">
+            <p>
+                Google DomainsとCloudflare両方からメールが届きます。<br>
+                私の環境では、Cloudflareのドメイン移管開始のメールからおよそ5分後、Google Domainsから移管をするかキャンセルするかのメールが届きました。メールのリンクを踏み、<b>移管を許可</b>します。
+                <small class="annotation">※5日放置してたら自動で移管されるぽいです、逆に5日以内ならキャンセルできそう</small>
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/mail_from_google1.jpg" alt="">
+                    <span class="center">移管を許可or却下するかの確認</span>
+                </div>
+                それから2分ほど待つと、Cloudflareから移管完了のメールが届きました。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/mail_from_cloudflare.jpg" alt="">
+                    <span class="center">移管完了のメール</span>
+                </div>
+            </p>
+        </section>
+        <section>
+            <h2>ドメインの自動更新</h2>
+            <hr class="titlebar">
+            <p>
+                Cloudflareのドメイン管理ページから、ドメインの自動更新をオンにしておきます。おそらく最初からオンになっていると思われますが、、、
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/domain_list.jpg" alt="">
+                    <span class="center">ドメインの自動更新をオンに</span>
+                </div>
+                これでおしまいです。お疲れさまでした！
+            </p>
+        </section> 
+        <section>
+            <h2>おわりに</h2>
+            <hr class="titlebar">
+            <p>
+                ドメインを移管しました。20分くらいでサクッと終わり、思ってたより簡単でした。<br>
+                Squarespace、なんかドメインの値段が高い気がするのでCloudflareに乗り換えたほうがいいような気がします。
+            </p>
+        </section> 
+
+    </article>
+
+    </main>
+<!-- aside_from -->
+    <div id="aside_background" onclick="hamburgerMenu()"></div>
+    <aside>
+        <nav class="box">
+            <h2>コンテンツ</h2>
+            <hr class="titlebar">
+            <div>
+                <a href="/" class="aside_link_box">トップ</a>
+                <a href="/blog/" class="aside_link_box">ブログ</a>
+                <a href="/works/" class="aside_link_box">作品</a>
+                <a href="/album/" class="aside_link_box">アルバム</a>
+                <a href="/sns/" class="aside_link_box">SNS</a>
+                <a href="/others/" class="aside_link_box">その他</a>
+            </div>
+        </nav>
+        <div class="box">
+            <h2>ページ内検索</h2>
+            <hr class="titlebar">
+            <p>ページ内の検索ができます。
+                <form action="/search/index.html" method="get">
+                    <label for="searchTerm"></label>
+                    <div class="search_box">
+                        <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
+                        <button class="search_button" type="submit">
+                            <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                        </button>
+                    </div>
+                </form>
+            </p>
+        </div>
+        <div class="box">
+            <h2>カウンター</h2>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
+            <hr class="titlebar">
+            <p class="counter">
+                今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">0</span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">0</span>
+                <a href="/counter/">詳細</a>
+            </p>
+        </div>
+        <div class="box">
+            <h2>おみくじ</h2>
+            <hr class="titlebar">
+            <button id="omikuji" class="center" onclick="omikuji()">
+                おみくじをひく
+            </button>
+        </div>
+    </aside>
+    <div id="card">
+        <div id="card_background" onclick="ClosePanel('Add')"></div>
+        <div id="card_contents">
+            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
+            <div id="card_title" class="center"></div>
+            <div id="card_message" class="center"></div>
+        </div>
+    </div>
+<!-- aside_to -->
+    </div>
+
+<!-- footer_from -->
+    <button id="scrollToTopButton">
+        <div><right></right><left></left></div>
+    </button>
+    <footer>
+        <a href="/sitemap/">サイトマップ</a><br>
+        &copy; 2023-2024 ゆうきゆい
+    </footer>
+<!-- footer_to -->
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+<!-- head_from -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <link rel="stylesheet" href="/style.css?3.11">
+    <script src="/script.js?3.4" defer></script>
+    <script src="/scripts/Omikuji.js" defer></script>
+    <script>document.addEventListener('touchstart',function(){});</script>
+<!-- head_to -->
+    <title>ジャンク修理をはじめよう ROM焼き編 - ゆいブログ</title>
+    <meta name="description" content="ジャンク修理のすすめ。ROMライターでお手軽に修理をはじめよう！">
+    <!-- OGP -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="ジャンク修理をはじめよう ROM焼き編 - ゆいブログ" />
+    <meta property="og:image" content="https://yuino.dev/blog/2023-12-21/images/thumbnail.jpg" />
+    <meta property="og:description" content="ジャンク修理のすすめ。ROMライターでお手軽に修理をはじめよう！" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+    <script src="../generate_blog_info.js" defer></script>
+</head>
+
+<body>
+<!-- header_from -->
+<header>
+    <div id="header_wrapper">
+        <div id="top">
+            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+            <p>にゃーん</p>
+        </div>
+        <div id="icon">
+            <img src="/images/icon.jpg" alt="ゆいのアイコン">
+        </div>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+<!-- header_to -->
+    <div id="main_wrapper">
+    <main>
+    <div class="box center">
+        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+    </div>
+    <div class="box">
+        <h1>ジャンク修理をはじめよう ROM焼き編</h1>
+        <img src="images/blog_thumbnail.jpg" class="blog_photo" alt="記事のサムネイル">
+        <div id="blog_info">
+            <div class="blog_title_tag" id="blog_info_tag"></div>
+            <p class="blog_title_date" id="blog_info_date">公開 yyyy/mm/dd</p>
+        </div>
+        <hr class="titlebar">
+        <p>
+            ジャンク修理のすすめ。ROMライターでお手軽に修理をはじめよう！
+        </p>
+    </div>
+    <article class="box">
+        <h2 class="center">この記事は UEC 2 Advent Calendar 2023 の21日目の記事です。</h2>
+        <p>
+            ほかの人の記事は下のリンクから読めます。2枠も生えてるのすごい。
+            <a href="https://adventar.org/calendars/8698" class="og-card" target="_blank">UEC Advent Calendar 2023</a>
+            <a href="https://adventar.org/calendars/8704" class="og-card" target="_blank">UEC 2 Advent Calendar 2023</a>
+        </p>
+        <p>
+            前回の記事は<a href="https://twitter.com/thkr64">シチリア産ぽんかん</a>さんによる<b>「クレカ・ポイ活・飛行機オタクの書く弾丸札幌旅行記」</b>でした。
+            <a href="https://thkr64.site/2023/12/20/sapporo/" class="og-card" target="_blank">クレカ・ポイ活・飛行機オタクの書く弾丸札幌旅行記</a>
+            弾丸旅行を決行するバイタリティがすごい…<br>
+            クレカ、奥が深そう。
+        </p>
+    </article>
+    <article class="box">
+        <section class="blog_index">
+            <h2>目次</h2>
+            <ol>
+                <li><a href="#whois">きみはだれ？</a></li>
+                <li><a href="#intro">はじめに</a></li>
+                <li><a href="#whatisROMYAKI">ROM焼き修理とは？</a>
+                    <ul><li><a href="#ROMYAKI_needs">必要なもの</a></li>
+                        <li><a href="#howtoROMYAKI">やりかた</a></li>
+                    </ul>
+                </li>
+                <li><a href="#practice1">実践編 ①マザーボード(起動不可)</a>
+                    <ul>
+                        <li><a href="#1_pin">ピン曲がり</a></li>
+                        <li><a href="#1_pattern">パターン切れ</a></li>
+                        <li><a href="#1_rom">ROM焼き</a></li>
+                    </ul>
+                </li>
+                <li><a href="#practice2">実践編 ②マザーボード(CPUの世代違い)</a></li>
+                <li><a href="#practice3">実践編 ③4Kモニタ(電源が入らない)</a></li>
+                <li><a href="#end">おわりに</a></li>
+            </ol>
+        </section>
+    </article>
+    <article class="box">
+        <section>
+            <h2 id="whois">1.きみはだれ？</h2>
+            <hr class="titlebar">
+            <p>
+                はじめまして、ゆいです。ねこが好きです。<br>
+                パソコンをつくったり壊したりして遊んだり、ちょっとした電子工作とかやったりしています。<br>
+                個人サイトが<s>(一応)</s>動くようになったので、UEC Advent Calendarに参加してみました。<br>
+                時間のある方は別のページも見ていってくれるとうれしいな。
+                <a href="https://yuino.dev" class="og-card">ゆいのページ</a>
+            </p>
+        </section>
+        <section>
+            <h2 id="intro">2.はじめに</h2>
+            <hr class="titlebar">
+            <p>
+                「ジャンク」とか「ジャンク品」とか聞いたことはありますか？<br>
+                PCなど電子機器パーツの中古もので保証がついてないものをさす場合が多いのかな。激安で入手できる代わりに壊れてることが前提だったりするので手を出しづらい人がほとんどかなあと思っています。
+                <small class="annotation">※といいつつもHARD OFFとかのジャンクは普通に使えることのほうが多いかも、メルカリとかは危険そう</small>
+                ほしいけど新品が高くて買えないよ～ってとき壊れたジャンク品を引いてしまったとき、修理できると強いですよね。<br>
+                今回は、ジャンク修理の中でも比較的簡単にできる<b>「ROM焼き」</b>に挑戦します!!<br>
+                環境はwindows11 Home 22H2です。windows10でも大丈夫だと思います。(LinuxとmacOSはあとで調べて追記します)
+            </p>
+        </section>
+        <section>
+            <h2 id="whatisROMYAKI">3.ROM焼き修理とは？</h2>
+            <hr class="titlebar">
+            <p>
+                windowsなどのOSはパソコンの起動に必要ですが、そのOSの前に立ち上がりパソコンのハードウェアの制御などを司るプログラムに<b>BIOS</b>があります。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/bios_des.png" alt="BIOSとは">
+                    <span class="center">BIOSとは</span>
+                </div>
+                そのBIOSはだいたいマザーボードの右下のほうにある、<b>ROM IC</b>に書き込まれています。BIOS起動中やアップデート中に電源が喪失したりするとROMが異常な状態になってパソコンが起動しなくなることがあります。これをもとの正常な状態へと無理やり書きかえることで復活させるのが、いわゆる<b>ROM焼き</b>です。<br>
+                ジャンクの不動マザーボード、物理的破損がなければこの症状が原因なのが多い気がします。この方法をマスターするとわりと修理ができます。
+            </p>
+            <div class="inbox">
+                <h3 id="ROMYAKI_needs">必要なもの</h3>
+                <hr class="titlebar">
+                <p>
+                    必要な機器は、Amazonなどで売ってるROMライターだけです。<br>
+                    大体1,500円くらいから買えます。
+                    <a href="https://www.amazon.co.jp/dp/B07W7RQ53X/" class="link_box" target="_blank">ROMライターの商品ページ</a>
+                    <div class="blog_photo_wrapper">
+                        <img class="blog_photo" src="images/ROM_writer.jpg" alt="">
+                        <span class="center">届いたROMライター</span>
+                    </div>
+                    必要なソフトはつぎのとおり
+                    <ol>
+                        <li>ドライバ</li>
+                        <li>書き込み＆読み込みソフト</li>
+                        <li>BIOSの固有情報をコピーするソフト</li>
+                    </ol>
+                    わたしはドライバと書き込みソフトが同梱されている<b>NeoProgrammer</b>を使いました。
+                    <!-- <a href="https://khandishnetwork.com/dl/neoprogrammer-software-2021-v2-2-0-8-22-06-2021/" class="og-card" target="_blank">neoprogrammer ダウンロード</a> -->
+                    BIOSの固有情報をコピーするソフトは、ASUSのマザーボードの場合に必要らしいです。<br>
+                    ※参考：<a href="https://developlife.jp/ch341arom/" target="_blank">CH341Aを用いたBIOS修復方法</a>
+                </p>
+            </div>
+            <div class="inbox">
+                <h3 id="howtoROMYAKI">やりかた</h3>
+                <hr class="titlebar">
+                <p>
+                    本当はここに詳細なROM焼き方法を書こうと思ってましたが、めちゃ長くなる&時間がないので、今のところは参考サイトを貼っておきます。
+                    <a href="https://pcniki.com/ch341a-bios/" class="og-card" target="_blank">CH341Aを使ってBIOSの書き換えを行う</a>
+                    <a href="https://uramichifx.hatenablog.com/entry/2019/01/05/211638" class="og-card" target="_blank">CH341AでASRockマザーのBIOS書き換えた件</a>
+                    簡単には次の流れです。
+                    <ol>
+                        <li>メーカーのサイトから正常なBIOSファイルをダウンロードする</li>
+                        <li>機器を正常なPCとUSB接続する</li>
+                        <li>マザーボード上のROM ICを付属のクリップで挟むか、取り外し直接機器に接続する</li>
+                        <li>書き込みソフトで現状のデータを吸いだし保存する</li>
+                        <li>ROM ICの中身を全消去する(忘れがち)</li>
+                        <li>(BIOSの固有情報をコピぺする)</li>
+                        <li>正常なBIOSファイルを書き込む</li>
+                        <li>動作確認する</li>
+                    </ol>
+                    この方法で復活させたあと、メーカーのサイトからBIOS更新ツールをダウンロードしてきて正規の方法で上書きしとくと安心です。
+                </p>
+            </div>
+        </section>
+        <section>
+            <h2 id="practice1">4.実践編 ①マザーボード(起動不可)</h2>
+            <hr class="titlebar">
+            <p>
+                実際に修理した例をいくつか紹介します。<br>
+                1つ目は起動不可能なマザーボードです。<br>
+                症状は<b>CPUピン曲がり、パターン切れ、BIOS起動不可(?)</b>、けっこうひどいですね。
+            </p>
+            <div class="inbox">
+                <h3 id="1_pin">ピン曲がり</h3>
+                <hr class="titlebar">
+                <p>
+                    ピン曲がりは赤で囲ったところが180°反対向いてます、なんで？<br>
+                    ピンセットでちまちま直します。
+                    <div class="blog_photo_wrapper">
+                        <img class="blog_photo" src="images/cpu_pin.jpg" alt="CPUのピン曲がり">
+                        <span class="center">CPUのピン曲がりの様子 画像見にくくてごめんなさい</span>
+                    </div>
+                </p>
+            </div>
+            <div class="inbox">
+                <h3 id="1_pattern">パターン切れ</h3>
+                <hr class="titlebar">
+                <p>
+                    パターン切れも修理します。<br>
+                    切れているのはメモリにつながるところらしくて、全スロットのうち2/4しか認識しませんでした。<br>
+                    コーティングを削ってはがし、はんだ付けで修理しちゃいました。
+                    <div class="blog_photo_wrapper">
+                        <img class="blog_photo" src="images/パターン修理.jpg" alt="">
+                        <span class="center">パターン切れをはんだ付けで無理やり修理</span>
+                    </div>
+                    <small class="annotation">※1 切れているのは1本なのに2スロット使えなくなるのなんでだろ。チャネルの問題？</small>
+                    <small class="annotation">※2 このへんの回路設計は複雑で、電子の速度とかを考えられているらしい。なのでつながればいいってものではないです。まあ結果動いたからヨシ！</small>
+                </p>
+            </div>
+            <div class="inbox">
+                <h3 id="1_rom">ROM焼き</h3>
+                <hr class="titlebar">
+                <p>
+                    やっと本題のROM焼きです。ここまでの修理で直るかなとおもってましたが、やっぱりBIOSも死んでるみたいです。電源は入りますが、画面に何もうつりません。
+                    <div class="blog_photo_wrapper">
+                        <img class="blog_photo" src="images/bios_death.jpg" alt="">
+                        <span class="center">画面の一部分だけ謎の点がある状態</span>
+                    </div>
+                    マザーボード上のROM ICをクリップで挟み、正常なBIOSファイルを書き込みます。
+                    <div class="blog_photo_wrapper">
+                        <img class="blog_photo" src="images/ROM_yaki1.jpg" alt="">
+                        <span class="center">ROM焼き中</span>
+                    </div>
+                    BIOSの書き込みに成功し、電源を入れてみると…
+                    <div class="blog_photo_wrapper">
+                        <img class="blog_photo" src="images/shellが表示された.jpg" alt="">
+                        <span class="center">EFI Shellが起動した</span>
+                    </div>
+                    ここまでくれば勝ちですね。<kbd>exit</kbd>と入力し再起動すると<b>BIOS画面が表示されました。</b>やったね！
+                    <div class="blog_photo_wrapper">
+                        <img class="blog_photo" src="images/BIOSが表示された.jpg" alt="">
+                        <span class="center">BIOS(UEFI)画面が表示された</span>
+                    </div>
+                    日時はおかしいですが、OS入れれば勝手に設定してくれます。<br>
+                    試しにwindowsを入れてみたところ、<b>正常に動作しました！</b><br><br>
+                    これで修理完了です！
+                </p>
+            </div>
+        </section>
+        <section>
+            <h2 id="practice2">5.実践編 ②マザーボード(CPUの世代違い)</h2>
+            <hr class="titlebar">
+            <p>
+                次は修理というよりは改造に近いかも？<br>
+                intel製CPUは世代が違っても同じマザーボード(チップセット)が流用できるものがあります。今回のB150マザーボードは、intel第6,7世代に対応しています。<br>
+                ただ、第6世代の発売時に設計されたマザーボードはそのままでは第7世代CPUが使えません。<b>BIOSアップデート</b>をすると使えるようになります。<br>
+                ただ、BIOSアップデートをするには<b>第6世代のCPUが必要です</b>。
+                <small class="annotation">※かしこいマザーボードはCPUなしでもできたりする、もしかしたらこのマザーボードもできたかもしれない</small>
+                残念ながらこの時は第6世代のCPUが手元になかったので、無理やりROM焼きをすることで対応しました。<br>
+                今回のマザーボードはわりと新しめなので、ROM ICが取り外せるようになってます。ICごと交換してしまうのも1つの手かも。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/ROM_yaki2.jpg" alt="">
+                    <span class="center">クリップを使わないROM焼き</span>
+                </div>
+                正常にROM焼きでき、正常に起動できました。<br>
+                ハードオフで1000円で拾ってきたマザーボードですが、ふつうに使えました。
+            </p>
+        </section>
+        <section>
+            <h2 id="practice3">6.実践編 ③4Kモニタ(電源が入らない)</h2>
+            <hr class="titlebar">
+            <p>
+                ROM ICがついていて、それが壊れているのが原因であれば、マザーボードに限らず修理が可能です。<br>
+                偶然入手した<a href="https://www.lg.com/jp/monitors/fhd-qhd/31mu97-b/" target="_blank">電源が入らない4Kモニタ</a>、ちょっと調べてみるとROMのせいで起動しなくなることがわりとあるらしいです。<br><br>
+                参考サイト→
+                <a href="https://integer13.wordpress.com/2018/04/06/lg-31mu97-not-powering-on-how-to-repair-this-piece-of-sht/" class="og-card" target="_blank">参考サイト</a>
+                ROMを書き直せば直りそうですね。<br>
+                ROM ICに触るために、マイナスドライバーやプラスチックのヘラでがんばって(工研の部員数人に手伝ってもらいながら)、モニタの裏蓋を外します。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/4Kモニタ_裏蓋を外した.jpg" alt="">
+                    <span class="center">裏蓋を外したところ</span>
+                </div>            
+                ねじを外し、メイン基板(画像左側)に触れるようにします。赤枠で囲んだ部分にROM ICがあるので、クリップで挟んでROM焼きをします。<br>
+                右側の基板は電源系統なので下手にいじらないほうがいいと思います。
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/4Kモニタ_電源基板.jpg" alt="">
+                    <span class="center">メイン基板とご対面</span>
+                </div>
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/ROM_yaki3.jpg" alt="">
+                    <span class="center">恒例のROM焼き</span>
+                </div>
+                上手に焼ければ修理成功です！ビープ音がなり、映像、音声の出力ができるようになりました!!
+                <blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/69ljhfUqwG">pic.twitter.com/69ljhfUqwG</a></p>&mdash; ゆい (@yui__yuuki) <a href="https://twitter.com/yui__yuuki/status/1723939679693570124?ref_src=twsrc%5Etfw">November 13, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                めちゃ喜んでますね。最初に表示したのはtwitterだったようです。4Kのきれいさが伝わらない😢
+            </p>
+        </section>
+        <section>
+            <h2 id="end">7.おわりに</h2>
+            <hr class="titlebar">
+            <p>
+                さいごまで読んでいただきありがとうございました！<br>
+                修理の中では簡単な部類だと思うので、ぜひ挑戦してみてください。誰かの参考になればうれしいです。<br>
+                Advent Calendar大遅刻ですみませんでした…
+            </p>
+        </section>
+    </article>
+   
+    <!-- <div class="blog_page_link_box">
+        <div class="blog_page_link box">
+            <p>前の記事</p>
+        </div>
+        <div class="blog_page_link box"><p>次の記事</p></div>
+    </div> -->
+
+    </main>
+<!-- aside_from -->
+    <div id="aside_background" onclick="hamburgerMenu()"></div>
+    <aside>
+        <nav class="box">
+            <h2>コンテンツ</h2>
+            <hr class="titlebar">
+            <div>
+                <a href="/" class="aside_link_box">トップ</a>
+                <a href="/blog/" class="aside_link_box">ブログ</a>
+                <a href="/works/" class="aside_link_box">作品</a>
+                <a href="/album/" class="aside_link_box">アルバム</a>
+                <a href="/sns/" class="aside_link_box">SNS</a>
+                <a href="/others/" class="aside_link_box">その他</a>
+            </div>
+        </nav>
+        <div class="box">
+            <h2>ページ内検索</h2>
+            <hr class="titlebar">
+            <p>ページ内の検索ができます。
+                <form action="/search/index.html" method="get">
+                    <label for="searchTerm"></label>
+                    <div class="search_box">
+                        <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
+                        <button class="search_button" type="submit">
+                            <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                        </button>
+                    </div>
+                </form>
+            </p>
+        </div>
+        <div class="box">
+            <h2>カウンター</h2>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
+            <hr class="titlebar">
+            <p class="counter">
+                今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">0</span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">0</span>
+                <a href="/counter/">詳細</a>
+            </p>
+        </div>
+        <div class="box">
+            <h2>おみくじ</h2>
+            <hr class="titlebar">
+            <button id="omikuji" class="center" onclick="omikuji()">
+                おみくじをひく
+            </button>
+        </div>
+    </aside>
+    <div id="card">
+        <div id="card_background" onclick="ClosePanel('Add')"></div>
+        <div id="card_contents">
+            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
+            <div id="card_title" class="center"></div>
+            <div id="card_message" class="center"></div>
+        </div>
+    </div>
+<!-- aside_to -->
+    </div>
+
+<!-- footer_from -->
+    <button id="scrollToTopButton">
+        <div><right></right><left></left></div>
+    </button>
+    <footer>
+        <a href="/sitemap/">サイトマップ</a><br>
+        &copy; 2023-2024 ゆうきゆい
+    </footer>
+<!-- footer_to -->
+
+</body>
+</html>

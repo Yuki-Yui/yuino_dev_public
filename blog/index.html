@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<!-- head_from -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <link rel="stylesheet" href="/style.css?3.11">
+    <script src="/script.js?3.4" defer></script>
+    <script src="/scripts/Omikuji.js" defer></script>
+    <script>document.addEventListener('touchstart',function(){});</script>
+<!-- head_to -->
+    <title>ゆいブログ</title>
+    <meta name="description" content="行ったところや作ったものの紹介とか、ちょっとしたことを書いていく。">
+    <!-- OGP -->
+    <meta property="og:title" content="ゆいブログ" />
+    <meta property="og:image" content="https://yuino.dev/images/thumbnail.png" />
+    <meta property="og:description" content="行ったところや作ったものの紹介とか、ちょっとしたことを書いていく。" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+    <script src="generate_blog_link.js" defer></script>
+</head>
+
+<body>
+<!-- header_from -->
+<header>
+    <div id="header_wrapper">
+        <div id="top">
+            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+            <p>にゃーん</p>
+        </div>
+        <div id="icon">
+            <img src="/images/icon.jpg" alt="ゆいのアイコン">
+        </div>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+<!-- header_to -->
+    <div id="main_wrapper">
+    <main>
+    <div class="box">
+        <h1>ゆいブログ</h1>
+        <hr class="titlebar">
+        <p>
+            行ったところや作ったものの紹介とか、ちょっとしたことを書いていく。<br>
+            現在試行錯誤中。
+        </p>
+    </div>
+    <div class="box">
+        <h2>記事一覧</h2>
+        <hr class="titlebar">
+        <!-- <div class="">
+            <h3>ブログ検索</h3>
+                <div class="search_box">
+                    <input type="text" class="search_input" placeholder="検索">
+                    <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                </div>
+        </div> -->
+        <!-- <details class="blog_search">
+            <summary>検索</summary>
+            
+            <form class="blog_search_tag">
+                <label><input type="checkbox" name="blog_tag" value="技術" checked>技術</label>
+                <label><input type="checkbox" name="blog_tag" value="制作" checked>制作</label>
+                <label><input type="checkbox" name="blog_tag" value="お出かけ" checked>お出かけ</label>
+                <label><input type="checkbox" name="blog_tag" value="写真" checked>写真</label>
+                <label><input type="checkbox" name="blog_tag" value="雑" checked>雑</label>
+            </form>
+        </details> -->
+
+        <div id="blog_articles">
+            <?php
+                error_reporting(0);
+                //記事一覧のJSONファイルのパス
+                $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/blog/article.json';
+
+                // サイトマップを取得してXMLを解析
+                $articleArray = array_reverse(json_decode(file_get_contents($jsonPath)));
+                foreach ($articleArray as $articleinfo) {
+                    
+                    if(!$articleinfo->release && $_SERVER['HTTP_HOST'] == "yuino.dev" ){continue;}
+                    $title = $articleinfo->title;
+                    $path = $articleinfo->directory.'/';
+                    $description = $articleinfo->description;
+                    $date = $articleinfo->date;
+                    $thumbnail = $articleinfo->thumbnail != "" ? $path.'/images/'.$articleinfo->thumbnail : '/images/blogthumbnail.png';
+                    $tagsHTML = "";
+                    foreach ($articleinfo->tags as $tag){
+                        $tagsHTML = $tagsHTML.'<span>#'.$tag.'</span>'; 
+                    }
+                    echo '<a class="blog_link" href="'.$path.'">
+                        <h3>'.$title.'</h3>
+                        <hr class="titlebar">
+                        <div class="blog_link_explanation">
+                            <div class="blog_link_explanation_photo_container center">
+                                <img src="'.$thumbnail.'" alt="ブログ「'.$title.'」のサムネイル">
+                            </div>
+                            <div class="blog_link_explanation_description">
+                                <div class="blog_link_tag">'.$tagsHTML.'</div>
+                                <p>'.$description.'</p>    
+                                <span class="blog_link_date">'.$date.'</span>
+                            </div>
+                        </div>
+                    </a>';
+                }
+            ?>
+        </div>
+            
+        <!-- <a class="blog_link" href="${data[nu].directory}/">
+            <h3>${data[nu].title}</h3>
+            <hr class="titlebar">
+            <div class="blog_link_tag">${tagsHTML}</div>
+            <div class="blog_link_explanation">
+                <div class="blog_link_explanation_photo_container center">
+                    <img src="${thumbnail}" alt="ブログ「${data[nu].title}」のサムネイル">
+                </div>
+                <span class="blog_link_explanation_description">
+                    <span>${data[nu].description}</span>
+                </span>
+            </div>
+            <span class="blog_link_date">${data[nu].date}</span>
+        </a> -->
+
+    </div>
+
+    </main>
+<!-- aside_from -->
+    <div id="aside_background" onclick="hamburgerMenu()"></div>
+    <aside>
+        <nav class="box">
+            <h2>コンテンツ</h2>
+            <hr class="titlebar">
+            <div>
+                <a href="/" class="aside_link_box">トップ</a>
+                <a href="/blog/" class="aside_link_box">ブログ</a>
+                <a href="/works/" class="aside_link_box">作品</a>
+                <a href="/album/" class="aside_link_box">アルバム</a>
+                <a href="/sns/" class="aside_link_box">SNS</a>
+                <a href="/others/" class="aside_link_box">その他</a>
+            </div>
+        </nav>
+        <div class="box">
+            <h2>ページ内検索</h2>
+            <hr class="titlebar">
+            <p>ページ内の検索ができます。
+                <form action="/search/index.html" method="get">
+                    <label for="searchTerm"></label>
+                    <div class="search_box">
+                        <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
+                        <button class="search_button" type="submit">
+                            <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                        </button>
+                    </div>
+                </form>
+            </p>
+        </div>
+        <div class="box">
+            <h2>カウンター</h2>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
+            <hr class="titlebar">
+            <p class="counter">
+                今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">0</span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">0</span>
+                <a href="/counter/">詳細</a>
+            </p>
+        </div>
+        <div class="box">
+            <h2>おみくじ</h2>
+            <hr class="titlebar">
+            <button id="omikuji" class="center" onclick="omikuji()">
+                おみくじをひく
+            </button>
+        </div>
+    </aside>
+    <div id="card">
+        <div id="card_background" onclick="ClosePanel('Add')"></div>
+        <div id="card_contents">
+            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
+            <div id="card_title" class="center"></div>
+            <div id="card_message" class="center"></div>
+        </div>
+    </div>
+<!-- aside_to -->
+    </div>
+
+<!-- footer_from -->
+    <button id="scrollToTopButton">
+        <div><right></right><left></left></div>
+    </button>
+    <footer>
+        <a href="/sitemap/">サイトマップ</a><br>
+        &copy; 2023-2024 ゆうきゆい
+    </footer>
+<!-- footer_to -->
+
+</body>
+</html>

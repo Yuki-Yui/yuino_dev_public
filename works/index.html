@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+<!-- head_from -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <link rel="stylesheet" href="/style.css?3.11">
+    <script src="/script.js?3.4" defer></script>
+    <script src="/scripts/Omikuji.js" defer></script>
+    <script>document.addEventListener('touchstart',function(){});</script>
+<!-- head_to -->
+
+    <title>作品集 - ゆいのページ</title>
+    <meta name="description" content="作品を紹介するページ。">
+    <!-- OGP -->
+    <meta property="og:title" content="作品集 - ゆいのページ" />
+    <meta property="og:image" content="https://yuino.dev/images/thumbnail.png" />
+    <meta property="og:description" content="作品を紹介するページ。" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+
+</head>
+
+<body>
+<!-- header_from -->
+<header>
+    <div id="header_wrapper">
+        <div id="top">
+            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+            <p>にゃーん</p>
+        </div>
+        <div id="icon">
+            <img src="/images/icon.jpg" alt="ゆいのアイコン">
+        </div>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+<!-- header_to -->
+    <div id="main_wrapper">
+    <main>
+    <div class="box">
+        <h1>作品集</h1>
+        <hr class="titlebar">
+        <p>
+            作ったものとかを紹介するページ
+        </p>
+    </div>
+    <div class="box">
+        <h2>ソフト</h2>
+        <hr class="titlebar">
+        <div class="inbox">
+            <h3>Webアプリ</h3>
+            <hr class="titlebar">
+            <p>
+                <ul>
+                    <li>
+                        <h4>リアルタイム素因数分解</h4>
+                        <p>
+                            素因数分解が即時にできます。<br>
+                            UIがおしまい。
+                            <a href="prime.html" class="link_box">リアルタイム素因数分解</a>
+                        </p>
+                    </li>
+                    <li>
+                        <h4>ゴヴィッショヌ揃え</h4>
+                        <p>なんか最近人気のやつ。<a href="https://azumino.pages.dev/misc/govissionu/">これ</a>見て作りたくなった。速度そこそこ。
+                        <a href="govissionu/" class="link_box">ゴヴィッショヌ揃え</a></p>
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <div class="inbox">
+            <h3>ゲーム</h3>
+            <hr class="titlebar">
+            <p>
+                <a href="/index.html#minigame">てきとうなミニゲーム</a>
+            </p>
+        </div>
+        <div class="inbox">
+            <h3>Chrome拡張機能</h3>
+            <hr class="titlebar">
+            <p>
+                <ul>
+                    <li>
+                        <h4>学務情報システムのシラバス検索画面のデフォルト値を変更する</h4>
+                        <p>
+                            履修登録の際シラバス検索の際に毎回「前学期」や「後学期」に変えるのがめんどくさくなったので作りました。
+                            <a href="https://github.com/Yuki-Yui/GakumuJouhousystem_Default_Select" class="link_box">Yuki-Yui/<br>GakumuJouhousystem_Default_Select
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <h4>学務情報システムの成績を全部秀にする</h4>
+                        <p>
+                            ネタです。GPA4.0を体験できます。
+                            <a href="https://github.com/Yuki-Yui/GakumuJouhousystem_GPA4" class="link_box">Yuki-Yui/GakumuJouhousystem_GPA4</a>
+                        </p>
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <p>
+        </p>
+    </div>
+    <div class="box">
+        <h2>ハード</h2>
+        <hr class="titlebar">
+        <div class="inbox">
+            <h3>ハンディファン</h3>
+            <hr class="titlebar">
+            <p>intelのリテールクーラーを改造してハンディファンを作りました。<br><a href="/blog/2023_09_11_01/">ブログ記事</a></p>
+            <div class="center"><img alt="ハンディファンの画像" class="works_photo" src="images/fan.jpg"></div>
+        </div>
+        <div class="inbox">
+            <h3>つまみさん</h3>
+            <hr class="titlebar">
+            <p>大漁だぜ</p>
+            <div class="center"><img alt="大量生産されたつまみフィギュア" class="works_photo" src="images/tsumami.jpg"></div>
+            <p><span class="center">ダウンロード↓↓↓↓↓</span><a href="https://github.com/Yuki-Yui/Tsumami3D" class="link_box">Yuki-Yui/Tsumami3D</a></p>
+        </div>
+    </div>
+    <div class="box">
+        <h2>その他</h2>
+        <hr class="titlebar">
+        <div class="inbox">
+            <h3>四暗刻</h3>
+            <hr class="titlebar">
+            <p>役満確定にゃ！</p>
+            <div class="center"><img alt="じゃんたまの四暗刻" class="works_photo" src="images/suankou.jpg"></div>
+        </div>
+        <div class="inbox">
+            <h3>数え役満</h3>
+            <hr class="titlebar">
+            <p>ドラ爆にゃ！</p>
+            <div class="center"><img alt="じゃんたの数え役満" class="works_photo" src="images/kazoeyakuman.jpg"></div>
+        </div>
+    </div>
+    </main>
+<!-- aside_from -->
+    <div id="aside_background" onclick="hamburgerMenu()"></div>
+    <aside>
+        <nav class="box">
+            <h2>コンテンツ</h2>
+            <hr class="titlebar">
+            <div>
+                <a href="/" class="aside_link_box">トップ</a>
+                <a href="/blog/" class="aside_link_box">ブログ</a>
+                <a href="/works/" class="aside_link_box">作品</a>
+                <a href="/album/" class="aside_link_box">アルバム</a>
+                <a href="/sns/" class="aside_link_box">SNS</a>
+                <a href="/others/" class="aside_link_box">その他</a>
+            </div>
+        </nav>
+        <div class="box">
+            <h2>ページ内検索</h2>
+            <hr class="titlebar">
+            <p>ページ内の検索ができます。
+                <form action="/search/index.html" method="get">
+                    <label for="searchTerm"></label>
+                    <div class="search_box">
+                        <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
+                        <button class="search_button" type="submit">
+                            <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                        </button>
+                    </div>
+                </form>
+            </p>
+        </div>
+        <div class="box">
+            <h2>カウンター</h2>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
+            <hr class="titlebar">
+            <p class="counter">
+                今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">0</span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">0</span>
+                <a href="/counter/">詳細</a>
+            </p>
+        </div>
+        <div class="box">
+            <h2>おみくじ</h2>
+            <hr class="titlebar">
+            <button id="omikuji" class="center" onclick="omikuji()">
+                おみくじをひく
+            </button>
+        </div>
+    </aside>
+    <div id="card">
+        <div id="card_background" onclick="ClosePanel('Add')"></div>
+        <div id="card_contents">
+            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
+            <div id="card_title" class="center"></div>
+            <div id="card_message" class="center"></div>
+        </div>
+    </div>
+<!-- aside_to -->
+    </div>
+
+<!-- footer_from -->
+    <button id="scrollToTopButton">
+        <div><right></right><left></left></div>
+    </button>
+    <footer>
+        <a href="/sitemap/">サイトマップ</a><br>
+        &copy; 2023-2024 ゆうきゆい
+    </footer>
+<!-- footer_to -->
+
+</body>
+</html>

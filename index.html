@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+<!-- head_from -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <link rel="stylesheet" href="/style.css?3.11">
+    <script src="/script.js?3.4" defer></script>
+    <script src="/scripts/Omikuji.js" defer></script>
+    <script>document.addEventListener('touchstart',function(){});</script>
+<!-- head_to -->    
+
+    <title>ゆいのページ</title>
+    <meta name="description" content="趣味で作っているサイトです。">
+    <!-- OGP -->
+    <meta property="og:title" content="トップ - ゆいのページ" />
+    <meta property="og:image" content="https://yuino.dev/images/thumbnail.png" />
+    <meta property="og:description" content="趣味で作っているサイトです。" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+
+    <script src="scripts/MiniGame.js" defer></script>
+    <script src="scripts/history.js" defer></script>
+    <script src="scripts/top_message.js?1.2" defer></script>
+    <style>
+        .self_photo{
+            position: relative;
+            z-index: 0;
+        }
+        .self_photo img{
+            display: block;
+            box-sizing: border-box;
+            width: 85%;
+            margin-top: 1rem;
+            height: auto;
+            border-radius: 20px; 
+            /* border: solid 3px var(--border-color); */
+        }
+        .self_photo span{
+            display: block;
+            position: absolute;
+            /* background-color: black; */
+            /* top: 30%; */
+            left: 53%;
+            width: 35%;
+            text-align: center;
+            line-height: 1.5em;
+            color:rgb(100, 100, 100);
+        }
+        @media screen and (max-width:300px) {
+            .self_photo{
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- header_from -->
+<header>
+    <div id="header_wrapper">
+        <div id="top">
+            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+            <p>にゃーん</p>
+        </div>
+        <div id="icon">
+            <img src="/images/icon.jpg" alt="ゆいのアイコン">
+        </div>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+<!-- header_to -->
+
+    <div id="main_wrapper">
+    
+    <main>
+    <div class="box">
+        <h1>トップページ</h1>
+        <hr class="titlebar">
+        <div id="top_self_photo" class="self_photo center">
+            <img src="images/yui_talking.jpg" alt="ゆいのアイコンがしゃべってる">
+            <span id="top_message"></span>
+        </div>
+        <p>ゆいのページへようこそ！<br>完全に趣味でやってます。いろいろなコンテンツ追加していきたい！</p>
+    </div>
+    <div class="box">
+        <h2>自己紹介</h2>
+        <hr class="titlebar">
+        <ul>
+            <li>
+                <dl><dt><h3>名前</h3></dt><dd>結城 ゆい (ゆうき ゆい)</dd></dl>
+            </li>
+            <li>
+                <dl><dt><h3>年齢</h3></dt><dd>17+n歳</dd></dl>
+            </li>
+            <li>
+                <dl><dt><h3>所属</h3></dt><dd>多摩のマサチューセッツ工科大学
+                <ul>
+                    <li><a href="https://www.koken.club.uec.ac.jp/" target="_blank">電子工作とかプログラミングとかをするサークル</a></li>
+                    <li><a href="http://www.uecphoto.club.uec.ac.jp/" target="_blank">写真撮るサークル</a></li>
+                </ul>
+                </dd></dl>
+            </li>
+            <li>
+                <dl><dt><h3>好きなこと</h3></dt><dd>
+                    <ul>
+                        <li>パソコンいじり</li>
+                        <li>はんだづけ</li>
+                        <li>シミュレーションゲーム</li>
+                        <li>睡眠</li>
+                        <li>ねこ画像を見ること</li>
+                    </ul>
+                </dd></dl>
+            </li>
+            <li>
+                <dl><dt><h3>嫌いなこと</h3></dt><dd>
+                    <ul>
+                        <li>暑いこと</li>
+                        <li>不可逆なこと</li>
+                    </ul>
+                </dd></dl>
+            </li>
+            <li>
+                <dl><dt><h3>SNS</h3></dt><dd><a href="/sns/">ここをみて………</a></dd></dl>
+            </li>
+            <!-- <li>
+                <dl><dt><h3> </h3></dt><dd> </dd></dl>
+            </li> -->
+        </ul>
+    </div>
+    <div style="display: flex; gap: 1rem;">
+    
+        <div class="box" style=" margin: 0; flex: 2;">
+            <h2>リンク集</h2>
+            <hr class="titlebar">
+            <p>
+                知り合いのページを勝手に追加します
+                <ul>
+                    <li><a href="https://helkun.dev" target="_blank">ヘル破壊財団</a></li>
+                    <li><a href="https://trpfrog.net" target="_blank">つまみネット</a></li>
+                    <li><a href="https://lnln.dev/" target="_blank">りんりん</a></li>
+                    <li><a href="https://elmer9.github.io/" target="_blank">りんりん(ファンサイト)</a></li>
+                    <li><a href="https://azukibar.dev/" target="_blank">アイスの棒</a></li>
+                    <li><a href="https://gotti.dev/" target="_blank">ごっちでぶ</a></li>
+                    <li><a href="https://hutinoatari.dev" target="_blank">捻れたバベル</a></li>
+                    <li><a href="https://ruuu.dev/" target="_blank">るーどっとでぶ</a></li>
+                    <li><a href="https://azumino.pages.dev/" target="_blank">あづみのメモ帳</a></li>
+                    <li><a href="https://wasab-wasako.github.io/shigure/" target="_blank">しぐれ(工事中)</a></li>
+                    <li><a href="https://www.k1h.dev/" target="_blank">VOID</a></li>
+                    <li><a href="https://blog.usa-mimi.net/" target="_blank">MimiChan</a></li>
+                    <li><a href="https://y-chan.dev/" target="_blank">y-chan's website</a></li>
+                    <li><a href="https://www.sushichan.live/" target="_blank">すしのへや</a></li>
+                    <!-- <li><a href="" target="_blank"></a></li> -->
+                </ul>
+            </p>
+        </div>
+        <div class="box" id="mite" style=" margin: 0; flex: 1;">
+            <h2>みて………</h2>
+            <hr class="titlebar">
+            <p>
+                最近更新されたページとか
+                <ul>
+                    <li><a href="/blog/2023-12-21/">ジャンク修理をはじめよう ROM焼き編</a></li>
+                    <li><a href="/blog/2023-11-19_01/">ドメインをCloudflareに移管した</a></li>
+                    <li><a href="/works/govissionu/">ゴヴィッショヌ揃え</a></li>
+                    <li><a href="/others/env/">自宅環境紹介</a></li>
+                </ul>
+            </p>
+        </div>
+        
+    </div>
+    <div class="box">
+        <h2>更新情報</h2>
+        <hr class="titlebar">
+        <p>
+            <dl class="history"></dl>
+            <a href="/update/">もっと見る</a>
+        </p>
+    </div>
+    <div class="box" id="minigame">
+        <h2>てきとうなミニゲーム</h2>
+        <hr class="titlebar">
+        <p>
+            連打して爆発を止めろ！<br>連打ツールの使用は厳禁😡<br>
+            ※よくバグる
+        </p>
+        <button id="MiniGame_Button" onclick="Click()">スタート</button>
+        <p id="MiniGame_State"></p>
+        
+    </div>
+
+    </main>
+<!-- aside_from -->
+    <div id="aside_background" onclick="hamburgerMenu()"></div>
+    <aside>
+        <nav class="box">
+            <h2>コンテンツ</h2>
+            <hr class="titlebar">
+            <div>
+                <a href="/" class="aside_link_box">トップ</a>
+                <a href="/blog/" class="aside_link_box">ブログ</a>
+                <a href="/works/" class="aside_link_box">作品</a>
+                <a href="/album/" class="aside_link_box">アルバム</a>
+                <a href="/sns/" class="aside_link_box">SNS</a>
+                <a href="/others/" class="aside_link_box">その他</a>
+            </div>
+        </nav>
+        <div class="box">
+            <h2>ページ内検索</h2>
+            <hr class="titlebar">
+            <p>ページ内の検索ができます。
+                <form action="/search/index.html" method="get">
+                    <label for="searchTerm"></label>
+                    <div class="search_box">
+                        <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
+                        <button class="search_button" type="submit">
+                            <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                        </button>
+                    </div>
+                </form>
+            </p>
+        </div>
+        <div class="box">
+            <h2>カウンター</h2>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
+            <hr class="titlebar">
+            <p class="counter">
+                今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">0</span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">0</span>
+                <a href="/counter/">詳細</a>
+            </p>
+        </div>
+        <div class="box">
+            <h2>おみくじ</h2>
+            <hr class="titlebar">
+            <button id="omikuji" class="center" onclick="omikuji()">
+                おみくじをひく
+            </button>
+        </div>
+    </aside>
+    <div id="card">
+        <div id="card_background" onclick="ClosePanel('Add')"></div>
+        <div id="card_contents">
+            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
+            <div id="card_title" class="center"></div>
+            <div id="card_message" class="center"></div>
+        </div>
+    </div>
+<!-- aside_to -->
+    </div>
+
+<!-- footer_from -->
+    <button id="scrollToTopButton">
+        <div><right></right><left></left></div>
+    </button>
+    <footer>
+        <a href="/sitemap/">サイトマップ</a><br>
+        &copy; 2023-2024 ゆうきゆい
+    </footer>
+<!-- footer_to -->
+    
+</body>
+</html>

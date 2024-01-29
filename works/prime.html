@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>素因数分解</title>
+    <style>
+        #input{
+            font-size: 2rem;
+            width: 100%;
+            margin:20px 0;
+        }
+        form{
+            font-size: 1.5rem;
+            width:80%;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>素因数分解</h1>
+    <form oninput="Calculation(input.value)">
+        <input type="number" name="input" id="input"><br>
+        <select name="type" id="type">
+            <option value="1">TYPE1</option>
+            <option value="2">TYPE2</option>
+        </select><br><br>
+        <output id="result">0</output>
+    </form>
+    <script>
+        let worker_array = [];
+        
+        function Calculation(n) {
+            worker_array.forEach(element => {
+                element.terminate();
+            });
+            let worker = new Worker('prime.js');
+            worker_array.push(worker);
+            worker.postMessage(n);
+            worker.onmessage = function(event) {
+                const result_box = document.getElementById("result");
+                const type = document.getElementById("type").value;
+                const result = JSON.parse(JSON.stringify(event.data));
+                const result_data = result.data;
+                if (result.state==0){
+                    result_box.textContent = result_data;
+                }else{
+                    const message = [];
+                    let s = BigInt(1);
+                    let check;
+                    const primes = Object.keys(result_data);
+                    for(const prime of primes){
+                        if(type==1){
+                            message.push(`${prime}<sup>${result_data[prime.toString()]}</sup>`);
+                        }else if(type==2){
+                            message.push(prime + "^" + result_data[prime.toString()]);
+                        }
+                        s *= Pow(BigInt(prime),BigInt(result_data[prime.toString()]));
+                    }
+                    const result_mes = type==1 ? message.join(" × ") : message.join(" * ");
+                    if(n == s){
+                        check = ""
+                    }else{
+                        check = "fail"
+                    }
+                    result_box.innerHTML = `${result_mes} = ${s} ${check}`
+                }
+                // console.log(JSON.parse(JSON.stringify(event.data)))
+                // result.textContent = event.data;
+            };
+        }
+
+        function Pow(base, exponent){
+            const x = BigInt(base);
+            let result = BigInt(1);
+            for(let i=0; i<exponent; i++){
+                result *= x;
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+[
+    {
+        "release": true,
+        "title": "ゆいのページがテスト公開されました！",
+        "directory": "2023-07-10_01",
+        "date": "2023-07-10",
+        "description": "テスト用のブログです。内容はほぼありません。",
+        "thumbnail": "1.png",
+        "tags": [
+            "制作",
+            "雑"
+        ]
+    },
+    {
+        "release": true,
+        "title": "ハンディファンを作りました！",
+        "directory": "2023-09-11_01",
+        "date": "2023-09-11",
+        "description": "Intelのリテールクーラーを改造したハンディファンを作りました。",
+        "thumbnail": "fun1x1.png",
+        "tags": [
+            "技術",
+            "制作"
+        ]
+    },
+    {
+        "release": true,
+        "title": "調布花火2023を見に行きました！",
+        "directory": "2023-09-25_01",
+        "date": "2023-09-25",
+        "description": "4年ぶり開催の調布花火を見に行って写真撮った話。",
+        "thumbnail": "starmine_1x1.JPG",
+        "tags": [
+            "お出かけ",
+            "写真"
+        ]
+    },
+    {
+        "release": true,
+        "title": "マウスのチャタリングを無理やり直した",
+        "directory": "2023-11-07_01",
+        "date": "2023-11-07",
+        "release_date": "2023-11-10",
+        "updata": [
+            "2023-11-21"
+        ],
+        "description": "マウスのチャタリングを直しました。根本的な解決はしてない。",
+        "thumbnail": "mouse_1x1.jpg",
+        "tags": [
+            "技術",
+            "雑"
+        ]
+    },
+    {
+        "release": true,
+        "title": "ドメインをCloudflareに移管した",
+        "directory": "2023-11-19_01",
+        "date": "2023-11-19",
+        "release_date": "2023-11-19",
+        "updata": [],
+        "description": "Googleドメインが滅びたのでCloudflareに移管しました。結構簡単にできました。",
+        "thumbnail": "mail_from_cloudflare_1x1.jpg",
+        "tags": [
+            "技術"
+        ]
+    },
+    {
+        "release": false,
+        "title": "Stormworksをはじめよう",
+        "directory": "2023-12-12",
+        "date": "2023-12-12",
+        "release_date": "2023-12-12",
+        "updata": [],
+        "description": "プログラミングやマイコンなどを駆使してメカを作ることができるゲームです。楽しいのでやろうね。",
+        "thumbnail": "",
+        "tags": [
+            "ゲーム"
+        ]
+    },
+    {
+        "release": true,
+        "title": "ジャンク修理をはじめよう ROM焼き編",
+        "directory": "2023-12-21",
+        "date": "2023-12-21",
+        "release_date": "2023-12-21",
+        "updata": [],
+        "description": "ジャンク修理のすすめ。ROMライターでお手軽に修理をはじめよう！",
+        "thumbnail": "thumbnail.jpg",
+        "tags": [
+            "技術",
+            "激安"
+        ]
+    },
+    {
+        "release": false,
+        "title": "ダイソーの激安ワイヤレスイヤホン長期使用レビュー",
+        "directory": "2024-01-26",
+        "date": "2024-01-26",
+        "release_date": "2024-01-26",
+        "updata": [],
+        "description": "ダイソーで買った1000円の完全ワイヤレスイヤホンを長期間使用してみての感想です。",
+        "thumbnail": "",
+        "tags": ["激安","レビュー"]
+    },
+    {
+        "release": false,
+        "title": "",
+        "directory": "",
+        "date": "",
+        "release_date": "",
+        "updata": [],
+        "description": "",
+        "thumbnail": "",
+        "tags": []
+    }
+]

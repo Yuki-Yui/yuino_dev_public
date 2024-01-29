@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<!-- head_from -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <link rel="stylesheet" href="/style.css?3.11">
+    <script src="/script.js?3.4" defer></script>
+    <script src="/scripts/Omikuji.js" defer></script>
+    <script>document.addEventListener('touchstart',function(){});</script>
+<!-- head_to -->
+    <title>アルバム - ゆいのページ</title>
+    <meta name="description" content="画像集です。">
+    <!-- OGP -->
+    <meta property="og:title" content="アルバム - ゆいのページ" />
+    <meta property="og:image" content="https://yuino.dev/images/thumbnail.png" />
+    <meta property="og:description" content="画像集です。" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+</head>
+
+<body>
+<!-- header_from -->
+<header>
+    <div id="header_wrapper">
+        <div id="top">
+            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+            <p>にゃーん</p>
+        </div>
+        <div id="icon">
+            <img src="/images/icon.jpg" alt="ゆいのアイコン">
+        </div>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+<!-- header_to -->
+    <div id="main_wrapper">
+    <main>
+    
+    <div class="box">
+        <h1>アルバム</h1>
+        <hr class="titlebar">
+        <p>画像集です。</p>
+    </div>
+    <div class="box">
+        <h2>アイコン</h2>
+        <hr class="titlebar">
+        <p>歴代のアイコンです</p>
+        <div class="album_icon_wrapper">
+            <div class="album_icon_box"><img alt="ゆいのアイコン1" src="icons/1.jpg"></div>
+            <div class="album_icon_box"><img alt="ゆいのアイコン2" src="icons/2.jpg"></div>
+            <div class="album_icon_box"><img alt="ゆいのアイコン3" src="icons/3.jpg"></div>
+            <div class="album_icon_box"><img alt="ゆいのアイコン4" src="icons/4.jpg"></div>
+            <div class="album_icon_box"><img alt="ゆいのアイコン5" src="icons/5.jpg"></div>
+            <div class="album_icon_box"><img alt="ゆいのアイコン6" src="icons/6.jpg"></div>
+            <div class="album_icon_box"><img alt="ゆいのアイコン7" src="icons/7.jpg"></div>
+        </div>
+    </div>
+    <div class="box">
+        <h2>撮った写真</h2>
+        <hr class="titlebar">
+        <p>最近撮った写真です。</p>
+        <div class="inbox">
+            <h3>2023調布花火</h3>
+            <hr class="titlebar">
+            <p>めっちゃきれいだった！<br>ジャンク三脚買ったら風でぶれまくって悲しい…（うねうねしてるのはそのせい）</p>
+            <div class="album_photo_wrapper">
+                <div class="album_photo_box"><img alt="2023調布花火1" src="/blog/2023-09-25_01/images/starmine1.JPG"></div>
+                <div class="album_photo_box"><img alt="2023調布花火2" src="/blog/2023-09-25_01/images/starmine2.JPG"></div>
+                <div class="album_photo_box"><img alt="2023調布花火3" src="/blog/2023-09-25_01/images/starmine3.JPG"></div>
+                <div class="album_photo_box"><img alt="2023調布花火4" src="/blog/2023-09-25_01/images/starmine4.JPG"></div>
+                <div class="album_photo_box"><img alt="2023調布花火5" src="/blog/2023-09-25_01/images/starmine5.JPG"></div>
+                <div class="album_photo_box"><img alt="2023調布花火6" src="/blog/2023-09-25_01/images/starmine6.JPG"></div>
+            </div>
+        </div>
+    </div>
+
+    </main>
+<!-- aside_from -->
+    <div id="aside_background" onclick="hamburgerMenu()"></div>
+    <aside>
+        <nav class="box">
+            <h2>コンテンツ</h2>
+            <hr class="titlebar">
+            <div>
+                <a href="/" class="aside_link_box">トップ</a>
+                <a href="/blog/" class="aside_link_box">ブログ</a>
+                <a href="/works/" class="aside_link_box">作品</a>
+                <a href="/album/" class="aside_link_box">アルバム</a>
+                <a href="/sns/" class="aside_link_box">SNS</a>
+                <a href="/others/" class="aside_link_box">その他</a>
+            </div>
+        </nav>
+        <div class="box">
+            <h2>ページ内検索</h2>
+            <hr class="titlebar">
+            <p>ページ内の検索ができます。
+                <form action="/search/index.html" method="get">
+                    <label for="searchTerm"></label>
+                    <div class="search_box">
+                        <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
+                        <button class="search_button" type="submit">
+                            <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                        </button>
+                    </div>
+                </form>
+            </p>
+        </div>
+        <div class="box">
+            <h2>カウンター</h2>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
+            <hr class="titlebar">
+            <p class="counter">
+                今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">0</span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">0</span>
+                <a href="/counter/">詳細</a>
+            </p>
+        </div>
+        <div class="box">
+            <h2>おみくじ</h2>
+            <hr class="titlebar">
+            <button id="omikuji" class="center" onclick="omikuji()">
+                おみくじをひく
+            </button>
+        </div>
+    </aside>
+    <div id="card">
+        <div id="card_background" onclick="ClosePanel('Add')"></div>
+        <div id="card_contents">
+            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
+            <div id="card_title" class="center"></div>
+            <div id="card_message" class="center"></div>
+        </div>
+    </div>
+<!-- aside_to -->
+    </div>
+
+<!-- footer_from -->
+    <button id="scrollToTopButton">
+        <div><right></right><left></left></div>
+    </button>
+    <footer>
+        <a href="/sitemap/">サイトマップ</a><br>
+        &copy; 2023-2024 ゆうきゆい
+    </footer>
+<!-- footer_to -->
+
+</body>
+</html>

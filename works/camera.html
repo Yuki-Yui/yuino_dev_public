@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf8">
+    <title>Camera Test</title>
+    <style>
+        html{
+            height:100%;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #Camera{
+            width: 100%;
+            height: 98%;
+        }
+    </style>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+        window.onload = function() {
+            const video  = document.getElementById("Camera");
+            /** カメラ設定 */
+            const Setting = {
+            audio: false,
+            video: {
+                width: video.clientHeight,
+                height: video.clientWidth,
+                facingMode: "user"   // フロントカメラを利用する
+                // facingMode: { exact: "environment" }  // リアカメラを利用する場合
+                }
+            };
+
+            navigator.mediaDevices.getUserMedia(Setting)
+                .then( (stream) => {
+                    video.srcObject = stream;
+                    video.onloadedmetadata = (e) => {
+                        video.play();
+                    };
+                })
+                .catch( (err) => {
+                    console.log(err.name + ": " + err.message);
+                });
+            };
+    </script>
+</head>
+<body>
+    <h1>左右反転しないカメラ</h1>
+    <video id="Camera" width="300" height="200"></video>
+</body>
+</html>

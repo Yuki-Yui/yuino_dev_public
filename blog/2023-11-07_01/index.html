@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+<!-- head_from -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <link rel="stylesheet" href="/style.css?3.11">
+    <script src="/script.js?3.4" defer></script>
+    <script src="/scripts/Omikuji.js" defer></script>
+    <script>document.addEventListener('touchstart',function(){});</script>
+<!-- head_to -->
+    <title>マウスのチャタリングを無理やり直した - ゆいブログ</title>
+    <meta name="description" content="マウスのチャタリングをWindowsの設定でごまかした">
+    <!-- OGP -->
+    <meta property="og:title" content="マウスのチャタリングを無理やり直した - ゆいブログ" />
+    <meta property="og:image" content="https://yuino.dev/blog\2023-11-07_01\images\mouse_1x1.jpg" />
+    <meta property="og:description" content="マウスのチャタリングをWindowsの設定でごまかした" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+
+    <script src="../generate_blog_info.js" defer></script>
+</head>
+
+<body>
+<!-- header_from -->
+<header>
+    <div id="header_wrapper">
+        <div id="top">
+            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+            <p>にゃーん</p>
+        </div>
+        <div id="icon">
+            <img src="/images/icon.jpg" alt="ゆいのアイコン">
+        </div>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+<!-- header_to -->
+    <div id="main_wrapper">
+    <main>
+    <div class="box center">
+        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+    </div>
+    <div class="box">
+        <h1>マウスのチャタリングを無理やり直した</h1>
+        <!-- <img src="" class="blog_photo" alt="記事のサムネイル"> -->
+        <div id="blog_info">
+            <div class="blog_title_tag" id="blog_info_tag"></div>
+            <p class="blog_title_date" id="blog_info_date">yyyy<br>yyyy
+            </p>
+        </div>
+        <hr class="titlebar">
+        <p>
+            ひさびさにブログ更新するかと思ったけど書くことなかったのでめちゃ薄い内容。<br>
+            <s>「内容がないよ～」</s>
+        </p>
+    </div>
+    <article class="box">
+        <section>
+            <h2>はじめに</h2>
+            <hr class="titlebar">
+            <p>
+                週1ブログ更新を決めたけど1か月さぼっていたゆいです。<br>
+                最近、メインPCで使っている<a href="https://www.amazon.co.jp/%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0-%E3%82%B2%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E3%83%9E%E3%82%A6%E3%82%B9-2400dpi-%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%9E%E3%82%AF%E3%83%AD%E5%AF%BE%E5%BF%9C-M-DUX30BK/dp/B018WNIBK2?th=1" target="_blank">マウス</a>が死にかけです…<br>
+                マウスホイールが誤作動したり、左クリックが10%くらいの確率で<abbr title="一回のクリックで複数回認識されること">チャタリング</abbr>したりします。ホイール誤作動は分解してパーツクリーナー吹きかけたらなんか知らないけど直りましたが、チャタリングは直らなそう…<br>
+                なんとかしたかったので何とかします。
+                <small class="annotation">※今みたら売り切れてますねこのマウス。だいぶ古い商品だからそろそろ在庫尽きた??</small>
+            </p>
+        </section>
+        <section>
+            <h2>試したこと</h2>
+            <hr class="titlebar">
+            <p>
+                試したけどダメだったことまとめ
+                <ul>
+                    <li>マウスの分解清掃</li>
+                    <li>スイッチ部分をエアダスターで吹く</li>
+                    <li>ドライバの再インストール</li>
+                    <li>USBケーブル抜き差し</li>
+                </ul>
+                こりゃもうだめだね、ぶっ壊れてます。<br>
+                けっこう使いやすくて気に入ってるし、買い換えるのめんどくさいのでもう少し延命させたいです。<br>
+                ハードがダメならソフトでなんとかということで、一応の解決方法は存在しました。
+            </p>
+        </section>
+        <section>
+            <h2>解決方法：Windowsの設定をいじる</h2>
+            <hr class="titlebar">
+            <p>
+                Windowsの設定で無理やり解決します。<br>
+                大体の人が一回は見たことがある(?)ダブルクリックの速度の設定を変更します。<br>
+                Windows11 22H2では下のような経路で設定画面が開けると思います。デバイスマネージャーとかコントロールパネルとかからたどってもいいかも。
+                <span class="highlightbox">設定 → Bluetoothとデバイス → マウス → マウスの追加設定</span>
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/マウスのプロパティ.jpg" alt="マウスのプロパティ設定画面">
+                    <!-- <span class="center"></span> -->
+                </div>
+                上の画面の中の<b>ダブルクリックの速度</b>を<b>MAXまで</b>引きあげます。<br>
+                <small class="annotation">※MAXじゃなくてもいい?、チャタリングが消えるところまで上げてください。</small>
+                これで多分なんとかなりました。
+            </p>
+        </section>
+        <section>
+            <h2>まとめ</h2>
+            <hr class="titlebar">
+            <p>
+                Windowsの設定を変えてマウスのチャタリングを直しました。
+                チャタリング発生確率が10%→0.1%くらいになりました。満足。<br>
+                が！根本的な解決になってはないのでそのうち買い換えかなぁ、悲しい。<br>
+                <s>次回のブログはお出かけ長編(?)記事になるかも…</s>
+            </p>
+        </section>
+        <section>
+            <h2>☆2023-11-21追記☆ やっぱりだめだった😢</h2>
+            <hr class="titlebar">
+            <p>
+                Windowsの設定でごまかして数日間使っていましたが、やっぱりダメそうです。どんどんひどくなっています。
+            </p>
+            <p>
+                他のソフトで対応しようかな、ということでテキトウに探したソフト、<b>ChatteringCanceler</b>を入れてみます。<br><a href="https://forest.watch.impress.co.jp/library/software/chattecancel/" class="og-card" target="_blank">ダウンロード</a>
+                ダウンロードした後適当な場所に展開、x64またはx86(自分の環境に合わせてね)フォルダの中にある<b>ChatteringCanceler.exe</b>をダブルクリックなりで開き、画面右下にインジゲーターが出てくればOK!(折りたたまれた中に入っていると思われる)<br>
+                設定画面はインジゲーターを右クリックのあと、<b>設定</b>を選択したら開けます。
+            </p>
+            <p>
+                <div class="blog_photo_wrapper">
+                    <img class="blog_photo" src="images/ChatteringCanceler.png" alt="">
+                    <span class="center">ChatteringCancelerの設定画面</span>
+                </div>
+                このソフト、なんかいい感じに設定できそうでいいですね。
+                細かい設定、どれがどうなるのかあんまりわからないですが、私の場合はなにもいじらなくてもチャタリングが消えました。
+            </p>
+            <p>
+                根本的な解決になってないのは変わってないので、今度また電子部品洗浄剤吹きかけてみようかな。
+            </p>
+        </section>
+    </article>
+
+    </main>
+<!-- aside_from -->
+    <div id="aside_background" onclick="hamburgerMenu()"></div>
+    <aside>
+        <nav class="box">
+            <h2>コンテンツ</h2>
+            <hr class="titlebar">
+            <div>
+                <a href="/" class="aside_link_box">トップ</a>
+                <a href="/blog/" class="aside_link_box">ブログ</a>
+                <a href="/works/" class="aside_link_box">作品</a>
+                <a href="/album/" class="aside_link_box">アルバム</a>
+                <a href="/sns/" class="aside_link_box">SNS</a>
+                <a href="/others/" class="aside_link_box">その他</a>
+            </div>
+        </nav>
+        <div class="box">
+            <h2>ページ内検索</h2>
+            <hr class="titlebar">
+            <p>ページ内の検索ができます。
+                <form action="/search/index.html" method="get">
+                    <label for="searchTerm"></label>
+                    <div class="search_box">
+                        <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
+                        <button class="search_button" type="submit">
+                            <img class="search_mark" src="/images/search.png" alt="検索マーク">
+                        </button>
+                    </div>
+                </form>
+            </p>
+        </div>
+        <div class="box">
+            <h2>カウンター</h2>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
+            <hr class="titlebar">
+            <p class="counter">
+                今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">0</span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">0</span>
+                <a href="/counter/">詳細</a>
+            </p>
+        </div>
+        <div class="box">
+            <h2>おみくじ</h2>
+            <hr class="titlebar">
+            <button id="omikuji" class="center" onclick="omikuji()">
+                おみくじをひく
+            </button>
+        </div>
+    </aside>
+    <div id="card">
+        <div id="card_background" onclick="ClosePanel('Add')"></div>
+        <div id="card_contents">
+            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
+            <div id="card_title" class="center"></div>
+            <div id="card_message" class="center"></div>
+        </div>
+    </div>
+<!-- aside_to -->
+    </div>
+
+<!-- footer_from -->
+    <button id="scrollToTopButton">
+        <div><right></right><left></left></div>
+    </button>
+    <footer>
+        <a href="/sitemap/">サイトマップ</a><br>
+        &copy; 2023-2024 ゆうきゆい
+    </footer>
+<!-- footer_to -->
+
+</body>
+</html>
