@@ -12,8 +12,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.11">
-    <script src="/script.js?3.4" defer></script>
+    <link rel="stylesheet" href="/style.css?3.13">
+    <script src="/script.js?3.5" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script>document.addEventListener('touchstart',function(){});</script>
 <!-- head_to -->    
@@ -28,7 +28,7 @@
     <meta property="og:site_name" content="ゆいのページ" />
 
     <script src="scripts/MiniGame.js" defer></script>
-    <script src="scripts/history.js" defer></script>
+    <script src="scripts/top_message.js" ></script>
     <script src="scripts/top_message.js?1.2" defer></script>
     <style>
         .self_photo{
@@ -36,12 +36,14 @@
             z-index: 0;
         }
         .self_photo img{
-            display: block;
-            box-sizing: border-box;
             width: 85%;
-            margin-top: 1rem;
             height: auto;
+            display: block;
+            margin-top: 1rem;
+            box-sizing: border-box;
             border-radius: 20px; 
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
             /* border: solid 3px var(--border-color); */
         }
         .self_photo span{
@@ -89,7 +91,43 @@
         <hr class="titlebar">
         <div id="top_self_photo" class="self_photo center">
             <img src="images/yui_talking.jpg" alt="ゆいのアイコンがしゃべってる">
-            <span id="top_message"></span>
+            <span id="top_message">
+            <?php
+                // error_reporting(0);
+                // $messages = array(
+                //     "はじめまして、<br>ゆいだよ！<br>ねこがすき🐈",
+                //     "ようこそ！<br>ゆっくりみていってね～",
+                //     "サイドバーからおみくじが引けるよ！",
+                //     "気が向いたときに更新してます（笑）",
+                //     "ページに追加したら楽しいなっていう機能があったら教えてね！",
+                //     "「ゆいのページ」でGoogle検索しよう",
+                //     "真心こめた手打ちHTML&CSSで動いています",
+                //     "たまにページが破壊されることも……？？？",
+                //     "あったかいおふとん、<br>好き",
+                //     "ようこそ!!!!!!!!",
+                //     "お絵描きに挑戦したいな…",
+                //     "カウンターの「詳細」をクリックすると履歴が見られるよ"
+                // );
+                // $Rmessages = [
+                //     "だじゃれ生成AI",
+                //     "ねこ🐈(=^・^=)🐱",
+                //     "…",
+                //     "げげげ",
+                //     "みょみょんみょみょみょみょん",
+                //     "かわいい美少女です"
+                // ];
+                // $SRmessages = [
+                //     "おめでとう！<br>このメッセージが表示される確率は0.1%です!!"
+                // ];
+                // $randmax = 1000;
+                // $rate = rand(1,$randmax);
+                // $message = 
+                //     $rate<=$randmax*0.1/100 ? $SRmessages[rand(0,count($SRmessages)-1)] : (
+                //     $rate<=$randmax*20/100 ? $Rmessages[rand(0,count($Rmessages)-1)] :
+                //     $messages[rand(0,count($messages)-1)]);
+                // echo $message;
+            ?>
+            </span>
         </div>
         <p>ゆいのページへようこそ！<br>完全に趣味でやってます。いろいろなコンテンツ追加していきたい！</p>
     </div>
@@ -170,6 +208,7 @@
             <p>
                 最近更新されたページとか
                 <ul>
+                    <li><a href="/blog/2024001/">ダイソーの激安ワイヤレスイヤホン長期使用レビュー</a></li>
                     <li><a href="/blog/2023-12-21/">ジャンク修理をはじめよう ROM焼き編</a></li>
                     <li><a href="/blog/2023-11-19_01/">ドメインをCloudflareに移管した</a></li>
                     <li><a href="/works/govissionu/">ゴヴィッショヌ揃え</a></li>
@@ -183,7 +222,22 @@
         <h2>更新情報</h2>
         <hr class="titlebar">
         <p>
-            <dl class="history"></dl>
+            <dl class="history">
+            <?php
+                error_reporting(0);
+                $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/history.json';
+
+                $historyArray = array_reverse(json_decode(file_get_contents($jsonPath)));
+                $i=10;
+                foreach ($historyArray as $A) {
+                    if(!$A->show){continue;}
+                    if($i<=0){break;}
+                    echo '<dt>'.$A->date.'</dt>
+                        <dd>'.$A->description.'</dd>';
+                    $i = $i-1;
+                }
+            ?>
+            </dl>
             <a href="/update/">もっと見る</a>
         </p>
     </div>

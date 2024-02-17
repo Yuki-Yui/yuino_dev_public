@@ -107,34 +107,9 @@ window.addEventListener('scroll', () => {
     }
 });
 
-function scrollToTop(speed) {
-    window.scrollTo({top:0,left:0,behavior:"smooth"});
-    // const currentY = window.scrollY;
-    // const targetY = 0;
-    // const distance = targetY - currentY;
-    // const duration = Math.abs(distance / speed);
-
-    // const startTime = performance.now();
-
-    // function step() {
-    //     const currentTime = performance.now();
-    //     const elapsedTime = currentTime - startTime;
-
-    //     if (elapsedTime < duration) {
-    //         const position = currentY + (distance * (elapsedTime / duration));
-    //         window.scrollTo(0, position);
-    //         requestAnimationFrame(step);
-    //     } else {
-    //         window.scrollTo(0, targetY);
-    //     }
-    // }
-
-    // requestAnimationFrame(step);
-}
-
 const scrollToTopButton = document.getElementById('scrollToTopButton');
 scrollToTopButton.addEventListener('click', () => {
-    scrollToTop(20);
+    window.scrollTo({top:0,left:0,behavior:"smooth"});
 });
 
 
@@ -158,15 +133,6 @@ function display_Counter(){
 async function getOGP(url) {
     const proxyurl = `https://proxy.yuino.dev/${url}`
     try {
-        // const response = await fetch(proxyurl,{
-        //     method: "Get",
-        //     mode: "cors",
-        //     cache: "no-cache",
-        //     credentials: "same-origin",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     }
-        // });
         const response = await fetch(proxyurl);
         if(!response.ok){
             console.error("Error")

@@ -12,8 +12,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.11">
-    <script src="/script.js?3.4" defer></script>
+    <link rel="stylesheet" href="/style.css?3.13">
+    <script src="/script.js?3.5" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script>document.addEventListener('touchstart',function(){});</script>
 <!-- head_to -->
@@ -83,7 +83,6 @@
                 //記事一覧のJSONファイルのパス
                 $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/blog/article.json';
 
-                // サイトマップを取得してXMLを解析
                 $articleArray = array_reverse(json_decode(file_get_contents($jsonPath)));
                 foreach ($articleArray as $articleinfo) {
                     

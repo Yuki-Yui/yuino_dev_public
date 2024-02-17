@@ -9,9 +9,11 @@
     /* --line-green: #008A1C; */
     --main-color: #b6dbff;
     --font-color: #3c3c3c;
-    --weak-font-color: gray;
+    --placeholderfont-color: #3c3c3c;
+    --weak-font-color: #5c5c5c;
     --link-color: #7857FF;
     --background-color: #dcffff;
+    --background2-color: #def2fe;
     --background-line-color: #63ffff;
     --box-background-color: #ffffff;
 }
@@ -29,6 +31,7 @@
         --weak-font-color: #d3d3d3;
         --link-color: #f3b6ff;
         --background-color: #011121;
+        --background2-color: #011121;
         --background-line-color: #1d5674;
         --box-background-color: #202f3d;
     }
@@ -135,7 +138,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 4px 4px 0px rgb(161, 161, 161);
+    box-shadow: 0px 4px 0px rgb(161, 161, 161);
     z-index: 10;
     pointer-events: auto; 
 }
@@ -554,7 +557,7 @@ footer a{
     padding: 0.5rem;
     background: var(--background-color);
     border: solid 2px var(--border2-color);
-    border-radius: 4px;
+    border-radius: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -563,10 +566,10 @@ footer a{
     display: block;
     width: 90%;
     margin: 0.5rem auto;
-    padding: 0.5rem;
-    background: var(--background-color);
+    padding: 0.5rem 1rem;
+    background: var(--background2-color);
     border: solid 2px var(--border2-color);
-    border-radius: 4px;
+    border-radius: 0.5rem;
 }
 .annotation{
     margin: 0.5rem 0;
@@ -612,7 +615,6 @@ footer a{
         width: 95% !important;
     }
     .blog_photo{
-        width: 100%;
         max-width: 100%;
         border-radius: 10px;
     }
@@ -796,8 +798,8 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--box-background-color);
-    border-radius: 5px;
+    background: white;
+    border-radius: 0.2rem;
     border: solid 2px grey;
 }
 .search_mark{
@@ -805,8 +807,8 @@ section{
     cursor: pointer;
 }
 .search_input{
-    background: var(--box-background-color);
-    color: var(--font-color);
+    background: none;
+    color: var(--placeholderfont-color);
     font-size: 1em;
     width: 100%;
     height: 100%;
@@ -816,8 +818,7 @@ section{
     outline: none;
 }
 .search_button{
-    background: var(--box-background-color);
-    color: var(--font-color);
+    background: none;
     height: 100%;
     border: none;
     border-left: solid 2px grey;
@@ -826,7 +827,7 @@ section{
     cursor: pointer;
 }
 .search_input::placeholder {
-    color: var(--font-color);
+    color: var(--placeholderfont-color);
 }
 .counter_num{
     box-sizing: border-box;
