@@ -34,7 +34,7 @@ function display_blog_info(){
             let tagsHTML = "";
             let tags = articledata.tags;
             for (let i=0; i<tags.length; i++){
-                tagsHTML += `<a href="">#${tags[i]}</a>`; 
+                tagsHTML += `<a href="../index.html?tag=${tags[i]}">#${tags[i]}</a>`; 
             }
             tagbox.innerHTML = tagsHTML;
         }

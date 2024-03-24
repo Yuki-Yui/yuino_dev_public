@@ -3,19 +3,15 @@
 
 <head>
 <!-- head_from -->
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet"> -->
     <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.13">
-    <script src="/script.js?3.5" defer></script>
+    <link rel="stylesheet" href="/style.css?3.14">
+    <script src="/script.js?3.6" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
-    <script>document.addEventListener('touchstart',function(){});</script>
 <!-- head_to -->
     <title>ゆいブログ</title>
     <meta name="description" content="行ったところや作ったものの紹介とか、ちょっとしたことを書いていく。">
@@ -25,7 +21,7 @@
     <meta property="og:description" content="行ったところや作ったものの紹介とか、ちょっとしたことを書いていく。" />    
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ゆいのページ" />
-    <script src="generate_blog_link.js" defer></script>
+    <!-- <script src="generate_blog_link.js" defer></script> -->
 </head>
 
 <body>
@@ -56,7 +52,50 @@
         </p>
     </div>
     <div class="box">
-        <h2>記事一覧</h2>
+        <?php
+            error_reporting(0);
+
+            //記事一覧のJSONファイルのパス
+            $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/blog/article.json';
+            $articleArray = array_reverse(json_decode(file_get_contents($jsonPath)));
+            $links = '';
+
+            $searchTag = isset($_GET['tag']) ? trim($_GET['tag']) : '';
+            $articleTitleName = !$searchTag==''? 'タグ:#'.$searchTag.'の' : '';
+
+            foreach ($articleArray as $articleinfo) {
+                if(!$articleinfo->release){continue;}
+                $tagsHTML = '';
+                $tagFrag = $searchTag==''? true : false;
+                foreach ($articleinfo->tags as $tag){
+                    if($tag==$searchTag){$tagFrag=true;}
+                    $tagsHTML = $tagsHTML.'<span>#'.$tag.'</span>'; 
+                }
+                if(!$tagFrag){continue;}
+                $title = $articleinfo->title;
+                $path = $articleinfo->directory.'/';
+                $description = $articleinfo->description;
+                $date = $articleinfo->date;
+                $thumbnail = $articleinfo->thumbnail != '' ? $path.'/images/'.$articleinfo->thumbnail : '/images/blogthumbnail.png';
+                $link = '<a class="blog_link" href="'.$path.'">
+                    <h3>'.$title.'</h3>
+                    <hr class="titlebar">
+                    <div class="blog_link_explanation">
+                        <div class="blog_link_explanation_photo_container center">
+                            <img src="'.$thumbnail.'" alt="ブログ「'.$title.'」のサムネイル">
+                        </div>
+                        <div class="blog_link_explanation_description">
+                            <div class="blog_link_tag">'.$tagsHTML.'</div>
+                            <p>'.$description.'</p>    
+                            <span class="blog_link_date">'.$date.'</span>
+                        </div>
+                    </div>
+                </a>';
+                $links = $links . "\n" . $link;
+            }
+
+        ?>
+        <h2><?php echo $articleTitleName;?>記事一覧</h2>
         <hr class="titlebar">
         <!-- <div class="">
             <h3>ブログ検索</h3>
@@ -78,40 +117,7 @@
         </details> -->
 
         <div id="blog_articles">
-            <?php
-                error_reporting(0);
-                //記事一覧のJSONファイルのパス
-                $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/blog/article.json';
-
-                $articleArray = array_reverse(json_decode(file_get_contents($jsonPath)));
-                foreach ($articleArray as $articleinfo) {
-                    
-                    if(!$articleinfo->release && $_SERVER['HTTP_HOST'] == "yuino.dev" ){continue;}
-                    $title = $articleinfo->title;
-                    $path = $articleinfo->directory.'/';
-                    $description = $articleinfo->description;
-                    $date = $articleinfo->date;
-                    $thumbnail = $articleinfo->thumbnail != "" ? $path.'/images/'.$articleinfo->thumbnail : '/images/blogthumbnail.png';
-                    $tagsHTML = "";
-                    foreach ($articleinfo->tags as $tag){
-                        $tagsHTML = $tagsHTML.'<span>#'.$tag.'</span>'; 
-                    }
-                    echo '<a class="blog_link" href="'.$path.'">
-                        <h3>'.$title.'</h3>
-                        <hr class="titlebar">
-                        <div class="blog_link_explanation">
-                            <div class="blog_link_explanation_photo_container center">
-                                <img src="'.$thumbnail.'" alt="ブログ「'.$title.'」のサムネイル">
-                            </div>
-                            <div class="blog_link_explanation_description">
-                                <div class="blog_link_tag">'.$tagsHTML.'</div>
-                                <p>'.$description.'</p>    
-                                <span class="blog_link_date">'.$date.'</span>
-                            </div>
-                        </div>
-                    </a>';
-                }
-            ?>
+            <?php echo $links;?>
         </div>
             
         <!-- <a class="blog_link" href="${data[nu].directory}/">

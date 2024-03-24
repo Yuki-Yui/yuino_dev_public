@@ -39,7 +39,7 @@ function changesize (){
 
 window.addEventListener('load',()=>{
     changesize();
-    showmessage();
+    // showmessage();
 })
 
 window.addEventListener('resize',()=>{

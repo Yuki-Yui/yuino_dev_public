@@ -1,5 +1,5 @@
 function display_blog_link(){
-    if(new URL(location.href).host == "yuino.dev"){return;}
+    if(new URL(location.href).host.includes("yuino.dev")){return;}
     const path = 'article.json';
     readJson(path)
     .then(data => {
@@ -9,7 +9,6 @@ function display_blog_link(){
         let nu;
         for(let i=0; i<n; i++){
             nu = n-i-1;
-            if(!data[nu].release && new URL(location.href).host == "yuino.dev" ){continue;}
             let tags = data[nu].tags;
             let tagsHTML = "";
             for (let j=0; j<tags.length; j++){

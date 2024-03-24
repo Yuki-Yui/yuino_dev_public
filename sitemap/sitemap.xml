@@ -1,123 +1,123 @@
 <?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://yuino.dev/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>トップページ</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/album/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/album/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>アルバム</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ゆいブログ</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/2023-07-10_01/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/2023-07-10_01/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ゆいのページがテスト公開されました</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/2023-09-11_01/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/2023-09-11_01/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ハンディファンを作りました！</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/2023-09-25_01/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/2023-09-25_01/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>調布花火2023を見に行きました！</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/2023-11-07_01/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/2023-11-07_01/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>マウスのチャタリングを無理やり直した</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/2023-11-19_01/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/2023-11-19_01/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ドメインをCloudflareに移管した</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/2023-12-21/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/2023-12-21/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ジャンク修理をはじめよう ROM焼き編</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/blog/2024001/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/blog/2024001/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ダイソーの激安ワイヤレスイヤホン長期使用レビュー</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/counter/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/counter/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>カウンター</title>
 	</url>
 	<url>
 		<loc>https://yuino.dev/error/403.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<lastmod>2024-02-22</lastmod>
 		<title>403 Forbidden</title>
 	</url>
 	<url>
 		<loc>https://yuino.dev/error/404.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<lastmod>2024-02-22</lastmod>
 		<title>404 not found</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/others/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/others/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>その他</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/others/env/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/others/env/</loc>
+		<lastmod>2024-02-23</lastmod>
 		<title>自宅環境紹介</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/others/univ/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/others/univ/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>大学のこと</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/search/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/search/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ページ内検索</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/sitemap/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/sitemap/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>サイトマップ</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/sns/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/sns/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>SNSアカウント</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/update/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/update/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>更新情報</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/works/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/works/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>作品集</title>
 	</url>
 	<url>
 		<loc>https://yuino.dev/works/prime.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<lastmod>2024-02-18</lastmod>
 		<title>素因数分解</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/works/camera/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/works/camera/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>左右反転しないカメラ</title>
 	</url>
 	<url>
-		<loc>https://yuino.dev/works/govissionu/index.html</loc>
-		<lastmod>2024-02-10</lastmod>
+		<loc>https://yuino.dev/works/govissionu/</loc>
+		<lastmod>2024-02-22</lastmod>
 		<title>ゴヴィッショヌ揃え</title>
 	</url>
 </urlset>

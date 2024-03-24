@@ -253,7 +253,7 @@ aside{
     box-shadow: 4px 4px 0px rgb(161, 161, 161);
 }
 
-@media screen and (max-width:370px) {
+@media (width <= 370px) {
     #top{
         margin:0;
     }
@@ -262,7 +262,7 @@ aside{
     }
 
 }
-@media screen and (max-width:735px) {
+@media (width <= 735px) {
     header{   
         height: 110px;
     }
@@ -304,7 +304,7 @@ aside{
         display: none;
     }
 }
-@media screen and (min-width:735px) {
+@media (width > 735px) {
     #header_hamburger{
         display: none;
     }
@@ -369,7 +369,7 @@ footer a{
     background: var(--box-background-color);
     box-sizing: border-box;
 }
-@media screen and (max-width:735px) {
+@media (width <= 735px) {
     .inbox{
         padding: 0 0 0 15px;
     }
@@ -398,7 +398,7 @@ footer a{
     transition: 0.3s;
     z-index: 0;
 }
-@media screen and (max-width:735px) {
+@media (width <= 735px) {
     .blog_link{
         padding: 0.2rem 0.9rem;
     }
@@ -494,7 +494,7 @@ footer a{
     gap: 5px;
 }
 
-@media screen and (max-width:500px) {
+@media (width < 500px) {
     #blog_info_tag{
         position: relative;
     }
@@ -610,7 +610,7 @@ footer a{
     /* data-align: "center";
     data-chrome: "noborders"; */
 }
-@media screen and (max-width:735px) {
+@media (width < 735px) {
     .twitter-tweet-rendered{
         width: 95% !important;
     }
@@ -691,7 +691,7 @@ section{
     text-align: center;
     border: 2px solid #333;
 }
-@media screen and (max-width:735px) {
+@media (width < 735px) {
     .timetable_wrapper{
         margin: 1rem 0 1rem 0;
     }

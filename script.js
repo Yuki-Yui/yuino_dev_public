@@ -98,7 +98,7 @@ function Close_Hamburger(){
 
 
 // 上に戻るボタン
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', ()=>{
     const scroll_threshold = 50;
     if (document.body.scrollTop > scroll_threshold || document.documentElement.scrollTop > scroll_threshold) {
         scrollToTopButton.style.display = 'block';
@@ -108,7 +108,7 @@ window.addEventListener('scroll', () => {
 });
 
 const scrollToTopButton = document.getElementById('scrollToTopButton');
-scrollToTopButton.addEventListener('click', () => {
+scrollToTopButton.addEventListener('click', ()=>{
     window.scrollTo({top:0,left:0,behavior:"smooth"});
 });
 
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     Array.prototype.forEach.call(OGboxlist,(dom)=>{
         const url = dom.href;
         getOGP(url)
-        .then((ogp) => {
+        .then((ogp)=>{
         if (ogp) {
             // ブログカードを生成
             generateBlogCard(dom,ogp);
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             console.log('Failed to retrieve OGP information.');
         }
         })
-        .catch((error) => console.error('Error:', error));
+        .catch((error)=>console.error('Error:', error));
     });
 });
 
@@ -205,26 +205,28 @@ document.addEventListener("DOMContentLoaded",()=>{
 //ページ内リンクをずらす
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+    anchor.addEventListener('click', (e)=>{
+        e.preventDefault();
 
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
+        const targetId = anchor.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
 
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 120, // ヘッダーの高さに合わせて調整
-          behavior: 'smooth',
-        });
+        if (targetElement) {
+            window.scrollTo({
+            top: targetElement.offsetTop - 120, // ヘッダーの高さに合わせて調整
+            behavior: 'smooth',
+            });
       }
     });
-  });
+});
 
 
 //共通
 
+document.addEventListener('touchstart',()=>{});
+
 function readJson(path) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject)=>{
         let xhr = new XMLHttpRequest();
         xhr.overrideMimeType("application/json");
         xhr.open('GET', path, true);

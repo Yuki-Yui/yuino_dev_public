@@ -1,6 +1,6 @@
 [
     {
-        "release": true,
+        "release": false,
         "title": "ゆいのページがテスト公開されました！",
         "directory": "2023-07-10_01",
         "date": "2023-07-10",
@@ -83,12 +83,11 @@
         "directory": "2023-12-21",
         "date": "2023-12-21",
         "release_date": "2023-12-21",
-        "updata": [],
+        "updata": ["2024-02-17"],
         "description": "ジャンク修理のすすめ。ROMライターでお手軽に修理をはじめよう！",
         "thumbnail": "thumbnail.jpg",
         "tags": [
-            "技術",
-            "激安"
+            "技術"
         ]
     },
     {
@@ -101,16 +100,5 @@
         "description": "ダイソーで買った1000円の完全ワイヤレスイヤホンを長期間使用してみての感想です。",
         "thumbnail": "thumbnail.jpg",
         "tags": ["激安","レビュー"]
-    },
-    {
-        "release": false,
-        "title": "",
-        "directory": "",
-        "date": "",
-        "release_date": "",
-        "updata": [],
-        "description": "",
-        "thumbnail": "",
-        "tags": []
     }
 ]
