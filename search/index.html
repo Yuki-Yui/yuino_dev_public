@@ -72,30 +72,47 @@
             <?php
             error_reporting(0);
             // 検索結果がある場合、表示
-            function searchFiles($directory, $searchTerm) {
+            function searchFiles($searchTerm) {
                 $results = array();
 
-                // ディレクトリ内のすべてのファイルとディレクトリを取得
-                $files = scandir($directory);
+                // サイトマップを取得してXMLを解析
+                $docROOT = $_SERVER['DOCUMENT_ROOT'];
+                $sitemapUrl = $docROOT . '/sitemap/sitemap.xml';
+                $sitemapXml = file_get_contents($sitemapUrl);
+                $sitemapXml = str_replace('https://yuino.dev','..',$sitemapXml);
+                $sitemapXml = new SimpleXMLElement($sitemapXml);
 
-                foreach ($files as $file) {
-                    if ($file !== '.' && $file !== '..' && $file[0] !== '.' && $file !== 'error') {
-                        $path = $directory . '/' . $file;
+                foreach ($sitemapXml as $xml) {
 
-                        // ファイルかディレクトリか判定
-                        if (is_dir($path)) {
-                            // サブディレクトリの場合、再帰的に検索
-                            $results = array_merge($results, searchFiles($path, $searchTerm));
-                        } else {
-                            // HTML ファイルの場合、検索して一致する場合は結果に追加
-                            if (pathinfo($path, PATHINFO_EXTENSION) === 'html') {
-                                $content = file_get_contents($path);
-                                if (stripos($content, $searchTerm) !== false) {
-                                    $results[] = $path;
-                                }
-                            }
+                    $path = $xml->loc;
+                    $title = $xml->title;
+
+                    if (stripos($path, 'error')){ continue; }
+
+                    // index.htmlがついてないものに付け加える
+                    if (is_dir($path)) {
+                        $path = $path . 'index.html';
+                    }
+
+                    // HTML ファイルの場合、検索して一致する場合は結果に追加
+                    if (pathinfo($path, PATHINFO_EXTENSION) === 'html') {
+                        $content = file_get_contents($path);
+                        
+                        //ファイルからDOMを取り出す
+                        $dom = new DOMDocument();
+                        $dom -> loadHTML($content);
+
+                        // 検索範囲をmain要素内にする
+                        $mainElement = $dom->getElementsByTagName('main')->item(0);
+                        $textContent = $mainElement->textContent;
+
+                        if (stripos($textContent, $searchTerm)) {
+                            //大文字小文字の区別は strpos
+                            $path = str_replace('index.html','',$path);
+                            $results[] = [$path,$title];
                         }
                     }
+                    
                 }
 
                 return $results;
@@ -103,67 +120,14 @@
 
             // 検索キーワードの取得
             $searchTerm = isset($_GET['q']) ? trim($_GET['q']) : '';
-
-            // サイト内検索対象のディレクトリ
-            $searchDirectory = '../'; // content フォルダの中を検索する例
-
-            // 検索結果を格納する配列
-            $searchResults = array();
-            if (!empty($searchTerm)) {
-                $searchResults = searchFiles($searchDirectory, $searchTerm);
-            }
-
-            $searchResults = str_replace('..//','../',$searchResults);
-            $searchResults2 = str_replace('../','https://yuino.dev/',$searchResults);
-
-            //サイトマップのURL
-            $sitemapUrl = '../sitemap/sitemap.xml';
-
-            // サイトマップを取得してXMLを解析
-            $sitemapXml = file_get_contents($sitemapUrl);
-            $xml = new SimpleXMLElement($sitemapXml);
-
-            // タイトルを格納する配列
-            $titles = array();
-            $split_num = array();
-            $index = -1;
-
-            foreach($searchResults2 as $Resurl){
-                // サイトマップ内のURL要素をループで処理
-                $index += 1;
-                $flag = false;
-                foreach ($xml as $url) {
-                    if ((string) $url->loc == (string) $Resurl){
-                        // タイトルを取得
-                        $title = (string)$url->title;
-                        // タイトルが空でない場合、配列に追加
-                        if (!empty($title)) {
-                            $titles[] = $title;
-                            $flag = true;
-                        }
-                        continue;
-                    }
-                }
-                if (!$flag){
-                    $split_num[] = $index;
-                }
-            }
-
-            //タイトルが存在しないページを配列から削除
-            foreach ($split_num as $i){
-                unset($searchResults[$i]);
-            }
-            $searchResults = array_values($searchResults);
-
+            
             if($searchTerm!=null){
-                // $Search = htmlspecialchars($searchResults);
+                $searchResults = searchFiles($searchTerm);
                 echo '検索: ' . htmlspecialchars($searchTerm) . '<br>';
                 if ($searchResults!=null) {
-                    // $URL = htmlspecialchars(json_decode($_GET['URL']));
-                    // $Title = htmlspecialchars(json_decode($_GET['Title']));
                     echo '<ul>';
-                    for ($i=0; $i < count($titles); $i++) { 
-                        echo '<li><a href="' . htmlspecialchars($searchResults[$i]) . '">' . htmlspecialchars($titles[$i]) . '</a></li>';   
+                    for ($i=0; $i < count($searchResults); $i++) { 
+                        echo '<li><a href="' . htmlspecialchars($searchResults[$i][0]) . '">' . htmlspecialchars($searchResults[$i][1]) . '</a></li>';   
                     }
                     echo '</ul>';
                 }else{
@@ -214,9 +178,13 @@
             <hr class="titlebar">
             <p class="counter">
                 今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">0</span>
+                <span id="counter_today" class="counter_num">
+                    <?php echo $accessData['daily'][0]['count']?>
+                </span>
                 合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">0</span>
+                <span id="counter_all" class="counter_num">
+                    <?php echo $accessData['all']?>
+                </span>
                 <a href="/counter/">詳細</a>
             </p>
         </div>

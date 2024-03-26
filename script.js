@@ -115,18 +115,18 @@ scrollToTopButton.addEventListener('click', ()=>{
 
 //アクセスカウンター
 
-display_Counter();
+// display_Counter();
 
-function display_Counter(){
-    const path = '/counter/access_data.json';
-    readJson(path)
-    .then(data => {
-        const counter_today = document.getElementById("counter_today");
-        const counter_all = document.getElementById("counter_all");
-        counter_today.innerText = data["daily"][0]["count"];
-        counter_all.innerText = data["all"];
-    })
-}
+// function display_Counter(){
+//     const path = '/counter/access_data.json';
+//     readJson(path)
+//     .then(data => {
+//         const counter_today = document.getElementById("counter_today");
+//         const counter_all = document.getElementById("counter_all");
+//         counter_today.innerText = data["daily"][0]["count"];
+//         counter_all.innerText = data["all"];
+//     })
+// }
 
 
 //OGP

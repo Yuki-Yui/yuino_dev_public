@@ -57,8 +57,16 @@
         <h2>アクセス数の履歴</h2>
         <hr class="titlebar">
         <p>
-            <script src="counter.js" defer></script>
-            <dl id="counterAll"></dl>
+            <dl id="counterAll">
+                <?php
+                    $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/counter/access_data.json';
+                    $counterJson = json_decode(file_get_contents($jsonPath));
+                    $dailyDataArray = $counterJson->daily;
+                    foreach ($dailyDataArray as $dailyData) {
+                        echo '<dt>'.$dailyData->day.'</dt><dd>'.$dailyData->count.'</dd>';
+                    }
+                ?>
+            </dl>
         </p>
     </section>
     </article>
@@ -100,9 +108,13 @@
             <hr class="titlebar">
             <p class="counter">
                 今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">0</span>
+                <span id="counter_today" class="counter_num">
+                    <?php echo $accessData['daily'][0]['count']?>
+                </span>
                 合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">0</span>
+                <span id="counter_all" class="counter_num">
+                    <?php echo $accessData['all']?>
+                </span>
                 <a href="/counter/">詳細</a>
             </p>
         </div>

@@ -101,7 +101,7 @@
             <p>
                 1限が少なくて楽だった。<br>
                 謁見(基礎科学実験A)のレポートがしんどかった。<br>
-                キャリア教育基礎、取っといたほうがいいって言われてたけど、月曜1限はやっぱりしんどかった…
+                キャリア教育基礎、取っといたほうがいいって言われてたけど、月曜1限はやっぱりしんどかった…(3年生で回収できるから無理にとらなくても大丈夫)
             </p>
         </div>
         <div class="inbox">
@@ -264,6 +264,15 @@
         </div>
         
     </section>
+
+    
+    <section class="box">
+        <h2>#uec_review</h2>
+        <hr class="titlebar">
+        <p>
+            準備中
+        </p>
+    </section>
     </article>
 
     </main>
@@ -303,9 +312,13 @@
             <hr class="titlebar">
             <p class="counter">
                 今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">0</span>
+                <span id="counter_today" class="counter_num">
+                    <?php echo $accessData['daily'][0]['count']?>
+                </span>
                 合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">0</span>
+                <span id="counter_all" class="counter_num">
+                    <?php echo $accessData['all']?>
+                </span>
                 <a href="/counter/">詳細</a>
             </p>
         </div>

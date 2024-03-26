@@ -47,8 +47,7 @@
         <h1>その他</h1>
         <hr class="titlebar">
         <p>
-            その他いろいろなコンテンツへのリンクです。<br>
-            見ていってね。
+            いろいろ。
         </p>
     </div>
     
@@ -56,7 +55,10 @@
     <section class="box">
         <h2>リンク</h2>
         <hr class="titlebar">
-        <p></p>
+        <p>
+            その他いろいろなコンテンツへのリンクです。<br>
+            見ていってね。
+        </p>
         <div class="inbox">
             <h3>自宅環境紹介</h3>
             <hr class="titlebar">
@@ -74,11 +76,36 @@
             <hr class="titlebar">
             <p>
                 ページ内検索ができます。<br>
+                ページ右orハンバーガーメニュー内のページ内検索からも飛べます。<br>
+                ※(ゆいの)ページ内検索なので事実上のサイト内検索
                 <a href="/search/" class="link_box">ページ内検索</a>
             </p>
         </div>
         <br>
     </section>
+    
+    <section class="box">
+        <h2>ゆいのページ閲覧推奨環境</h2>
+        <hr class="titlebar">
+        <p>
+            コンテンツを正常に閲覧できることを確認している環境です。(開発環境)<br>
+            これ以外の環境ではページレイアウトが崩れたり、読み込みができなかったりするかも…?
+        </p>
+        <p> 
+            <dl class="dllist">
+                <dt>OS</dt>
+                    <dd>Windows11、Windows10 最新版</dd>
+                <dt>ブラウザ</dt>
+                    <dd>Google Chrome 最新版</dd>
+                <dt>画面幅</dt>
+                    <dd>350px～</dd>
+                <dt>画面高さ</dt>
+                    <dd>150px～</dd>
+                <dt>スペック</dt>
+                    <dd>Twitterが動くくらい</dd>
+            </dl>
+        </p>
+        </section>
     </article>
 
     </main>
@@ -118,9 +145,13 @@
             <hr class="titlebar">
             <p class="counter">
                 今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">0</span>
+                <span id="counter_today" class="counter_num">
+                    <?php echo $accessData['daily'][0]['count']?>
+                </span>
                 合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">0</span>
+                <span id="counter_all" class="counter_num">
+                    <?php echo $accessData['all']?>
+                </span>
                 <a href="/counter/">詳細</a>
             </p>
         </div>

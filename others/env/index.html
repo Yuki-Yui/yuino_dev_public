@@ -478,9 +478,13 @@
             <hr class="titlebar">
             <p class="counter">
                 今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">0</span>
+                <span id="counter_today" class="counter_num">
+                    <?php echo $accessData['daily'][0]['count']?>
+                </span>
                 合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">0</span>
+                <span id="counter_all" class="counter_num">
+                    <?php echo $accessData['all']?>
+                </span>
                 <a href="/counter/">詳細</a>
             </p>
         </div>

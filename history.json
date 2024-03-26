@@ -150,6 +150,11 @@
         "description": "ブログのタグ検索機能の実装"
     },
     {
+        "show": true,
+        "date": "2024-03-24",
+        "description": "ゆいのページの閲覧推奨環境を<a href='/others/'>その他</a>に追加"
+    },
+    {
         "show": false,
         "date": "",
         "description": ""
