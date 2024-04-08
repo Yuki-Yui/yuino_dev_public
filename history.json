@@ -132,7 +132,7 @@
     {
         "show": true,
         "date": "2024-02-03",
-        "description": "ブログ更新：<a href='/blog/2024001/'>ダイソーの激安ワイヤレスイヤホン長期使用レビュー</a>"
+        "description": "ブログ公開：<a href='/blog/2024001/'>ダイソーの激安ワイヤレスイヤホン長期使用レビュー</a>"
     },
     {
         "show": true,
@@ -153,6 +153,16 @@
         "show": true,
         "date": "2024-03-24",
         "description": "ゆいのページの閲覧推奨環境を<a href='/others/'>その他</a>に追加"
+    },
+    {
+        "show": true,
+        "date": "2024-04-06",
+        "description": "ブログ公開：<a href='/blog/2024002/'>電通大生活を快適に送るためのTips</a>"
+    },
+    {
+        "show": true,
+        "date": "2024-04-08",
+        "description": "知り合いのリンクの更新"
     },
     {
         "show": false,

@@ -22,10 +22,10 @@ function display_blog_info(){
 
         if(datebox != null){
             let dateHTML = "";
-            let updata = articledata.updata;
+            let update = articledata.update;
             dateHTML += `公開 ${articledata.release_date}`;
-            if(updata.length != 0){
-                dateHTML += `<br>最終更新 ${updata[updata.length-1]}`;
+            if(update.length != 0){
+                dateHTML += `<br>最終更新 ${update[update.length-1]}`;
             } 
             datebox.innerHTML = dateHTML;
         }

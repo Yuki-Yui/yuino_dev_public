@@ -723,7 +723,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
+    max-width: 350px;
     cursor: pointer;
 
     padding: 0.5rem;
