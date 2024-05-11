@@ -165,6 +165,21 @@
         "description": "知り合いのリンクの更新"
     },
     {
+        "show": true,
+        "date": "2024-04-08",
+        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+    },
+    {
+        "show": true,
+        "date": "2024-05-04",
+        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+    },
+    {
+        "show": true,
+        "date": "2024-05-04",
+        "description": "ブログ追記：<a href='/blog/2024001/'>ダイソーの激安ワイヤレスイヤホン長期使用レビュー</a>"
+    },
+    {
         "show": false,
         "date": "",
         "description": ""
