@@ -221,6 +221,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
+//リンクの改造
+
+document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href && !href.startsWith("#")) {
+            const url = new URL(href, window.location.origin);
+            if (url.origin !== window.location.origin) {
+                link.setAttribute("target", "_blank");
+                link.setAttribute("rel", "noopener noreferrer");
+            }
+        }
+    });
+});
+
+
 //共通
 
 document.addEventListener('touchstart',()=>{});
