@@ -558,9 +558,10 @@ footer a{
     background: var(--background-color);
     border: solid 2px var(--border2-color);
     border-radius: 0.5rem;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    word-wrap: break-word;
 }
 .captionbox{
     display: block;
