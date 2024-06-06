@@ -142,9 +142,9 @@ async function getOGP(url) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const ogp = {
-            title: getLastElementContent(doc, 'meta[property="og:title"]' , 'content'),
-            description: getLastElementContent(doc, 'meta[name="description"]', 'content'),
-            image: getLastElementContent(doc, 'meta[property="og:image"]', 'content'),
+            title: getLastElementContent(doc, ['meta[property="og:title"]','title'] , ['content','']),
+            description: getLastElementContent(doc, ['meta[property="og:description"]','meta[name="description"]'], ['content','content']),
+            image: getLastElementContent(doc, ['meta[property="og:image"]'], ['content']),
             url: url,
             domain: (new URL(url)).hostname,
         };
@@ -156,9 +156,13 @@ async function getOGP(url) {
 }
 
 function getLastElementContent(doc, selector, attribute) {
-    const elements = doc.querySelectorAll(selector);
-    const lastElement = elements[elements.length - 1];
-    return lastElement ? (attribute ? lastElement.getAttribute(attribute) : lastElement.textContent) : '';
+    for( let i=0; i<selector.length; i++){
+        const elements = doc.querySelectorAll(selector[i]);
+        if (elements.length == 0) continue;
+        const lastElement = elements[elements.length - 1];
+        return attribute[i] != '' ? lastElement.getAttribute(attribute[i]) : lastElement.textContent;
+    }
+    return '';
 }
 
 function generateBlogCard(dom,ogp) {
