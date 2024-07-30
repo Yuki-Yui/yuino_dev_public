@@ -61,9 +61,25 @@
             <s>「内容がないよ～」</s>
         </p>
     </div>
+    
+    <article class="box">
+        <section class="blog_index">
+        <h2>目次</h2>
+        <ol>
+            <li><a href="#section-1">はじめに</a></li>
+            <li><a href="#section-2">試したこと</a></li>
+            <li><a href="#section-3">解決方法：Windowsの設定をいじる</a></li>
+            <li><a href="#section-4">まとめ</a></li>
+            <li><a href="#section-5">☆2023-11-21追記☆ やっぱりだめだった😢</a></li>
+            <li><a href="#section-6">☆2024-05-11追記☆ Windows起動時にソフトを自動で起動する</a></li>
+        </ol>
+
+        </section>
+    </article>
+    
     <article class="box">
         <section>
-            <h2>はじめに</h2>
+            <h2 id="section-1">はじめに</h2>
             <hr class="titlebar">
             <p>
                 週1ブログ更新を決めたけど1か月さぼっていたゆいです。<br>
@@ -74,7 +90,7 @@
             </p>
         </section>
         <section>
-            <h2>試したこと</h2>
+            <h2 id="section-2">試したこと</h2>
             <hr class="titlebar">
             <p>
                 試したけどダメだったことまとめ
@@ -90,7 +106,7 @@
             </p>
         </section>
         <section>
-            <h2>解決方法：Windowsの設定をいじる</h2>
+            <h2 id="section-3">解決方法：Windowsの設定をいじる</h2>
             <hr class="titlebar">
             <p>
                 Windowsの設定で無理やり解決します。<br>
@@ -107,7 +123,7 @@
             </p>
         </section>
         <section>
-            <h2>まとめ</h2>
+            <h2 id="section-4">まとめ</h2>
             <hr class="titlebar">
             <p>
                 Windowsの設定を変えてマウスのチャタリングを直しました。
@@ -117,7 +133,7 @@
             </p>
         </section>
         <section>
-            <h2>☆2023-11-21追記☆ やっぱりだめだった😢</h2>
+            <h2 id="section-5">☆2023-11-21追記☆ やっぱりだめだった😢</h2>
             <hr class="titlebar">
             <p>
                 Windowsの設定でごまかして数日間使っていましたが、やっぱりダメそうです。どんどんひどくなっています。
@@ -140,7 +156,7 @@
             </p>
         </section>
         <section>
-            <h2>☆2024-05-11追記☆ Windows起動時にソフトを自動で起動する</h2>
+            <h2 id="section-6">☆2024-05-11追記☆ Windows起動時にソフトを自動で起動する</h2>
             <hr class="titlebar">
             <p>
                 Google検索から見に来てくれる人が多そうだったので、ChatteringCancelerをwindwos起動時に自動で起動する方法を簡単に書いておきます。毎回手動で起動するのめんどくさいですからね。
@@ -177,7 +193,7 @@
             <h2>ページ内検索</h2>
             <hr class="titlebar">
             <p>ページ内の検索ができます。
-                <form action="/search/index.html" method="get">
+                <form action="/search/" method="get">
                     <label for="searchTerm"></label>
                     <div class="search_box">
                         <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">

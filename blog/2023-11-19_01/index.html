@@ -59,9 +59,29 @@
             Google Domainsが滅びたのでCloudflareに移管しました。結構簡単にできました。
         </p>
     </div>
+    
+    <article class="box">
+        <section class="blog_index">
+        <h2>目次</h2>
+        <ol>
+            <li><a href="#section-1">はじめに</a></li>
+            <li><a href="#section-2">Google Domains側</a></li>
+            <ul>
+                <li><a href="#section-2-1">ドメインのロックを解除</a></li>
+                <li><a href="#section-2-2">認証コードを発行</a></li>
+            </ul>
+            <li><a href="#section-3">Cloudflare側</a></li>
+            <li><a href="#section-4">メールが届く</a></li>
+            <li><a href="#section-5">ドメインの自動更新</a></li>
+            <li><a href="#section-6">おわりに</a></li>
+        </ol>
+
+        </section>
+    </article>
+    
     <article class="box">
         <section>
-            <h2>はじめに</h2>
+            <h2 id="section-1">はじめに</h2>
             <hr class="titlebar">
             <p>
                 Google Domainsで買ったyuino.devドメインですが、Google Domainsがサ終(正確にはSquarespaceに移管)してしまったのでどこかに移管したいなと思ってました。ゆいのページはCloudflare経由で公開してるのでCloudflareに移管しようかな。あとCloudflareくん、whois情報を隠してくれるらしい。完全に忘れてたのを思い出したのでやります。
@@ -71,7 +91,7 @@
             </p>
         </section>        
         <section>
-            <h2>Google Domains側</h2>
+            <h2 id="section-2">Google Domains側</h2>
             <hr class="titlebar">
             <p>
                 Google Domainsにアクセスし、移管するドメインの登録の設定画面を開きます。<br>
@@ -81,7 +101,7 @@
                     <li>認証コードを発行する</li>
                 </ul>
             </p>
-            <h3>ドメインのロックを解除</h3>
+            <h3 id="section-2-1">ドメインのロックを解除</h3>
             <p>
                 下の写真のようにトグルボタンをオフにします。
                 <div class="blog_photo_wrapper">
@@ -89,7 +109,7 @@
                     <span class="center">ドメインの登録の設定画面</span>
                 </div>
             </p>
-            <h3>認証コードを発行</h3>
+            <h3 id="section-2-2">認証コードを発行</h3>
             <p>
                 <b>「認証コードを取得」</b>を押して認証コードを発行します。<br>
                 あとで使うのでコピーして控えておきます。
@@ -100,7 +120,7 @@
             </p>
         </section>
         <section>
-            <h2>Cloudflare側</h2>
+            <h2 id="section-3">Cloudflare側</h2>
             <hr class="titlebar">
             <p>
                 Cloudflareにアクセスし、移管したいドメインのダッシュボードを開き、サイドバーから<b>「ドメインの移管」</b>を選択します。
@@ -124,7 +144,7 @@
             </p>
         </section>
         <section>
-            <h2>メールが届く</h2>
+            <h2 id="section-4">メールが届く</h2>
             <hr class="titlebar">
             <p>
                 Google DomainsとCloudflare両方からメールが届きます。<br>
@@ -142,7 +162,7 @@
             </p>
         </section>
         <section>
-            <h2>ドメインの自動更新</h2>
+            <h2 id="section-5">ドメインの自動更新</h2>
             <hr class="titlebar">
             <p>
                 Cloudflareのドメイン管理ページから、ドメインの自動更新をオンにしておきます。おそらく最初からオンになっていると思われますが、、、
@@ -154,7 +174,7 @@
             </p>
         </section> 
         <section>
-            <h2>おわりに</h2>
+            <h2 id="section-6">おわりに</h2>
             <hr class="titlebar">
             <p>
                 ドメインを移管しました。20分くらいでサクッと終わり、思ってたより簡単でした。<br>
@@ -184,7 +204,7 @@
             <h2>ページ内検索</h2>
             <hr class="titlebar">
             <p>ページ内の検索ができます。
-                <form action="/search/index.html" method="get">
+                <form action="/search/" method="get">
                     <label for="searchTerm"></label>
                     <div class="search_box">
                         <input type="text" name="q" id="searchTerm" placeholder="検索" class="search_input">
