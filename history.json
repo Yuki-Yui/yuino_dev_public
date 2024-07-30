@@ -190,6 +190,26 @@
         "description": "<a href='/works/'>作品集</a>を更新"
     },
     {
+        "show": true,
+        "date": "2024-06-07",
+        "description": "アイコンの更新"
+    },
+    {
+        "show": true,
+        "date": "2024-06-07",
+        "description": "知り合いのリンクの追加"
+    },
+    {
+        "show": true,
+        "date": "2024-06-16",
+        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+    },
+    {
+        "show": true,
+        "date": "2024-07-07",
+        "description": "<a href='/works/'>作品集</a>を更新"
+    },
+    {
         "show": false,
         "date": "",
         "description": ""
