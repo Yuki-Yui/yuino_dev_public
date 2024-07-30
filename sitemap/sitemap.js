@@ -1,5 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-// });
 fetch('sitemap.xml')
   .then(response => response.text())
   .then(data => {
@@ -13,7 +11,7 @@ fetch('sitemap.xml')
     function processPage(index) {
       if (index < siteMapElements.length) {
         let element = siteMapElements[index];
-        let loc = element.querySelector('loc').textContent;
+        let loc = element.querySelector('loc').textContent.replace('https://yuino.dev','')
         let title = element.querySelector('title').textContent;
 
         if (loc.includes('error')) {
@@ -21,9 +19,9 @@ fetch('sitemap.xml')
           return;
         }
 
-        let depth = loc.split('/').length - 3;
+        let depth = loc.split('/').length - 1;
 
-        if (loc.endsWith('index.html')) {
+        if (loc.endsWith('/')) {
           depth--;
         }
         
@@ -49,31 +47,3 @@ fetch('sitemap.xml')
   .catch(error => {
     console.error('XML読み込みエラー: ', error);
   });
-          
-          // fetch(loc)
-          //   .then(response => {
-          //     if (response.status === 403 || response.status === 404) {
-          //       // ステータスコードが403または404の場合はページをスキップ
-          //       return null;
-          //     }
-          //     return response.text();
-          //   })
-          //   .then(data => {
-          //     if (data) {
-                // let parser = new DOMParser();
-                // let htmlDoc = parser.parseFromString(data, 'text/html');
-                // let h1Elements = htmlDoc.querySelectorAll('h1');
-                // let title = '';
-
-                // if (h1Elements.length > 0) {
-                //   title = h1Elements[h1Elements.length - 1].textContent;
-                // }
-
-      //         }
-
-            // })
-            // .catch(error => {
-            //   console.error('ページの読み込みエラー: ', error);
-            //   processPage(index + 1); // 次のページを処理
-
-            // });
