@@ -92,24 +92,24 @@ function Close_Hamburger(){
 }
 
 
-// タイトルを自動生成　<-あほ
-// const h1Elements = document.getElementsByTagName("h1");
-// document.title = h1Elements[h1Elements.length-1].textContent+' - '+h1Elements[0].textContent;
-
-
 // 上に戻るボタン
 window.addEventListener('scroll', ()=>{
     const scroll_threshold = 50;
+    const scrollButtonWrapper = document.getElementById('scrollButtonWrapper');
     if (document.body.scrollTop > scroll_threshold || document.documentElement.scrollTop > scroll_threshold) {
-        scrollToTopButton.style.display = 'block';
+        scrollButtonWrapper.style.display = 'block';
     } else {
-        scrollToTopButton.style.display = 'none';
+        scrollButtonWrapper.style.display = 'none';
     }
 });
 
 const scrollToTopButton = document.getElementById('scrollToTopButton');
 scrollToTopButton.addEventListener('click', ()=>{
-    window.scrollTo({top:0,left:0,behavior:"smooth"});
+    window.scrollTo({top:0,left:0});
+});
+const scrollToBottomButton = document.getElementById('scrollToBottomButton');
+scrollToBottomButton.addEventListener('click', ()=>{
+    window.scrollTo({top:document.body.scrollHeight,left:0,behavior:'smooth'});
 });
 
 
@@ -130,39 +130,31 @@ scrollToTopButton.addEventListener('click', ()=>{
 
 
 //OGP
-async function getOGP(url) {
-    const proxyurl = `https://proxy.yuino.dev/${url}`
-    try {
-        const response = await fetch(proxyurl);
-        if(!response.ok){
-            console.error("Error")
+async function OGPmain(){
+    const OGboxlist = document.getElementsByClassName("og-card");
+    const OG_JSON_PATH = '/files/ogp_info.json';
+    let og_data_list = [];
+    await readJson(OG_JSON_PATH).then(data => {
+        og_data_list = Array.from(data);
+    });
+    Array.prototype.forEach.call(OGboxlist,(dom)=>{
+        const url = dom.getAttribute('href');
+        console.log(`Retrieving OGP information for: ${url}`);
+        let og_data = {};
+        og_data_list.forEach((tar)=>{
+            if (tar.url == url || tar.url == `${url}/` || `${tar.url}/` == url) {
+                og_data.title = tar.title;
+                og_data.description = tar.description;
+                og_data.image = tar.image;
+                og_data.domain = tar.domain;
+            }
+        });
+        if (og_data) {
+            generateBlogCard(dom,og_data);
+        } else {
+            console.log(`Failed to retrieve OGP information. ${url}`);
         }
-        const html = await response.text();
-        
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const ogp = {
-            title: getLastElementContent(doc, ['meta[property="og:title"]','title'] , ['content','']),
-            description: getLastElementContent(doc, ['meta[property="og:description"]','meta[name="description"]'], ['content','content']),
-            image: getLastElementContent(doc, ['meta[property="og:image"]'], ['content']),
-            url: url,
-            domain: (new URL(url)).hostname,
-        };
-        return ogp;
-    } catch (error) {
-        console.error('Error fetching or parsing HTML:', error.message);
-        return null;
-    }
-}
-
-function getLastElementContent(doc, selector, attribute) {
-    for( let i=0; i<selector.length; i++){
-        const elements = doc.querySelectorAll(selector[i]);
-        if (elements.length == 0) continue;
-        const lastElement = elements[elements.length - 1];
-        return attribute[i] != '' ? lastElement.getAttribute(attribute[i]) : lastElement.textContent;
-    }
-    return '';
+    });
 }
 
 function generateBlogCard(dom,ogp) {
@@ -171,65 +163,26 @@ function generateBlogCard(dom,ogp) {
         cardHTML = `
             <img src="${ogp.image}" alt="Image">
             <div class="og-card_sentence">
-                <h3>${ogp.title}</h3>
-                <span>${ogp.description}</span>
-                <span>${ogp.domain}</span>
+                <span class="og-card_title">${ogp.title}</span>
+                <span class="og-card_description">${ogp.description}</span>
+                <span class="og-card_domain">${ogp.domain}</span>
             </div>
         `;
     }else{
         cardHTML = `
             <div class="og-card_sentence">
-                <h3>${ogp.title}</h3>
-                <span>${ogp.description}</span>
-                <span>${ogp.domain}</span>
+                <span class="og-card_title">${ogp.title}</span>
+                <span class="og-card_description">${ogp.description}</span>
+                <span class="og-card_domain">${ogp.domain}</span>
             </div>
         `;
     }
     dom.innerHTML = cardHTML;
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
-    const OGboxlist = document.getElementsByClassName("og-card");
-    Array.prototype.forEach.call(OGboxlist,(dom)=>{
-        const url = dom.href;
-        getOGP(url)
-        .then((ogp)=>{
-        if (ogp) {
-            // ブログカードを生成
-            generateBlogCard(dom,ogp);
-        } else {
-            console.log('Failed to retrieve OGP information.');
-        }
-        })
-        .catch((error)=>console.error('Error:', error));
-    });
-});
-
-
-//ページ内リンクをずらす
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e)=>{
-        e.preventDefault();
-
-        const targetId = anchor.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            window.scrollTo({
-            top: targetElement.offsetTop - 120, // ヘッダーの高さに合わせて調整
-            behavior: 'smooth',
-            });
-      }
-    });
-});
-
-
 //リンクの改造
-
-document.addEventListener("DOMContentLoaded", function() {
+function addExternalLinkAttributes() {
     const links = document.querySelectorAll("a");
-
     links.forEach(link => {
         const href = link.getAttribute("href");
         if (href && !href.startsWith("#")) {
@@ -240,11 +193,78 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+}
+
+// テキストの検索→ハイライトとスクロール
+function searchTextInElement(){
+    const query = new URLSearchParams(window.location.search).get('search');
+    if (!query) return;
+    const regex = new RegExp(query, 'gi');
+    const elements = document.querySelectorAll('main');
+    elements.forEach(el => highlightText(el, regex));
+    const firstMatch = document.querySelector('mark');
+    if (firstMatch) {
+        firstMatch.scrollIntoView({
+            behavior: document.documentElement.classList.contains('no-animations') ? 'auto' : 'smooth',
+            block: 'center'
+        });
+    }
+}
+
+function highlightText(root, regex) {
+    const walker = document.createTreeWalker(
+        root,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) {
+        if (regex.test(node.nodeValue)) textNodes.push(node);
+    }
+    textNodes.forEach(textNode => {
+        const frag = document.createDocumentFragment();
+        let lastIndex = 0;
+        regex.lastIndex = 0;
+        let match;
+        while ((match = regex.exec(textNode.nodeValue))) {
+            const before = textNode.nodeValue.slice(lastIndex, match.index);
+            if (before) frag.appendChild(document.createTextNode(before));
+            const mark = document.createElement('mark');
+            mark.textContent = match[0];
+            frag.appendChild(mark);
+            lastIndex = regex.lastIndex;
+        }
+        const after = textNode.nodeValue.slice(lastIndex);
+        if (after) frag.appendChild(document.createTextNode(after));
+        textNode.parentNode.replaceChild(frag, textNode);
+    });
+}
+
+function highLightCurrentLink() {
+    const segments = window.location.pathname.replace(/\/$/, '').split('/');
+    const current = segments[1] ? '/' + segments[1] : '/';
+    document.querySelectorAll(".aside_link_box").forEach(link => {
+        const path = new URL(link.href, location.origin).pathname.replace(/\/$/, "") || "/";
+        if (path === current) {
+            // link.style.color = "var(--border2-color)";
+            link.style.fontWeight = "bold";
+            link.style.fontSize = "1.5em";
+            link.classList.add("active");
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    addExternalLinkAttributes();
+    searchTextInElement();
+    highLightCurrentLink();
+    OGPmain();
 });
 
 
 //共通
-
 document.addEventListener('touchstart',()=>{});
 
 function readJson(path) {

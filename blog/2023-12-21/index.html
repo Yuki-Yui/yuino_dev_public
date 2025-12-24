@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -30,14 +34,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -46,10 +50,10 @@
     <div id="main_wrapper">
     <main>
     <div class="box center">
-        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+        <a href="/blog/"  class="top_link">ゆいブログ</a>
     </div>
     <div class="box">
-        <h1>ジャンク修理をはじめよう ROM焼き編</h1>
+        <h1 class="no-titlebar">ジャンク修理をはじめよう ROM焼き編</h1>
         <img src="images/blog_thumbnail.jpg" class="blog_photo" alt="記事のサムネイル">
         <div id="blog_info">
             <div class="blog_title_tag" id="blog_info_tag"></div>
@@ -61,7 +65,7 @@
         </p>
     </div>
     <article class="box">
-        <h2 class="center">この記事は UEC 2 Advent Calendar 2023 の21日目の記事です。</h2>
+        <h2 class="center no-titlebar">この記事は UEC 2 Advent Calendar 2023 の21日目の記事です。</h2>
         <p>
             ほかの人の記事は下のリンクから読めます。2枠も生えてるのすごい。
             <a href="https://adventar.org/calendars/8698" class="og-card" target="_blank">UEC Advent Calendar 2023</a>
@@ -101,7 +105,6 @@
     <article class="box">
         <section>
             <h2 id="whois">1.きみはだれ？</h2>
-            <hr class="titlebar">
             <p>
                 はじめまして、ゆいです。ねこが好きです。<br>
                 パソコンをつくったり壊したりして遊んだり、ちょっとした電子工作とかやったりしています。<br>
@@ -112,7 +115,6 @@
         </section>
         <section>
             <h2 id="intro">2.はじめに</h2>
-            <hr class="titlebar">
             <p>
                 「ジャンク」とか「ジャンク品」とか聞いたことはありますか？<br>
                 PCなど電子機器パーツの中古もので保証がついてないものをさす場合が多いのかな。激安で入手できる代わりに壊れてることが前提だったりするので手を出しづらい人がほとんどかなあと思っています。
@@ -124,7 +126,6 @@
         </section>
         <section>
             <h2 id="whatisROMYAKI">3.ROM焼き修理とは？</h2>
-            <hr class="titlebar">
             <p>
                 windowsなどのOSはパソコンの起動に必要ですが、そのOSの前に立ち上がりパソコンのハードウェアの制御などを司るプログラムに<b>BIOS</b>があります。
                 <div class="blog_photo_wrapper">
@@ -136,7 +137,6 @@
             </p>
             <div class="inbox">
                 <h3 id="ROMYAKI_needs">必要なもの</h3>
-                <hr class="titlebar">
                 <p>
                     必要な機器は、Amazonなどで売ってるROMライターだけです。<br>
                     大体1,500円くらいから買えます。
@@ -164,7 +164,6 @@
             </div>
             <div class="inbox">
                 <h3 id="howtoROMYAKI">やりかた</h3>
-                <hr class="titlebar">
                 <p>
                     本当はここに詳細なROM焼き方法を書こうと思ってましたが、めちゃ長くなる&時間がないので、今のところは参考サイトを貼っておきます。
                     <a href="https://pcniki.com/ch341a-bios/" class="og-card" target="_blank">CH341Aを使ってBIOSの書き換えを行う</a>
@@ -186,7 +185,6 @@
         </section>
         <section>
             <h2 id="practice1">4.実践編 ①マザーボード(起動不可)</h2>
-            <hr class="titlebar">
             <p>
                 実際に修理した例をいくつか紹介します。<br>
                 1つ目は起動不可能なマザーボードです。<br>
@@ -194,7 +192,6 @@
             </p>
             <div class="inbox">
                 <h3 id="1_pin">ピン曲がり</h3>
-                <hr class="titlebar">
                 <p>
                     ピン曲がりは赤で囲ったところが180°反対向いてます、なんで？<br>
                     ピンセットでちまちま直します。
@@ -206,7 +203,6 @@
             </div>
             <div class="inbox">
                 <h3 id="1_pattern">パターン切れ</h3>
-                <hr class="titlebar">
                 <p>
                     パターン切れも修理します。<br>
                     切れているのはメモリにつながるところらしくて、全スロットのうち2/4しか認識しませんでした。<br>
@@ -221,7 +217,6 @@
             </div>
             <div class="inbox">
                 <h3 id="1_rom">ROM焼き</h3>
-                <hr class="titlebar">
                 <p>
                     やっと本題のROM焼きです。ここまでの修理で直るかなとおもってましたが、やっぱりBIOSも死んでるみたいです。電源は入りますが、画面に何もうつりません。
                     <div class="blog_photo_wrapper">
@@ -251,7 +246,6 @@
         </section>
         <section>
             <h2 id="practice2">5.実践編 ②マザーボード(CPUの世代違い)</h2>
-            <hr class="titlebar">
             <p>
                 次は修理というよりは改造に近いかも？<br>
                 intel製CPUは世代が違っても同じマザーボード(チップセット)が流用できるものがあります。今回のB150マザーボードは、intel第6,7世代に対応しています。<br>
@@ -270,7 +264,6 @@
         </section>
         <section>
             <h2 id="practice3">6.実践編 ③4Kモニタ(電源が入らない)</h2>
-            <hr class="titlebar">
             <p>
                 ROM ICがついていて、それが壊れているのが原因であれば、マザーボードに限らず修理が可能です。<br>
                 偶然入手した<a href="https://www.lg.com/jp/monitors/fhd-qhd/31mu97-b/" target="_blank">電源が入らない4Kモニタ</a>、ちょっと調べてみるとROMのせいで起動しなくなることがわりとあるらしいです。<br><br>
@@ -299,7 +292,6 @@
         </section>
         <section>
             <h2 id="end">7.おわりに</h2>
-            <hr class="titlebar">
             <p>
                 さいごまで読んでいただきありがとうございました！<br>
                 修理の中では簡単な部類だと思うので、ぜひ挑戦してみてください。誰かの参考になればうれしいです。<br>
@@ -317,11 +309,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -334,7 +325,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -349,45 +339,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

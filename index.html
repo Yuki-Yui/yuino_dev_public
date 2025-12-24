@@ -5,13 +5,18 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.7" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
+    <script src="/scripts/setting.js"></script>
 <!-- head_to -->    
 
     <title>ゆいのページ</title>
@@ -27,6 +32,9 @@
     <script src="scripts/top_message.js?1.3" defer></script>
     <style>
         .self_photo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             z-index: 0;
         }
@@ -72,14 +80,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -91,61 +99,24 @@
     <main>
     <div class="box">
         <h1>トップページ</h1>
-        <hr class="titlebar">
-        <div id="top_self_photo" class="self_photo center">
+        <div id="top_self_photo" class="self_photo">
             <img src="images/yui_talking.webp" alt="ゆいのアイコンがしゃべってる">
-            <span id="top_message">
-            <?php
-                error_reporting(0);
-                $messages = array(
-                    "はじめまして、<br>ゆいだよ！<br>ねこがすき🐈",
-                    "ようこそ！<br>ゆっくりみていってね～",
-                    "サイドバーからおみくじが引けるよ！",
-                    "気が向いたときに更新してます（笑）",
-                    "ページに追加したら楽しいなっていう機能があったら教えてね！",
-                    "「ゆいのページ」でGoogle検索しよう",
-                    "真心こめた手打ちHTML&CSSで動いています",
-                    "たまにページが破壊されることも……？？？",
-                    "あったかいおふとん、<br>好き",
-                    "ようこそ!!!!!!!!",
-                    "お絵描きに<br>挑戦したいな…",
-                    "カウンターの「詳細」をクリックすると履歴が見られるよ"
-                );
-                $Rmessages = [
-                    "だじゃれ生成AI",
-                    "ねこ🐈(=^・^=)🐱",
-                    "…",
-                    "げげげ",
-                    "みょみょんみょみょみょみょん",
-                    "かわいい美少女です"
-                ];
-                $SRmessages = [
-                    "おめでとう！<br>このメッセージが表示される確率は0.1%です!!"
-                ];
-                $randmax = 1000;
-                $rate = rand(1,$randmax);
-                $message = 
-                    $rate<=$randmax*0.1/100 ? $SRmessages[rand(0,count($SRmessages)-1)] : (
-                    $rate<=$randmax*20/100 ? $Rmessages[rand(0,count($Rmessages)-1)] :
-                    $messages[rand(0,count($messages)-1)]);
-                echo $message;
-            ?>
+            <span id="top_message" style="opacity: 0;">
             </span>
         </div>
         <p>ゆいのページへようこそ！<br>完全に趣味でやってます。いろいろなコンテンツ追加していきたい！</p>
     </div>
     <div class="box">
         <h2>自己紹介</h2>
-        <hr class="titlebar">
         <ul>
             <li>
-                <dl><dt><h3>名前</h3></dt><dd>結城 ゆい (ゆうき ゆい)</dd></dl>
+                <dl><dt><h3 class="no-titlebar">名前</h3></dt><dd>結城 ゆい (ゆうき ゆい)</dd></dl>
             </li>
             <li>
-                <dl><dt><h3>年齢</h3></dt><dd>17+n歳</dd></dl>
+                <dl><dt><h3 class="no-titlebar">年齢</h3></dt><dd>17+n歳</dd></dl>
             </li>
             <li>
-                <dl><dt><h3>所属</h3></dt><dd>多摩のマサチューセッツ工科大学
+                <dl><dt><h3 class="no-titlebar">所属</h3></dt><dd>多摩のマサチューセッツ工科大学
                 <ul>
                     <li><a href="https://www.koken.club.uec.ac.jp/" target="_blank">電子工作とかプログラミングとかをするサークル</a></li>
                     <li><a href="http://www.uecphoto.club.uec.ac.jp/" target="_blank">写真撮るサークル</a></li>
@@ -153,7 +124,7 @@
                 </dd></dl>
             </li>
             <li>
-                <dl><dt><h3>好きなこと</h3></dt><dd>
+                <dl><dt><h3 class="no-titlebar">好きなこと</h3></dt><dd>
                     <ul>
                         <li>パソコンいじり</li>
                         <li>はんだづけ</li>
@@ -164,7 +135,7 @@
                 </dd></dl>
             </li>
             <li>
-                <dl><dt><h3>嫌いなこと</h3></dt><dd>
+                <dl><dt><h3 class="no-titlebar">嫌いなこと</h3></dt><dd>
                     <ul>
                         <li>暑いこと</li>
                         <li>不可逆なこと</li>
@@ -172,7 +143,7 @@
                 </dd></dl>
             </li>
             <li>
-                <dl><dt><h3>SNS</h3></dt><dd><a href="/sns/">ここをみて………</a></dd></dl>
+                <dl><dt><h3 class="no-titlebar">SNS</h3></dt><dd><a href="/sns/">ここをみて………</a></dd></dl>
             </li>
             <!-- <li>
                 <dl><dt><h3> </h3></dt><dd> </dd></dl>
@@ -183,13 +154,12 @@
     
         <div  id="otherslinks" class="box" style=" margin: 0; flex: 2;">
             <h2>リンク集</h2>
-            <hr class="titlebar">
             <p>
                 知り合いのページを勝手に追加します
                 <ul>
                     <li><a href="https://helkun.dev" target="_blank">ヘル破壊財団</a></li>
                     <li><a href="https://trpfrog.net" target="_blank">つまみネット</a></li>
-                    <li><a href="https://lnln.dev/" target="_blank">りんりん</a></li>
+                    <li><a href="https://lnln.dev/" target="_blank">なかがわ電機サービス</a></li>
                     <li><a href="https://elmer9.github.io/" target="_blank">りんりん(ファンサイト)</a></li>
                     <li><a href="https://azukibar.dev/" target="_blank">アイスの棒</a></li>
                     <li><a href="https://gotti.dev/" target="_blank">ごっちでぶ</a></li>
@@ -199,7 +169,7 @@
                     <li><a href="https://shigu10.neocities.org/" target="_blank">しぐれ煮</a></li>
                     <!-- <li><a href="https://wasab-wasako.github.io/shigure/" target="_blank">しぐれ(工事中)</a></li> -->
                     <li><a href="https://www.k1h.dev/" target="_blank">k1h.dev</a></li>
-                    <li><a href="https://blog.usa-mimi.net/" target="_blank">MimiChan</a></li>
+                    <li><a href="https://mimifuwa.cc/" target="_blank">Mimifuwa.cc</a></li>
                     <li><a href="https://y-chan.dev/" target="_blank">y-chan's website</a></li>
                     <li><a href="https://www.sushichan.live/" target="_blank">すしのへや</a></li>
                     <li><a href="https://kqiita.github.io/" target="_blank">はんかくくんのページ</a></li>
@@ -211,7 +181,6 @@
         </div>
         <div class="box" id="mite" style=" margin: 0; flex: 1;">
             <h2>みて………</h2>
-            <hr class="titlebar">
             <p>
                 最近更新されたページとか
                 <ul>
@@ -227,12 +196,11 @@
     </div>
     <div class="box">
         <h2>更新情報</h2>
-        <hr class="titlebar">
         <p>
             <dl class="history">
             <?php
                 error_reporting(0);
-                $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/history.json';
+                $jsonPath = $_SERVER['DOCUMENT_ROOT'] .'/files/history.json';
 
                 $historyArray = array_reverse(json_decode(file_get_contents($jsonPath)));
                 $i=10;
@@ -250,7 +218,6 @@
     </div>
     <div class="box" id="minigame">
         <h2>てきとうなミニゲーム</h2>
-        <hr class="titlebar">
         <p>
             連打して爆発を止めろ！<br>連打ツールの使用は厳禁😡<br>
             ※よくバグる
@@ -262,11 +229,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -279,7 +245,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -294,46 +259,46 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel('Add')"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel('Add')"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
-        &copy; 2023-2024 ゆうきゆい
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
+        &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->
     

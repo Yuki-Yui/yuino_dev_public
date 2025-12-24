@@ -1,0 +1,26 @@
+.album_icon_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.album_icon_box{
+    width: calc( 25% - 9px );
+}
+.album_icon_box img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.album_photo_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.album_photo_box{
+    width: calc( 50% - 10px );
+}
+.album_photo_box img{
+    width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+}

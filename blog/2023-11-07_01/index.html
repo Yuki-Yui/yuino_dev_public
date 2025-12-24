@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -30,14 +34,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -46,10 +50,10 @@
     <div id="main_wrapper">
     <main>
     <div class="box center">
-        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+        <a href="/blog/"  class="top_link">ゆいブログ</a>
     </div>
     <div class="box">
-        <h1>マウスのチャタリングを無理やり直した</h1>
+        <h1 class="no-titlebar">マウスのチャタリングを無理やり直した</h1>
         <!-- <img src="" class="blog_photo" alt="記事のサムネイル"> -->
         <div id="blog_info">
             <div class="blog_title_tag" id="blog_info_tag"></div>
@@ -65,7 +69,7 @@
     
     <article class="box">
         <section class="blog_index">
-        <h2>目次</h2>
+        <h2 class="no-titlebar">目次</h2>
         <ol>
             <li><a href="#section-1">はじめに</a></li>
             <li><a href="#section-2">試したこと</a></li>
@@ -81,7 +85,6 @@
     <article class="box">
         <section>
             <h2 id="section-1">はじめに</h2>
-            <hr class="titlebar">
             <p>
                 週1ブログ更新を決めたけど1か月さぼっていたゆいです。<br>
                 最近、メインPCで使っている<a href="https://www.amazon.co.jp/%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0-%E3%82%B2%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E3%83%9E%E3%82%A6%E3%82%B9-2400dpi-%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%9E%E3%82%AF%E3%83%AD%E5%AF%BE%E5%BF%9C-M-DUX30BK/dp/B018WNIBK2?th=1" target="_blank">マウス</a>が死にかけです…<br>
@@ -92,7 +95,6 @@
         </section>
         <section>
             <h2 id="section-2">試したこと</h2>
-            <hr class="titlebar">
             <p>
                 試したけどダメだったことまとめ
                 <ul>
@@ -108,7 +110,6 @@
         </section>
         <section>
             <h2 id="section-3">解決方法：Windowsの設定をいじる</h2>
-            <hr class="titlebar">
             <p>
                 Windowsの設定で無理やり解決します。<br>
                 大体の人が一回は見たことがある(?)ダブルクリックの速度の設定を変更します。<br>
@@ -125,7 +126,6 @@
         </section>
         <section>
             <h2 id="section-4">まとめ</h2>
-            <hr class="titlebar">
             <p>
                 Windowsの設定を変えてマウスのチャタリングを直しました。
                 チャタリング発生確率が10%→0.1%くらいになりました。満足。<br>
@@ -135,7 +135,6 @@
         </section>
         <section>
             <h2 id="section-5">☆2023-11-21追記☆ やっぱりだめだった😢</h2>
-            <hr class="titlebar">
             <p>
                 Windowsの設定でごまかして数日間使っていましたが、やっぱりダメそうです。どんどんひどくなっています。
             </p>
@@ -158,7 +157,6 @@
         </section>
         <section>
             <h2 id="section-6">☆2024-05-11追記☆ Windows起動時にソフトを自動で起動する</h2>
-            <hr class="titlebar">
             <p>
                 Google検索から見に来てくれる人が多そうだったので、ChatteringCancelerをwindwos起動時に自動で起動する方法を簡単に書いておきます。毎回手動で起動するのめんどくさいですからね。
                 <ol>
@@ -176,11 +174,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -193,7 +190,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -208,45 +204,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

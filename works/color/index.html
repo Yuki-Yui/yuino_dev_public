@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
+    <link rel="manifest" href="/images/favicons/manifest.json">
+    <title>色見本 - ゆいのページ</title>
+    <meta name="description" content="モニターの色調整などに使える色見本のページです。">
+    <!-- OGP -->
+    <meta property="og:title" content="色見本 - ゆいのページ" />
+    <meta property="og:image" content="https://yuino.dev/images/thumbnail.png" />
+    <meta property="og:description" content="モニターの色調整などに使える色見本のページです。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ゆいのページ" />
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        #color-display {
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            align-content: center;
+            font-family: sans-serif;
+        }
+        #controls {
+            position: absolute;
+            top: 5rem;
+            left: 5rem;
+            background: rgba(0,0,0,0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        #controls>h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        #controls>label {
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        #controls>select{
+            padding: 0.2lh;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        /* #controls>button {
+            font-size: 1rem;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="color-display">
+        <div id="controls">
+            <h1>色見本</h1>
+            <label for="color-picker">表示する色を選択：</label><br/>
+            <select id="color-picker">
+                <option value="#FFFFFF">白 (#FFFFFF)</option>
+                <option value="#000000">黒 (#000000)</option>
+                <option value="#FF0000">赤 (#FF0000)</option>
+                <option value="#00FF00">緑 (#00FF00)</option>
+                <option value="#0000FF">青 (#0000FF)</option>
+                <option value="#808080">中間灰 (#808080)</option>
+                <option value="#FFFF00">黄 (#FFFF00)</option>
+                <option value="#00FFFF">シアン (#00FFFF)</option>
+                <option value="#FF00FF">マゼンタ (#FF00FF)</option>
+            </select><br/>
+            <button id="fullscreen-btn">フルスクリーン切替</button>
+        </div>
+        <div id="current-color">
+            現在の色：#000000
+        </div>
+    </div>
+
+    <script>
+        const picker = document.getElementById('color-picker');
+        const display = document.getElementById('color-display');
+        const currentColorLabel = document.getElementById('current-color');
+        const fsBtn = document.getElementById('fullscreen-btn');
+
+        // プルダウン選択時に背景色を更新
+        picker.addEventListener('change', () => {
+        const color = picker.value;
+        display.style.backgroundColor = color;
+        // 文字色を見やすくする（明るい背景なら黒文字、暗い背景なら白文字）
+        const rgb = parseInt(color.slice(1), 16);
+        const r = (rgb >> 16) & 0xff;
+        const g = (rgb >> 8) & 0xff;
+        const b = rgb & 0xff;
+        const luminance = 0.299*r + 0.587*g + 0.114*b;
+        display.style.color = luminance > 128 ? '#000' : '#fff';
+        currentColorLabel.textContent = '現在の色：' + color;
+        });
+
+        // フルスクリーンの切り替え
+        fsBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(err => {
+            console.error(`フルスクリーンに移行できません: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+        });
+
+        // 最初の描画
+        picker.dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>

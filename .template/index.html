@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -28,14 +32,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -46,25 +50,22 @@
 
     <div class="box">
         <h1></h1>
-        <hr class="titlebar">
         <p></p>
     </div>
     
     <article>
     <section class="box">
         <h2></h2>
-        <hr class="titlebar">
         <p></p>
     </section>
     </article>
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -77,7 +78,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -92,45 +92,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

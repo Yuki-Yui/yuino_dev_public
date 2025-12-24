@@ -1,8 +1,7 @@
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -15,7 +14,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -30,33 +28,35 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>

@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -23,20 +27,28 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ゆいのページ" />
     <script src="../generate_blog_info.js" defer></script>
+    <style>
+        .dllist dt::before {
+            content: "・";
+        }
+        .dllist dd {
+            margin-left: 2em;
+        }
+    </style>
 </head>
 
 <body>
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -45,10 +57,10 @@
     <div id="main_wrapper">
     <main>
     <div class="box center">
-        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+        <a href="/blog/"  class="top_link">ゆいブログ</a>
     </div>
     <div class="box">
-        <h1>大学用PCの選び方</h1>
+        <h1 class="no-titlebar">大学用PCの選び方</h1>
         <!-- <img src="" class="blog_photo" alt="記事のサムネイル"> -->
         <div id="blog_info">
             <div class="blog_title_tag" id="blog_info_tag"></div>
@@ -60,7 +72,7 @@
         </p>
     </div>
     <article class="box">
-        <h2 class="center">この記事は UEC 2 Advent Calendar 2024の12日目の記事です。</h2>
+        <h2 class="center no-titlebar">この記事は UEC 2 Advent Calendar 2024の12日目の記事です。</h2>
         <p>
             ほかの人の記事は下のリンクから読めます。今年も2枠も生えてるのすごい。
             <a href="https://adventar.org/calendars/10127" class="og-card" target="_blank">UEC Advent Calendar 2024 - Adventar</a>
@@ -72,7 +84,7 @@
     </article>
     <article class="box">
         <section class="blog_index">
-        <h2>目次</h2>
+        <h2 class="no-titlebar">目次</h2>
         <ol>
             <li><a href="#section-1">きみはだれ？</a></li>
             <li><a href="#section-2">はじめに</a></li>
@@ -110,7 +122,6 @@
     <article class="box">
         <section>
             <h2 id="section-1">1.きみはだれ？</h2>
-            <hr class="titlebar">
             <p>
                 はじめまして。ゆいといいます。ねこが好きです。<br>
                 去年、大遅刻で記事を書いたので今年は書かないでいいかなと思っていたのですが、枠が開いていたので脅されて書いています。<br>
@@ -122,7 +133,6 @@
         </section>
         <section>
             <h2 id="section-2">2.はじめに</h2>
-            <hr class="titlebar">
             <p>
                 推薦で大学に入学された方、おめでとうございます。一般で受験予定の方はぜひ頑張ってください。大学生活はわりと楽しいです。<br>
                 さて、電気通信大学に入学予定の方はその多くがパソコンを購入されると思います。実際、私も入学前にノートPCを購入しました。パソコンは種類が多く、初めて購入される方はどれを選べばいいのか迷うと思うので選ぶときの参考にしてほしいです。また、実際に大学で過ごしてみての気づきもあるので、パソコンに詳しい方もぜひ読んでみてください。<br>
@@ -132,7 +142,6 @@
         </section>
         <section>
             <h2 id="section-3">3.注意点、前提条件</h2>
-            <hr class="titlebar">
             <p>
                 私の独断と偏見で構成されています。<br>
                 電気通信大学II類M科で過ごした経験をもとにしています。<br>
@@ -153,13 +162,11 @@
         </section>
         <section>
             <h2 id="section-4">4.買わないほうが良いPCの条件</h2>
-            <hr class="titlebar">
             <p>
                 この条件が含まれているノートPCを大学用PCにするのはやめたほうがいいです。上から順にやめたほうがいい順位が高い条件です。でも1つでもあてはまったらそのPCはやめておいたほうがいいと思います。
             </p>
             <div class="inbox">
                 <h3 id="section-4-1">電池持ちが悪い</h3>
-                <hr class="titlebar">
                 <p>
                     私は大学用パソコンならバッテリー持ちを最優先にすべきだと思います。
                     大学の授業は長い上、授業中に充電できる場所はほぼないと思ったほうが良いです。<br>
@@ -176,14 +183,12 @@
             </div>
             <div class="inbox">
                 <h3 id="section-4-2">4Kモニタ搭載</h3>
-                <hr class="titlebar">
                 <p>
                     電池持ちがわるくなります。4Kモニタ、画面きれいで作業領域も広いですが、13,3インチ程度のPCにそこまでの解像度はいらないと思います。持ち歩きPCは1920×1080で十分でしょう。
                 </p>
             </div>
             <div class="inbox">
                 <h3 id="section-4-3">重量1.5kg以上</h3>
-                <hr class="titlebar">
                 <p>
                     個人的には1.2kg以下のものを選ぶことをおすすめします。
                     重いPCを買って持ち運びに苦労している人がまれにいます。
@@ -191,7 +196,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-4-4">テンキー付きの大きなPC</h3>
-                <hr class="titlebar">
                 <p>
                     画面が大きいほうがよい、と考える人もいますが持ち運びには不便です。
                     正確には15.6インチ以上のPCはやめたほうがいいです。大きくて重いです。
@@ -201,14 +205,12 @@
             </div>
             <div class="inbox">
                 <h3 id="section-4-5">SSD容量が500GBより少ない</h3>
-                <hr class="titlebar">
                 <p>
                     おすすめは512GB～です。予算に余裕があるなら1TBがいいです。授業で使うCADやMATLABなど巨大なソフトを入れたり、ゲームを入れたりするとすぐに容量がいっぱいになります。定期的にクリーンインストールしたり、外付けSSDを使ったり、ゲームはデスクトップでするぜ！みたいな人だと256GBでも耐えられるかも、いややっぱやめたほうがいいと思う。
                 </p>
             </div>
             <div class="inbox">
                 <h3 id="section-4-6">端子が少ない</h3>
-                <hr class="titlebar">
                 <p>
                     例えばUSB-Cしかついてないパソコンは実験などの科目でUSBメモリを使うことになった際に少し困ります。HDMIがついていないPCは英語などのプレゼンの際に困ります。最低でも、
                     <ul>
@@ -229,34 +231,29 @@
             </div>
             <div class="inbox">
                 <h3 id="section-4-7">Microsoft Office、Windows Pro付き</h3>
-                <hr class="titlebar">
                 <p>
                     電気通信大学生は大学のライセンスでOfficeソフト(Word、Excelなど)やWindwosのPro版が使えます。なのでOfficeのついていないWindows Homeのモデルを買うようにしましょう。
                 </p>
             </div>
             <div class="inbox">
                 <h3 id="section-4-8">キーボード配列が変則的</h3>
-                <hr class="titlebar">
                 <p>
                     LenovoとかDellとかHPとかのやすいモデルでは、海外モデルを無理やり日本語キーボードにしているものがよくあります。キーボードの配列が変則的なものは使いにくいと思います。特にエンターキーまわりに注目してみてください。商品ページの画像がUSキーボードのものは家電量販店やレビュー記事等で日本語版のを実際に確認してから購入することをおすすめします。電源ボタンがキーボードの右上に配置されているものは間違えて押してしまうことがよくあるのでやめておいたほうがいいでしょう(右上はdeleteがいい)。
                 </p>
             </div>
         <section>
             <h2 id="section-5">5.買うべきでないPCの例</h2>
-            <hr class="titlebar">
             <p>
                 買うべきでないPCの条件をもとに、具体的なPCの例を挙げます。
             </p>
             <div class="inbox">
                 <h3 id="section-5-1">ゲーミングノートPC</h3>
-                <hr class="titlebar">
                 <p>
                     電池持ちが悪いのと、ファンが爆音で授業中にたのしいことになりがちです。ガチゲームしたいならデスクトップを買ったほうがよいでしょう。あと重くて持ち歩きが大変です。
                 </p>
             </div>
             <div class="inbox">
                 <h3 id="section-5-2">Surface(タブレットタイプ)</h3>
-                <hr class="titlebar">
                 <p>
                     Surfaceタブレット、電池持ちが悪いという話をよく聞きます。また端子が少ないです。最近のものはUSB-Cがついているのでまだましですが、値段だけで昔のSurfaceを選ぶと多分後悔します。
                 </p>
@@ -265,13 +262,11 @@
         </section>
         <section>
             <h2 id="section-6">6.買うべきPC</h2>
-            <hr class="titlebar">
             <p>
                 買わないほうがいいPCの条件を避けたものの中から、個人的におすすめのPCを挙げます。
             </p>
             <div class="inbox">
                 <h3 id="section-6-1">2in1PC</h3>
-                <hr class="titlebar">
                 <p>
                     windowsノートPCとiPad2台持ちをしている人がたまにいます。ノートPCで資料を見たり、性能の必要な作業をする、iPadで授業ノートを取るという使い分けですが、2in1PCを買うと1台で済みます。ノートPCでタッチパネルは地味に便利で、持ち運ぶ重量も軽くなる利点があります。
                 </p>
@@ -286,7 +281,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-6-2">この中から選べばなんとかなる(たぶん)</h3>
-                <hr class="titlebar">
                 <p>
                     価格.comに条件を入れまくったものがこれです。この中から選んでおけば失敗しにくいかと思います。バッテリー駆動時間を載せてないPCは検索に引っかかってないので、個別に調べてみてください。
                     <a href="https://kakaku.com/pc/note-pc/itemlist.aspx?pdf_Spec105=29&pdf_Spec116=2&pdf_Spec120=1&pdf_Spec219=2073600,2304000&pdf_Spec301=13.3,13.5,14&pdf_Spec302=7-&pdf_Spec303=-1.2&pdf_Spec307=512-&pdf_Spec308=16-&pdf_so=p1&lid=facet_suggest_0020_cancel" class="og-card">価格.com パソコン</a>
@@ -294,16 +288,36 @@
             </div>
             <div class="inbox">
                 <h3 id="section-6-3">生協のPCは？</h3>
-                <hr class="titlebar">
                 <p>
                     生協で販売されているPCもあります。体感3～4割くらいの人は生協パソコンを買っているような気がします。若干値段は高めですが、わりと強い補償があるので4年間使うのに安心できると思います。持ち歩きで破損に不安がある人やスペック情報などがよくわからない人は生協PCを買っておくとよいでしょう。詳細は公式サイトが更新されたら更新します。
-                    <a href="https://text.univ.coop/puk/START/uec/entrance/entrance_167.html" class="og-card">2025年度電通大生協推奨コンピュータほか 教材のご案内</a>
+                    <!-- <a href="https://text.univ.coop/puk/START/uec/entrance/entrance_167.html" class="og-card">2025年度電通大生協推奨コンピュータほか 教材のご案内</a> -->
+                </p>
+                <p>
+                    <b>☆2025-03-23追記☆</b><br>
+                    結論：生協PCがおすすめです。
+                    UEC25の人たちが出る前に書こうと思っていてすっかり忘れていました。今年のPCはDynabookになったようです。
+                    <dl class="dllist">
+                        <dt>OS</dt><dd>Windows 11 Pro</dd>
+                        <dt>CPU</dt><dd>Core Ultra7-155H</dd>
+                        <dt>RAM</dt><dd>16GB</dd>
+                        <dt>SSD</dt><dd>512GB</dd>
+                        <dt>液晶</dt><dd>14.0型WUXGA(16:10) 1920x1200 ノングレア</dd>
+                        <dt>重量</dt><dd>約0.999kg</dd>
+                        <dt>バッテリー</dt><dd>動画再生11時間・アイドル27時間</dd>
+                        <dt>インタフェース</dt><dd>LANx1、USB-C(Thunderbolt4)x2、USB-A(5Gbps)x2、HDMIx1、microSDx1、Audiox1</dd>
+                        <dt>その他</dt><dd>顔認証付きWebカメラ、ACアダプター(USB-PD)、PCバッグ</dd>
+                        <dt>価格</dt><dd>¥246,990</dd>
+                    </dl>
+                    <a href="https://text.univ.coop/puk/START/uec/entrance/entrance_164.html" class="og-card">2025年度 電通大生協推奨コンピュータほか教材のご案内</a>
+                    
+                    これと似たようなものをDynabook公式通販で探すと、会員価格(Dynabookは無料会員になると数万円割引になる)でも21万円ほどします。これに生協の最強保証がついてくるのを考えるとかなりお得だと思います。バッテリー持ちは公式通販よりなぜかよいので、こんな高性能はいらねえ！安いのがいい！っていう人以外は生協で買っておくとよいでしょう。
+                    <a href="https://dynabook.com/direct/w6rzmx7xbl.html" class="og-card">RZ/MX Webモデル ダークテックブルー/Windows 11 Pro 64ビット/14.0型WUXGA/W6RZMX7XBL/インテル Core Ultra 7 プロセッサー 155H/16GBメモリ/512GB SSD/Officeなし/インテル Arc グラフィックス</a>
+                    
                 </p>
             </div>
         </section>
         <section>
             <h2 id="section-7">7.まとめ</h2>
-            <hr class="titlebar">
             <p>
                 最後まで読んでくれてありがとうございました。パソコン選びの参考になれば幸いです。
             </p>
@@ -319,11 +333,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -336,7 +349,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -351,45 +363,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

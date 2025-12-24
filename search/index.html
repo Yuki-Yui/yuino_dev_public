@@ -5,21 +5,25 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
-    <title>ページ内検索 - ゆいのページ</title>
-    <meta name="description" content="ページ内検索ができます。">
+    <title>サイト内検索 - ゆいのページ</title>
+    <meta name="description" content="サイト内検索ができます。">
     <!-- OGP -->
-    <meta property="og:title" content="ページ内検索 - ゆいのページ" />
+    <meta property="og:title" content="サイト内検索 - ゆいのページ" />
     <meta property="og:image" content="https://yuino.dev/images/thumbnail.png" />
-    <meta property="og:description" content="ページ内検索ができます。" />    
+    <meta property="og:description" content="サイト内検索ができます。" />    
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ゆいのページ" />
 </head>
@@ -28,14 +32,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -45,15 +49,13 @@
     <main>
 
     <div class="box">
-        <h1>ページ内検索</h1>
-        <hr class="titlebar">
+        <h1>サイト内検索</h1>
         <p>ゆいのページ内の検索ができます。</p>
     </div>
     
     <article>
     <section class="box">
-        <!-- <h2>検索</h2>
-        <hr class="titlebar"> -->
+        <!-- <h2>検索</h2> -->
         <p>    
             <form action="/search/" method="get">
                 <label for="searchTerm"></label>
@@ -68,7 +70,6 @@
     </section>
     <section class="box">
         <h2>検索結果</h2>
-        <hr class="titlebar">
         <p>
             <?php
             error_reporting(0);
@@ -98,19 +99,33 @@
                     // HTML ファイルの場合、検索して一致する場合は結果に追加
                     if (pathinfo($path, PATHINFO_EXTENSION) === 'html') {
                         $content = file_get_contents($path);
-                        
-                        //ファイルからDOMを取り出す
                         $dom = new DOMDocument();
-                        $dom -> loadHTML($content);
-
-                        // 検索範囲をmain要素内にする
-                        $mainElement = $dom->getElementsByTagName('main')->item(0);
-                        $textContent = $mainElement->textContent;
-
-                        if (stripos($textContent, $searchTerm)) {
-                            //大文字小文字の区別は strpos
-                            $path = str_replace('index.html','',$path);
-                            $results[] = [$path,$title];
+                        @$dom->loadHTML($content);
+                        // main要素内のテキストを取得
+                        $main = $dom->getElementsByTagName('main')->item(0);
+                        $text = $main ? $main->textContent : '';
+                        // 検索文字列の位置を探す（大文字小文字を区別しない）
+                        // 大文字小文字を区別せずにヒット数をカウント
+                        $count = preg_match_all(
+                            '/' . preg_quote($searchTerm, '/') . '/iu',
+                            $text,
+                            $matches
+                        );
+                        if ($count > 0) {
+                            // $len   = strlen($searchTerm);
+                            // $start = max(0, $pos - 20);
+                            // // 検索語前後20文字+検索語分を抜き出す
+                            // $snippet = substr($text, $start, $len + 40);
+                            // // 前後に省略記号を付与
+                            // if ($start > 0) {
+                            //     $snippet = '...' . $snippet;
+                            // }
+                            // if ($start + $len + 40 < strlen($text)) {
+                            //     $snippet .= '...';
+                            // }
+                            // 結果に追加
+                            $path = str_replace('index.html', '', $path);
+                            $results[] = [$path, $title, $count];
                         }
                     }
                     
@@ -121,20 +136,28 @@
 
             // 検索キーワードの取得
             $searchTerm = isset($_GET['q']) ? trim($_GET['q']) : '';
-            
-            if($searchTerm!=null){
+
+            if ($searchTerm !== '') {
+                // HTML 表示用にエスケープ
+                $searchTerm = preg_replace('/\s+/u', ' ', $searchTerm);
+                $safeTerm = htmlspecialchars($searchTerm, ENT_QUOTES);
+                $urlTerm = urlencode($searchTerm);
                 $searchResults = searchFiles($searchTerm);
-                echo '検索: ' . htmlspecialchars($searchTerm) . '<br>';
-                if ($searchResults!=null) {
+
+                echo '検索: ' . $safeTerm . '<br>';
+
+                if (!empty($searchResults)) {
                     echo '<ul>';
-                    for ($i=0; $i < count($searchResults); $i++) { 
-                        echo '<li><a href="' . htmlspecialchars($searchResults[$i][0]) . '">' . htmlspecialchars($searchResults[$i][1]) . '</a></li>';   
+                    foreach ($searchResults as [$path, $title, $count]) {
+                        $safePath  = htmlspecialchars($path, ENT_QUOTES);
+                        $safeTitle = htmlspecialchars($title, ENT_QUOTES);
+                        echo "<li><a href=\"{$safePath}?search={$urlTerm}\">{$safeTitle}</a> (件数: {$count})</li>";
                     }
                     echo '</ul>';
-                }else{
+                } else {
                     echo '見つかりませんでした。';
                 }
-            }else{
+            } else {
                 echo '検索欄にテキストを入力してください...';
             }
             ?>
@@ -144,11 +167,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -161,7 +183,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -176,45 +197,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

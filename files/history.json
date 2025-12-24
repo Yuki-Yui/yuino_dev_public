@@ -42,7 +42,7 @@
     {
         "show": true,
         "date": "2023-09-14",
-        "description": "ブログ公開：<a href='/blog/2023_09_11_01/'>ハンディファンを作りました！</a>"
+        "description": "ブログ公開：<a href='/blog/2023-09-11_01/'>ハンディファンを作りました！</a>"
     },
     {
         "show": true,
@@ -142,7 +142,7 @@
     {
         "show": true,
         "date": "2024-02-23",
-        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+        "description": "更新：<a href='/others/env/'>自宅環境紹介</a>"
     },
     {
         "show": true,
@@ -167,12 +167,12 @@
     {
         "show": true,
         "date": "2024-04-08",
-        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+        "description": "更新：<a href='/others/env/'>自宅環境紹介</a>"
     },
     {
         "show": true,
         "date": "2024-05-04",
-        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+        "description": "更新：<a href='/others/env/'>自宅環境紹介</a>"
     },
     {
         "show": true,
@@ -187,7 +187,7 @@
     {
         "show": true,
         "date": "2024-06-06",
-        "description": "<a href='/works/'>作品集</a>を更新"
+        "description": "更新：<a href='/works/'>作品集</a>"
     },
     {
         "show": true,
@@ -202,12 +202,12 @@
     {
         "show": true,
         "date": "2024-06-16",
-        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+        "description": "更新：<a href='/others/env/'>自宅環境紹介</a>"
     },
     {
         "show": true,
         "date": "2024-07-07",
-        "description": "<a href='/works/'>作品集</a>を更新"
+        "description": "更新：<a href='/works/'>作品集</a>"
     },
     {
         "show": true,
@@ -217,12 +217,52 @@
     {
         "show": true,
         "date": "2024-12-17",
-        "description": "<a href='/others/env/'>自宅環境紹介</a>を更新"
+        "description": "更新：<a href='/others/env/'>自宅環境紹介</a>"
     },
     {
         "show": true,
         "date": "2024-12-19",
         "description": "ブログ公開：<a href='/blog/2024004/'>大学用PCの選び方</a>"
+    },
+    {
+        "show": true,
+        "date": "2025-01-12",
+        "description": "更新：<a href='/others/env/'>自宅環境紹介</a>"
+    },
+    {
+        "show": true,
+        "date": "2025-02-04",
+        "description": "ブログ公開：<a href='/blog/2025001/'>アリエク激安商品レビュー</a>"
+    },
+    {
+        "show": true,
+        "date": "2025-03-12",
+        "description": "更新：<a href='/others/univ/'>大学のこと</a>"
+    },
+    {
+        "show": true,
+        "date": "2025-03-23",
+        "description": "ブログ追記：<a href='/blog/2024004/'>大学用PCの選び方</a>"
+    },
+    {
+        "show": true,
+        "date": "2025-05-26",
+        "description": "フォント変更"
+    },
+    {
+        "show": true,
+        "date": "2025-06-06",
+        "description": "ページ追加：<a href='/works/color/'>色見本</a>"
+    },
+    {
+        "show": true,
+        "date": "2025-09-01",
+        "description": "ブログ追記：<a href='/blog/2024001/'>ダイソーの激安ワイヤレスイヤホン長期使用レビュー</a>"
+    },
+    {
+        "show": true,
+        "date": "2025-12-04",
+        "description": "ブログ追記：<a href='/blog/2025001/'>アリエク激安商品レビュー</a>"
     },
     {
         "show": false,

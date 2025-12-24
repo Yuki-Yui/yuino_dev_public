@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -29,14 +33,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -45,10 +49,10 @@
     <div id="main_wrapper">
     <main>
     <div class="box center">
-        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+        <a href="/blog/"  class="top_link">ゆいブログ</a>
     </div>
     <div class="box">
-        <h1>電通大生活を快適に送るためのTips</h1>
+        <h1 class="no-titlebar">電通大生活を快適に送るためのTips</h1>
         <!-- <img src="" class="blog_photo" alt="記事のサムネイル"> -->
         <div id="blog_info">
             <div class="blog_title_tag" id="blog_info_tag"></div>
@@ -62,7 +66,6 @@
     <article class="box">
         <section>
             <h2>この記事は工研新歓ブログリレー4日目の記事です</h2>
-            <hr class="titlebar">
             <p>
                 3日目はりんりんさんの「パソコンいじりの話」<br>
                 5日目はみみさんの「自宅鯖を始めてみたら意外と面白かった」です。
@@ -73,7 +76,7 @@
     </article>
     <article class="box">
         <section class="blog_index">
-        <h2>目次</h2>
+        <h2 class="no-titlebar">目次</h2>
         <ol>
             <li><a href="#section-1">きみはだれ？</a></li>
             <li><a href="#section-2">はじめに</a></li>
@@ -104,7 +107,6 @@
     <article class="box">
         <section>
             <h2 id="section-1">きみはだれ？</h2>
-            <hr class="titlebar">
             <p>
                 はじめまして、ゆいです。ねこが好きです。<br>
                 パソコンをつくったり壊したりして遊んだり、ちょっとした電子工作とかやったり3Dプリンターで遊んだりしています。<br>
@@ -114,7 +116,6 @@
         </section>
         <section>
             <h2 id="section-2">はじめに</h2>
-            <hr class="titlebar">
             <p>
                 電通大に入学された皆さん。おめでとうございます。<br>
                 この記事は、電通大で過ごすうえで知っておくとちょっと便利なことをまとめています。<br>
@@ -123,13 +124,11 @@
         </section>
         <section>
             <h2 id="section-3">PC関係編</h2>
-            <hr class="titlebar">
             <p>
                 パソコン関係でのおすすめの設定とかです。
             </p>
             <div class="inbox">
                 <h3 id="section-3-1">公式ドキュメント(ITC ユーザーズガイド)を読む</h3>
-                <hr class="titlebar">
                 <p>
                     UECアカウントの設定や管理に関すること、校内Wi-Fiへのつなぎ方、VPNのつなぎ方など基本的な使いかたがわかりやすくまとめられています。<br>
                     なにかわからないことがあった場合、まずはここを読みましょう！！
@@ -138,7 +137,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-3-2">UECアカウントの2要素認証でトークンアプリを使用する</h3>
-                <hr class="titlebar">
                 <p>
                     主に履修登録をしたり成績を確認したりするのに使う「学務情報システム」や授業の資料を閲覧したり課題提出をするのに使う「WebClass」などにアクセスするためにはUECアカウントにログインする必要があります。<br>
                     デフォルトの2要素認証の設定では、メールで受け取った認証コードを使用しますが、メールは来るのが遅かったりそもそも来なかったりひらくのが面倒だったりして不便です。<br>
@@ -148,7 +146,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-3-3">VPNを設定する</h3>
-                <hr class="titlebar">
                 <p>
                     学内限定のサイトを見る場合や、二要素認証なしでUECアカウントにログインするために、VPNを使うのが便利です。
                     <a href="https://www.cc.uec.ac.jp/ug/ja/remote/vpn/index.html" class="link_box" target="_blank">VPN - ITC ユーザーズガイド</a>
@@ -158,7 +155,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-3-4">Office、Adobeなどライセンスを使う</h3>
-                <hr class="titlebar">
                 <p>
                     大学がまとめて契約しているライセンスを無償で利用できます。MicrosoftOfficeは、PCをこれ抜きで買うと数万円安くなるので積極的に利用しましょう。<br>
                     学内コンピュータ限定ですが、Adobeのソフトも利用できます。<br>
@@ -169,7 +165,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-3-5">Google関係のページをUECクラウドアカウントで開く</h3>
-                <hr class="titlebar">
                 <p>
                     PCのブラウザで複数のGoogleにログインしている場合、Google関係のページをUECクラウドアカウント(gl.からはじまるやつ)で開きたくても、デフォルトに登録されているアカウントで開かれたり、アカウントの選択が要求されることがあります。Gmailや授業のサイトなど、普段よく使うページで毎回UECクラウドアカウントに切り替えたり、リンクを開くとデフォルトのアカウントでログインされて見れなかったりして面倒です。<br>
                     解決策の一つはブラウザを分けたり別のプロファイルを作ったりすることですが、これもちょっと面倒です。<br>
@@ -179,10 +174,8 @@
         </section>
         <section>
             <h2 id="section-4">授業、履修、単位編</h2>
-            <hr class="titlebar">
             <div class="inbox">
                 <h3 id="section-4-1">履修登録を少し楽にする</h3>
-                <hr class="titlebar">
                 <p>
                     自作Chrome拡張機能の宣伝です()。<br>
                     学務情報システムのシラバス検索画面のデフォルト値を変更してほんの少し楽に履修登録ができます。
@@ -193,17 +186,14 @@
         </section>
         <section>
             <h2 id="section-5">学生生活編</h2>
-            <hr class="titlebar">
             <div class="inbox">
                 <h3 id="section-5-1">キッチンカーのザンギがおいしい</h3>
-                <hr class="titlebar">
                 <p>
                     月、水曜日 11:00～13:30に生協前の通りにでてるキッチンカーのザンギがおいしいです。ある人によるとザンギというよりは味付きからあげらしいですが、ふたが閉まらないくらい入れてくれるしおいしいので満足度は高め。昼休みはじめは長めの列ができます。ザンギ単品(3個入り)250円がわりとコスパ良くて好きです。
                 </p>
             </div>
             <!-- <div class="inbox">
                 <h3 id=""></h3>
-                <hr class="titlebar">
                 <p>
                     
                 </p>
@@ -211,7 +201,6 @@
         </section>
         <section>
             <h2 id="section-6">おわりに</h2>
-            <hr class="titlebar">
             <p>
                 公開が遅くなってしまい誠に申し訳ありませんでした。
             </p>
@@ -220,7 +209,6 @@
     <!-- <article>
         <section>
             <h2></h2>
-            <hr class="titlebar">
             <p>
                 <div class="blog_photo_wrapper">
                     <img class="blog_photo" src="" alt="">
@@ -230,7 +218,6 @@
         </section>
         <div class="inbox">
             <h3 id=""></h3>
-            <hr class="titlebar">
             <p>
                 
             </p>
@@ -239,7 +226,6 @@
     
     <!-- <div class="box">
         <h2>移動距離</h2>
-        <hr class="titlebar">
         <p>
             Googleマップでの記録です。精度は知りません。
             <dl class="dllist">
@@ -255,7 +241,6 @@
 
     <div class="box">
         <h2>講評</h2>
-        <hr class="titlebar">
         <p>
 
         </p>
@@ -269,11 +254,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -286,7 +270,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -301,45 +284,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

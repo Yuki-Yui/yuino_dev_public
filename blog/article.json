@@ -16,10 +16,18 @@
         "release": true,
         "title": "ハンディファンを作りました！",
         "directory": "2023-09-11_01",
-        "date": "2023-09-11",
+        "release_date": "2023-09-11",
+        "update": [
+            "2025-05-29"
+        ],
         "description": "Intelのリテールクーラーを改造したハンディファンを作りました。",
         "thumbnail": "fun1x1.png",
-        "index": null,
+        "index": {
+            "h2": "ol",
+            "h3": "ul",
+            "fold": false,
+            "add_number": true
+        },
         "tags": [
             "技術",
             "制作"
@@ -32,7 +40,10 @@
         "date": "2023-09-25",
         "description": "4年ぶり開催の調布花火を見に行って写真撮った話。",
         "thumbnail": "starmine_1x1.JPG",
-        "index": {"h2": "ol", "h3": "ul"},
+        "index": {
+            "h2": "ol",
+            "h3": "ul"
+        },
         "tags": [
             "お出かけ",
             "写真"
@@ -50,7 +61,10 @@
         ],
         "description": "マウスのチャタリングを直しました。根本的な解決はしてない。",
         "thumbnail": "mouse_1x1.jpg",
-        "index": {"h2": "ol", "h3": "ul"},
+        "index": {
+            "h2": "ol",
+            "h3": "ul"
+        },
         "tags": [
             "技術",
             "雑"
@@ -65,7 +79,10 @@
         "update": [],
         "description": "Googleドメインが滅びたのでCloudflareに移管しました。結構簡単にできました。",
         "thumbnail": "mail_from_cloudflare_1x1.jpg",
-        "index": {"h2": "ol", "h3": "ul"},
+        "index": {
+            "h2": "ol",
+            "h3": "ul"
+        },
         "tags": [
             "技術"
         ]
@@ -79,7 +96,10 @@
         "update": [],
         "description": "プログラミングやマイコンなどを駆使してメカを作ることができるゲームです。楽しいのでやろうね。",
         "thumbnail": "",
-        "index": {"h2": "ol", "h3": "ul"},
+        "index": {
+            "h2": "ol",
+            "h3": "ul"
+        },
         "tags": [
             "ゲーム"
         ]
@@ -107,11 +127,15 @@
         "date": "2024-01-26",
         "release_date": "2024-02-03",
         "update": [
-            "2024-05-04"
+            "2024-05-04",
+            "2025-09-01"
         ],
         "description": "ダイソーで買った1000円の完全ワイヤレスイヤホンを長期間使用してみての感想です。",
         "thumbnail": "thumbnail.jpg",
-        "index": {"h2": "ol", "h3": "ul"},
+        "index": {
+            "h2": "ol",
+            "h3": "ul"
+        },
         "tags": [
             "激安",
             "レビュー"
@@ -126,7 +150,10 @@
         "update": [],
         "description": "電通大生活を快適に送るために便利な情報集です。随時追加予定。",
         "thumbnail": "",
-        "index": {"h2": "ol", "h3": "ul"},
+        "index": {
+            "h2": "ol",
+            "h3": "ul"
+        },
         "tags": [
             "大学",
             "Tips"
@@ -141,7 +168,10 @@
         "update": [],
         "description": "Softbankの新トクするサポートを使い、購入から返却までやったレビュー記事です。",
         "thumbnail": "",
-        "index": {"h2": "ol", "h3": "ul"},
+        "index": {
+            "h2": "ol",
+            "h3": "ul"
+        },
         "tags": [
             "雑",
             "レビュー"
@@ -153,13 +183,32 @@
         "directory": "2024004",
         "date": "2024-12-19",
         "release_date": "2024-12-19",
-        "update": [],
+        "update": [
+            "2025-03-23"
+        ],
         "description": "新入生向けに大学用PCをお勧めすることが流行っているみたいなので便乗します。電気通信大学での生活をもとに、私の独断と偏見と思想マシマシですので、参考程度に見てください。",
         "thumbnail": "",
         "index": {"h2": "ol", "h3": "ul", "fold": false, "add_number": true},
         "tags": [
             "大学",
             "Tips"
+        ]
+    },
+    {
+        "release": true,
+        "title": "アリエク激安商品レビュー",
+        "directory": "2025001",
+        "date": "2025-02-04",
+        "release_date": "2025-02-04",
+        "update": [
+            "2025-12-04"
+        ],
+        "description": "AliExpressで購入した激安商品をレビューします。謎の「組み合わせセール」で買ったものが多いです。",
+        "thumbnail": "",
+        "index": {"h2": "ol", "h3": "ul", "fold": false, "add_number": true},
+        "tags": [
+            "激安",
+            "レビュー"
         ]
     }
 ]

@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -29,14 +33,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -45,10 +49,10 @@
     <div id="main_wrapper">
     <main>
     <div class="box center">
-        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+        <a href="/blog/"  class="top_link">ゆいブログ</a>
     </div>
     <div class="box">
-        <h1>iPhoneを2年間実質無料で使った話</h1>
+        <h1 class="no-titlebar">iPhoneを2年間実質無料で使った話</h1>
         <!-- <img src="" class="blog_photo" alt="記事のサムネイル"> -->
         <div id="blog_info">
             <div class="blog_title_tag" id="blog_info_tag"></div>
@@ -61,7 +65,7 @@
     </div>
     <article class="box">
         <section class="blog_index">
-        <h2>目次</h2>
+        <h2 class="no-titlebar">目次</h2>
         <ol>
             <li><a href="#section-1">はじめに</a></li>
             <li><a href="#section-2">新トクするサポートとは</a>
@@ -82,14 +86,12 @@
     <article class="box">
         <section>
             <h2 id="section-1">はじめに</h2>
-            <hr class="titlebar">
             <p>
                 最近どんどんスマホが高くなってきているので、なかなか手を出せないですよね。スマホをできるだけ安く使いたい人にちょっとだけおすすめできる方法を紹介します。
             </p>
         </section>
         <section>
             <h2 id="section-2">新トクするサポートとは</h2>
-            <hr class="titlebar">
             <p>
                 新トクするサポートは、Softbankが提供しているサービスです。スマホを購入する際、48回の分割払いをし、そのうち前半期間の分割料金をすべて払い、後半期間の支払いが始まるまでにスマホを返却することで後半期間の支払いが免除されるというものです。<br>
                 MNP(のりかえ)をすることを条件に前半期間の分割料金は月々1円や数百円程度、後半期間の分割料金は月々数千円の条件で契約でき、後半期間の支払いを免除されることで合計で支払う料金を安くすることができます。また、乗り換えなしの機種のみ購入でも、支払金額を大幅に減らすこともできます。定期的に内容が変わるので詳しい説明は公式サイトや店舗、契約書、そのほかの記事などで確認してください。
@@ -98,7 +100,6 @@
             </p>
             <div class="inbox">
                 <h3 id="section-2-1">簡単な例</h3>
-                <hr class="titlebar">
                 <ul>
                     <li>定価：100,000円</li>
                     <li>MNP割引後：100,000 - 44,000 = 66,000円</li>
@@ -113,7 +114,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-2-2">実例</h3>
-                <hr class="titlebar">
                 <p>
                     2024-10-09時点でのiPhone16の値段です。Softbankのプランはどれも高いので、月々のプラン料金考えると乗り換えて月々1円で使うより、機種のみ購入のほうが魅力的な気がします。
                 </p>
@@ -138,7 +138,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-2-3">利点</h3>
-                <hr class="titlebar">
                 <ul>
                     <li>つねに安く新しいスマホを使える</li>
                     <li>MNP契約後、データプランを解約して機種だけ使い続けることも可能</li>
@@ -152,7 +151,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-2-4">注意点</h3>
-                <hr class="titlebar">
                 <ul>
                     <li>条件が厳しくなり、昔ほどお得ではなくなった</li>
                     <li>月々1円、数百円など激安案件はMNPのみ適用できることが多い
@@ -178,7 +176,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-2-5">他のキャリアの同様のプラン</h3>
-                <hr class="titlebar">
                 <p>
                     auやdocomoにも同様のプランが存在します。docomoだと、22歳以下は月500円程度のプランに新規/乗り換えで適用できる場合があり、月数千円のプランを契約する必要がある他社よりお得かもしれません。
                     <a href="https://www.au.com/mobile/tokusuru-program/" class="og-card">スマホトクするプログラム</a>
@@ -188,7 +185,6 @@
         </section>
         <section>
             <h2 id="section-3">iPhone12を実質無料で使った話</h2>
-            <hr class="titlebar">
             <p>
                 やっと本題に入ります。2022年8月、iPhone12を機種変更(端末のみ購入)で購入しました。
                 <ul>
@@ -208,7 +204,6 @@
         </section>
         <section>
             <h2 id="section-4">おわりに</h2>
-            <hr class="titlebar">
             <p>
                 レビュー記事のつもりが、どちらかというと情報記事になってしまいました。途中まで書きかけて放置していたのを無理やり書き上げたので内容が薄いです。情勢が変わり次第追記していくかも＆他社のプランについての紹介を増やすかも。もし何か質問があればTwitterやメールでお気軽にどうぞ。
             </p>
@@ -224,11 +219,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -241,7 +235,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -256,45 +249,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

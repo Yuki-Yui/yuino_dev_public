@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -28,14 +32,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -46,18 +50,15 @@
 
     <div class="box">
         <h1>大学のこと</h1>
-        <hr class="titlebar">
         <p>大学についてのあれこれをまとめていく予定のページ</p>
     </div>
     
     <article>
-    <section class="box">
+    <section class="box indent">
         <h2>時間割</h2>
-        <hr class="titlebar">
-        <p>今までの時間割。</p>
-        <div class="inbox">
+        <p>今までの時間割。科目名は一部省略しています。</p>
+        <section>
             <h3>1年前期</h3>
-            <hr class="titlebar">
             <div class="timetable_wrapper">
                 <table class="timetable">
                     <tbody>
@@ -104,10 +105,9 @@
                 謁見(基礎科学実験A)のレポートがしんどかった。<br>
                 キャリア教育基礎、取っといたほうがいいって言われてたけど、月曜1限はやっぱりしんどかった…(3年生で回収できるから無理にとらなくても大丈夫)
             </p>
-        </div>
-        <div class="inbox">
+        </section>
+        <section>
             <h3>1年後期</h3>
-            <hr class="titlebar">
             <div class="timetable_wrapper">
                 <table class="timetable">
                     <tbody>
@@ -159,10 +159,9 @@
                 選択科目がちょっとずつ増えてきて、履修を考える楽しみが出てきた。<br>
                 基礎プロ、けっこう楽しかった。
             </p>
-        </div>
-        <div class="inbox">
+        </section>
+        <section>
             <h3>2年前期</h3>
-            <hr class="titlebar">
             <div class="timetable_wrapper">
                 <table class="timetable">
                     <tbody>
@@ -173,31 +172,31 @@
                             <th>1限</th>
                             <td>-</td>
                             <td>-</td>
-                            <td>心理学A</td>
+                            <td>心理学A<br>A-101</td>
                             <td>-</td>
                             <td>-</td>                 
                         </tr>
                         <tr>
                             <th>2限</th>
-                            <td>基礎電気回路</td>
+                            <td>基礎電気回路<br>西8-131</td>
                             <td>Academic English for the Second Year Ⅰ</td>
-                            <td>文化人類学A</td>
+                            <td>文化人類学A<br>A-201</td>
                             <td>-</td>
-                            <td>力学演習</td>
+                            <td>力学演習<br>東5-241</td>
                         </tr>
                         <tr>
                             <th>3限</th>
-                            <td>基礎電磁気学</td>
+                            <td>基礎電磁気学<br>西8-131</td>
                             <td>-</td>
-                            <td>複素関数論</td>
-                            <td rowspan="2">数値解析およびプログラミング演習</td>
+                            <td>複素関数論<br>東5-241</td>
+                            <td rowspan="2">数値解析およびプログラミング演習<br>東3-1F演習室</td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <th>4限</th>
                             <td>-</td>
                             <td>-</td>
-                            <td>基礎演習A</td>
+                            <td>基礎演習A<br>西8-131</td>
                             <td>-</td>
                         </tr>
                     </tbody>
@@ -208,10 +207,9 @@
                 2年前期が一番楽と言われてますが、たしかに楽だったようなきがします。<br>
                 水曜日はフルで入っていたし、重い授業が多くて大変でした。
             </p>
-        </div>
-        <div class="inbox">
+        </section>
+        <section>
             <h3>2年後期</h3>
-            <hr class="titlebar">
             <div class="timetable_wrapper">
                 <table class="timetable">
                     <tbody>
@@ -255,6 +253,10 @@
                             <td>プログラミング演習<br>東3-1F演習室</td>
                             <td>-</td>
                         </tr>
+                        <tr>
+                            <th>集中講義</th>
+                            <td colspan="5">法学B<br>B-202</td>
+                        </tr>
                     </tbody>
                 </table>
                 <small>はみ出している場合、左右にスクロールできます</small>
@@ -262,14 +264,118 @@
             <p>
                 機械力学、材料力学は1.5時限授業でした(授業時間がおよそ120分)。
             </p>
-        </div>
+        </section>
+        <section>
+            <h3>3年前期</h3>
+            <div class="timetable_wrapper">
+                <table class="timetable">
+                    <tbody>
+                        <tr>
+                            <th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th>
+                        </tr>
+                        <tr>
+                            <th>1限</th>
+                            <td>-</td>
+                            <td rowspan="2">基礎制御工学および演習<br>西2-101</td>
+                            <td>-</td>
+                            <td>人間機械システム<br>東5-241</td>
+                            <td>-</td>                 
+                        </tr>
+                        <tr>
+                            <th>2限</th>
+                            <td>設計基礎工学<br>東5-241</td>
+                            <td>加工学および演習<br>東5-241</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th>3限</th>
+                            <td rowspan="2">熱力学および演習<br>東5-241</td>
+                            <td rowspan="2">マシンデザインA<br>東5-241</td>
+                            <td>電気電子計測<br>西8-132</td>
+                            <td>ロボットの機構と力学<br>東5-341</td>
+                            <td rowspan="2">メカトロニクス基礎実験B<br></td>
+                        </tr>
+                        <tr>
+                            <th>4限</th>
+                            <td>機構要素設計<br>東5-241</td>
+                            <td>Technical English</td>
+                        </tr>
+                        <tr>
+                            <th>5限</th>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>ICCD1<br>新C-103</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>        
+                </table>
+                <small>はみ出している場合、左右にスクロールできます</small>
+
+            </div>
+        </section>
+        <section>
+            <h3>3年後期</h3>
+            <div class="timetable_wrapper">
+                <table class="timetable">
+                    <tbody>
+                        <tr>
+                            <th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th>
+                        </tr>
+                        <tr>
+                            <th>1限</th>
+                            <td>-</td>
+                            <td rowspan="2">流体力学および演習<br>東5-241</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>                 
+                        </tr>
+                        <tr>
+                            <th>2限</th>
+                            <td>メカトロニクス<br>東5-341</td>
+                            <td>現代制御工学<br>東4-201</td>
+                            <td>Technical English</td>
+                            <td>知能ロボット工学<br>東4-201</td>
+                        </tr>
+                        <tr>
+                            <th>3限</th>
+                            <td>生産システム工学<br>新C-303</td>
+                            <td>-</td>
+                            <td rowspan="2">マシンデザインB<br>東3-1F演習室</td>
+                            <td>-</td>
+                            <td rowspan="2">メカトロニクス基礎実験A<br></td>
+                        </tr>
+                        <tr>
+                            <th>4限</th>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th>5限</th>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>伝統科学と近代科学の相剋<br>B-201</td>
+                            <td>ICCD2<br>新C-403</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th>集中講義</th>
+                            <td colspan="5">教育と憲法<br>A-101</td>
+                        </tr>
+                    </tbody>        
+                </table>
+                <small>はみ出している場合、左右にスクロールできます</small>
+
+            </div>
+        </section>
         
     </section>
 
     
     <section class="box">
         <h2>#uec_review</h2>
-        <hr class="titlebar">
         <p>
             準備中
         </p>
@@ -278,11 +384,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -295,7 +400,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -310,45 +414,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

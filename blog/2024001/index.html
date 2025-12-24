@@ -5,12 +5,16 @@
 <!-- head_from -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon">
+    <link rel="icon" href="/images/favicons/favicon_yui.ico" id="favicon" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/images/favicons/android-chrome-512x512.png">
     <link rel="manifest" href="/images/favicons/manifest.json">
-    <link rel="stylesheet" href="/style.css?3.14">
-    <script src="/script.js?3.8" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/og-card.css">
+    <link rel="stylesheet" href="/styles/omikuji.css">
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/ui.css">
+    <script src="/scripts/script.js" defer></script>
     <script src="/scripts/Omikuji.js" defer></script>
     <script src="/scripts/setting.js"></script>
 <!-- head_to -->
@@ -29,14 +33,14 @@
 <!-- header_from -->
 <header>
     <div id="header_wrapper">
-        <div id="top">
-            <h1><a href="/" class="link_inline">ゆいのページ</a></h1>
+        <hgroup id="top">
+            <a href="/" class="top_link">ゆいのページ</a>
             <p>にゃーん</p>
-        </div>
-        <div id="icon">
+        </hgroup>
+        <figure id="icon">
             <img src="/images/icon.jpg" alt="ゆいのアイコン">
-        </div>
-        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="ハンバーガーメニュー">
+        </figure>
+        <button id="header_hamburger" onclick="hamburgerMenu()" aria-label="メニューを開閉する">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -45,10 +49,10 @@
     <div id="main_wrapper">
     <main>
     <div class="box center">
-        <h1><a href="/blog/"  class="link_inline">ゆいブログ</a></h1>
+        <a href="/blog/"  class="top_link">ゆいブログ</a>
     </div>
     <div class="box">
-        <h1>ダイソーの激安ワイヤレスイヤホン長期使用レビュー</h1>
+        <h1 class="no-titlebar">ダイソーの激安ワイヤレスイヤホン長期使用レビュー</h1>
         <!-- <img src="" class="blog_photo" alt="記事のサムネイル"> -->
         <div id="blog_info">
             <div class="blog_title_tag" id="blog_info_tag"></div>
@@ -61,7 +65,7 @@
     </div>
     <article class="box">
         <section class="blog_index">
-        <h2>目次</h2>
+        <h2 class="no-titlebar">目次</h2>
         <ol>
             <li><a href="#section-1">はじめに</a></li>
             <li><a href="#section-2">概要</a></li>
@@ -89,7 +93,6 @@
     <article class="box">
         <section>
             <h2 id="section-1">はじめに</h2>
-            <hr class="titlebar">
             <p>
                 おひさしぶりですね。ゆいです。<br>
                 私はテスト期間に突入してバタバタ過ごしておりますが、皆様いかがお過ごしでしょうか。<br>
@@ -99,7 +102,6 @@
         </section>
         <section>
             <h2 id="section-2">概要</h2>
-            <hr class="titlebar">
             <p>
                 ダイソーの1000円ワイヤレスイヤホンにはいくつかの種類があります。「TWS001」という型番のものが最初で、「TWS002」、「E-TWS-2」、「TWS_G273」などがあります。
                 <a href="https://jp.daisonet.com/products/4550480089379?srsltid=AfmBOorcchqRFmJ-QMwepdpMY9t4EdlwjgaLw-7kRadBTdc7cT3mMUYp" class="og-card">完全ワイヤレスイヤホン（ＴＷＳ００１、ホワイト）</a>
@@ -111,7 +113,6 @@
         </section>
         <section>
             <h2 id="section-3">スペック</h2>
-            <hr class="titlebar">
             <p>
                 <div class="captionbox">
                     <h3 id="section-3-1">本体スペック(イヤーピース換装後)</h3>
@@ -142,7 +143,6 @@
         </section>
         <section>
             <h2 id="section-4">外観</h2>
-            <hr class="titlebar">
             <p>
                 もともとついていたイヤーピース、私の耳には合わなかったのでSONYの有名(?)なやつに交換しました。
                 <a href="https://www.yodobashi.com/product/100000001001527869/" class="og-card">商品ページ</a>
@@ -161,17 +161,15 @@
         </section>
         <section>
             <h2 id="section-5">使用感</h2>
-            <hr class="titlebar">
             <p>
                 実際に使用してみての感想です。<br>
                 私はイヤホンを散歩中や電車の中で使うことが多いですが、片方だけ使うことが多いです。外の音が聞こえるのと、片方を使っている間片方を充電できるので長い時間使えます。
             </p>
             <div class="inbox">
                 <h3 id="section-5-1">音</h3>
-                <hr class="titlebar">
                 <p>
-                    めちゃ良くはないです。安いイヤホンあるあるの若干こもった感じの音が鳴ります。ただ、聞けないようなひどい音ではないし、値段を考えれば十分です。最悪イコライザーアプリで調整すればまともになります。<br>
-                    あと、私のように片耳ずつける使い方だと、世界の雑音と混じって音の悪さは気になりません(逆に音がよくてもわからないかも)。<br>
+                    めちゃ良くはないです。安いイヤホンあるあるの若干こもった感じの音が鳴ります。ただ、聞けないようなひどい音ではないし、値段を考えれば十分だと思います。最悪イコライザーアプリで調整すればなんとかなります。
+                    あと、私のように片耳ずつける使い方だと、世界の雑音と混じって音の悪さは気になりません(逆に音がよくてもわからないかも)。
                     音は好みが大きいので客観的なレビューは難しいけど、同じ値段帯の怪しいものよりはまともな音です。
                 </p>
                 <p>
@@ -179,10 +177,13 @@
                     これも安いワイヤレスイヤホンあるあるですが、小さい音に調整ができません。スマホだと1～7,8%くらいまで音が鳴りません。<br>
                     OS側の音量を変えず、アプリ側で音量調整ができる再生アプリを使うか、イコライザーアプリで小さめに調整すれば一応の解決にはなりますが…
                 </p>
+                <p>
+                    <b>☆2025-09-01追記☆</b><br>
+                    AndroidOSを使っている人なら、「最低音量がでかい」問題を解決できるかもしれません。「設定→システム→開発者向けオプション」から「絶対音量を無効にする」をオンにすることで、OS側の音量とイヤホン側の音量を別々に調整できるように(?)なるらしいです。私の環境ではこれで小さい音を鳴らすことができました。イヤホン接続時は70~80%くらいの音量でちょうどいい音が鳴っています。接続解除すると接続前の音量に戻るので、スピーカーで爆音が鳴ることもありません。
+                </p>
             </div>
             <div class="inbox">
                 <h3 id="section-5-2">操作性</h3>
-                <hr class="titlebar">
                 <p>
                     操作はタッチでできますが、誤作動が多くてビミョーです。<br>
                     接続時や電源ON,OFF時に流れるアナウンスが棒読みの女の人の声で面白いです。<br>
@@ -192,7 +193,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-5-3">電池</h3>
-                <hr class="titlebar">
                 <p>
                     公称3時間の電池持ちですが、実際にはもっと長いような気がします。<br>
                     充電100%から使い始めて充電切れアナウンスまで4、5時間持ちました。<s>(これこんど計測します。)</s>
@@ -208,7 +208,6 @@
             </div>
             <div class="inbox">
                 <h3 id="section-5-4">見た目</h3>
-                <hr class="titlebar">
                 <p>
                     安っぽい光沢プラスチックではなくてマットな感じに加工されてて、ぱっと見の安っぽさが少ないのはいい感じです。
                 </p>
@@ -216,7 +215,6 @@
         </section>
         <section>
             <h2 id="section-6">新商品!?</h2>
-            <hr class="titlebar">
             <p>
                 2024/02/01にダイソー 調布とうきゅう店に偵察にむかったところ、見知らぬパッケージのイヤホンがありました。見た目は同じですが、若干のスペックアップとバッテリー持ちの向上(3時間→6時間)がされているぽいです。
                 <div class="blog_photo_wrapper">
@@ -229,7 +227,6 @@
         </section> 
         <section>
             <h2 id="section-7">まとめ</h2>
-            <hr class="titlebar">
             <p>
                 Amazonなどで激安ワイヤレスイヤホンを買うより、今回紹介したダイソーの1000円イヤホンを買うほうがコスパがよく、幸せになれると思います。<br>
                 完全ワイヤレスイヤホンを使ってみたいけど高くて手が出ないよ…って人はとりあえずこれを買ってみるといいと思います。1000円で完全ワイヤレスイヤホンが試せるので、これをもとに自分に必要なスペックを考えてからちょっとお高いイヤホンに手を出すのもありかな。
@@ -245,11 +242,10 @@
 
     </main>
 <!-- aside_from -->
-    <div id="aside_background" onclick="hamburgerMenu()"></div>
     <aside>
+        <div id="aside_background" onclick="hamburgerMenu()"></div>
         <nav class="box">
             <h2>コンテンツ</h2>
-            <hr class="titlebar">
             <div>
                 <a href="/" class="aside_link_box">トップ</a>
                 <a href="/blog/" class="aside_link_box">ブログ</a>
@@ -262,7 +258,6 @@
         </nav>
         <div class="box">
             <h2>サイト内検索</h2>
-            <hr class="titlebar">
             <p>サイト内の検索ができます。
                 <form action="/search/" method="get">
                     <label for="searchTerm"></label>
@@ -277,45 +272,45 @@
         </div>
         <div class="box">
             <h2>カウンター</h2>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
-            <hr class="titlebar">
             <p class="counter">
-                今日のアクセス数<br>
-                <span id="counter_today" class="counter_num">
-                    <?php echo $accessData['daily'][0]['count']?>
-                </span>
-                合計のアクセス数<br>
-                <span id="counter_all" class="counter_num">
-                    <?php echo $accessData['all']?>
-                </span>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/counter/counter.php'); ?>
                 <a href="/counter/">詳細</a>
             </p>
         </div>
         <div class="box">
             <h2>おみくじ</h2>
-            <hr class="titlebar">
             <button id="omikuji" class="center" onclick="omikuji()">
                 おみくじをひく
             </button>
         </div>
-    </aside>
-    <div id="card">
-        <div id="card_background" onclick="ClosePanel()"></div>
-        <div id="card_contents">
-            <button id="card_close" class="center" onclick="ClosePanel()"><div>×</div></button>
-            <div id="card_title" class="center"></div>
-            <div id="card_message" class="center"></div>
+        <div id="card">
+            <div id="card_background" onclick="ClosePanel()"></div>
+            <div id="card_contents">
+                <div id="card_title1" class="card_title">運勢</div>
+                <div id="card_title2" class="card_title"></div>
+                <div id="card_message"></div>
+                <div id="card_tweet"></div>
+                <button id="card_close" onclick="ClosePanel()"><div>閉じる</div></button>
+            </div>
         </div>
-    </div>
+        <div id="scrollButtonWrapper">
+            <button id="scrollToTopButton" class="scrollButton" >
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番上までスクロール</span>
+            </button>
+            <button id="scrollToBottomButton" class="scrollButton">
+                <div class="scrollButtonAllow"><right></right><left></left></div>
+                <span style="display: None;">一番下までスクロール</span>
+            </button>
+        </div>
+    </aside>
 <!-- aside_to -->
     </div>
 
 <!-- footer_from -->
-    <button id="scrollToTopButton">
-        <div><right></right><left></left></div>
-    </button>
     <footer>
-        <a href="/sitemap/">サイトマップ</a><br>
+        <a href="/sitemap/">サイトマップ</a>
+        <a href="/others/#setting">設定</a><br>
         &copy; 2023-2025 ゆうきゆい
     </footer>
 <!-- footer_to -->

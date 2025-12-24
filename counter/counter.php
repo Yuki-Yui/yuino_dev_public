@@ -1,5 +1,11 @@
 <?php
-$dataFile = $_SERVER['DOCUMENT_ROOT'] . '/counter/access_data.json';
+error_reporting(0);
+// $dataFile = $_SERVER['DOCUMENT_ROOT'] . '/counter/access_data.json';
+$dataFile = getenv('yuinodev_counter_path');
+if ($dataFile === false || !is_readable($dataFile) || @file_get_contents($dataFile) === false) {
+    echo "Error: Unable to read data file. <br>";
+    return;
+}
 
 // タイムゾーンを日本標準時に設定
 date_default_timezone_set('Asia/Tokyo');
@@ -46,6 +52,16 @@ if (isset($accessData['all'])) {
 
 // JSON ファイルにデータを保存
 file_put_contents($dataFile, json_encode($accessData, JSON_PRETTY_PRINT));
+
+$counter_mes = '今日のアクセス数<br>
+                <span id="counter_today" class="counter_num">
+                    '.$accessData['daily'][0]['count'].'
+                </span>
+                合計のアクセス数<br>
+                <span id="counter_all" class="counter_num">
+                    '.$accessData['all'].'
+                </span>';
+echo $counter_mes;
 
 // JSON データを出力
 //header('Content-Type: application/json');

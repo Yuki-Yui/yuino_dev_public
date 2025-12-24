@@ -15,8 +15,11 @@ function startgovissionu() {
     worker.onmessage = function(event) {
         txtbox.textContent += event.data[1];
         if (event.data[0] == 1) {
+            let tweetlen = 150;
+            let cutgov = event.data[2] > tweetlen ? '........ ' + event.data[1].slice(-tweetlen) : event.data[1];
             let resmes = `${event.data[2]}文字目でゴヴィッショヌが完成!!`;
-            resultbox.innerHTML = `${resmes}<br><a href="https://twitter.com/intent/tweet?text=${resmes}&url=https://yuino.dev/works/govissionu/" target="_blank">ツイートする</a>`;
+            let twittermes = encodeURIComponent(`${cutgov}\n\n${resmes}`);
+            resultbox.innerHTML = `${resmes}<br><a href="https://twitter.com/intent/tweet?text=${twittermes}&url=https://yuino.dev/works/govissionu/" target="_blank">ツイートする</a>`;
             let element = document.documentElement;
             let bottom = element.scrollHeight - element.clientHeight;
             if(smooth.checked){
